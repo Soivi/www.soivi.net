@@ -21,8 +21,8 @@ permalink: "/2013/installing-apache-and-php-with-puppet-module/"
 ---
 <p><a href="https://puppet.com/"><img src="{{ site.baseurl }}/assets/2013/11/Puppet_Logo.svg_.min_.png" alt="puppet" width="200" height="87" class="alignright size-full wp-image-1139" /></a>Tutorial guides how to install Apache and PHP with Puppet modules using Linux. I’m using Xubuntu 12.04.03 32bit. Puppet is great way to handle several computers from one computer.</p>
 <p>In this tutorial there are two modules. First module is installing Apache. Second module is installing Apache2 and PHP. After both modules there are explanation how to test modules.</p>
-<p><em>If you haven't seen my previous tutorials you should check them out:<br />
-<a href="http://soivi.net/2013/how-to-install-puppet/">How_to_install_Puppet</a>, <a href="http://soivi.net/2013/template-hello-world-module-to-puppet/">Hello_World_module_using_Puppet_template</a>.</em></p>
+<p><strong>If you haven't seen my previous tutorials you should check them out:<br />
+<a href="http://soivi.net/2013/how-to-install-puppet/">How_to_install_Puppet</a>, <a href="http://soivi.net/2013/template-hello-world-module-to-puppet/">Hello_World_module_using_Puppet_template</a>.</strong></p>
 <h2>Installing Apache</h2>
 <p>Create folders and make init.pp file</p>
 <pre>$ mkdir -p puppet/modules/apache2/manifests
@@ -70,7 +70,7 @@ $ nano ~/public_html/index.html
 &lt;/html&gt;</pre>
 <p>Open firefox</p>
 <pre>$ firefox localhost/~user/
-<em>Hello World!</em></pre>
+Hello World!</pre>
 <p>Now we are successfully used Puppet modules to install Apache. In second module we are installing Apache and PHP.</p>
 <h2>Installing Apache and PHP</h2>
 <p>Now we create new module. Add needed folders and init.pp</p>
@@ -154,8 +154,8 @@ $ nano ~/public_html/index.php
 <p>Test your index.php</p>
 <pre>$ firefox localhost/~user/
 
-<em>My first PHP page
-Hello World!</em> </pre>
+My first PHP page
+Hello World! </pre>
 <h2>Conclusion</h2>
 <p>Now you have created two Puppet modules. First module installed Apache2. Second module installed Apache and PHP. Of course we also tested that Apache and PHP was really working correctly.</p>
 <p>Here is what your folder/file tree should look like</p>

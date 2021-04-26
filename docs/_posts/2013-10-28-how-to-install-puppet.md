@@ -22,11 +22,11 @@ permalink: "/2013/how-to-install-puppet/"
 <pre>$ sudo apt-get update &amp;&amp; sudo apt-get -y install puppet</pre>
 <p>Test if Puppet works. One line command to Puppet.</p>
 <pre>$ puppet apply -e 'file { "/tmp/helloPuppet": content =&gt; "Hello World!\n" }'
-<em>notice: /Stage[main]//File[/tmp/helloPuppet]/ensure: defined content as '{md5}8ddd8be4b179a529afa5f2ffae4b9858'
-notice: Finished catalog run in 0.01 seconds</em></pre>
+notice: /Stage[main]//File[/tmp/helloPuppet]/ensure: defined content as '{md5}8ddd8be4b179a529afa5f2ffae4b9858'
+notice: Finished catalog run in 0.01 seconds</pre>
 <p>Let's make sure if the file was created.</p>
 <pre>$ cat /tmp/helloPuppet
-<em>Hello World!</em></pre>
+Hello World!</pre>
 <p>Make hellotest module</p>
 <pre>$ mkdir puppet
 $ cd puppet/
@@ -40,10 +40,10 @@ class hellotest {
 }</pre>
 <p>Apply Puppet module and test if the file is created.</p>
 <pre>$ puppet apply --modulepath modules/ -e 'class {"hellotest":}'
-<em>notice: /Stage[main]/Hellotest/File[/tmp/testModule]/ensure: defined content as '{md5}f0033e0a0e954ec5096ef8af2126fc21'
-notice: Finished catalog run in 0.03 seconds</em>
+notice: /Stage[main]/Hellotest/File[/tmp/testModule]/ensure: defined content as '{md5}f0033e0a0e954ec5096ef8af2126fc21'
+notice: Finished catalog run in 0.03 seconds
 $ cat /tmp/testModule
-<em>Come visit <a href="http://soivi.net">Soivi.net</a>!</em></pre>
+Come visit <a href="http://soivi.net">Soivi.net</a>!</pre>
 <p>Make module that installs gedit.</p>
 <pre>$ mkdir -p modules/gedit/manifests/
 $ nano modules/gedit/manifests/init.pp
@@ -56,8 +56,8 @@ class gedit {
 <p>Apply Puppet module that installs Gedit</p>
 <pre>$ sudo puppet apply --modulepath modules/ -e 'class {"gedit":}'
 
-<em>notice: /Stage[main]/Gedit/Package[gedit]/ensure: ensure changed 'purged' to 'present'
-notice: Finished catalog run in 16.29 seconds</em></pre>
+notice: /Stage[main]/Gedit/Package[gedit]/ensure: ensure changed 'purged' to 'present'
+notice: Finished catalog run in 16.29 seconds</pre>
 <p>Let's test that Gedit will start</p>
 <pre>$ gedit</pre>
 <p>Now you have successfully installed Puppet and tested it.</p>

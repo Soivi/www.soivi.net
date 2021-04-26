@@ -19,9 +19,9 @@ permalink: "/2013/define-types-example-in-puppet/"
 ---
 <p><img src="{{ site.baseurl }}/assets/2013/11/Puppet_Logo.svg_.min_.png" alt="Define Types" width="200" height="87" class="alignright size-full wp-image-1139" /></p>
 <p>In this tutorial I'm creating hello_define module that uses Puppet define types. Hello_define module creates two files with different content.</p>
-<p><em>If you haven't seen my previous tutorials you should see them:<br />
+<p><strong>If you haven't seen my previous tutorials you should see them:<br />
 <a href="http://soivi.net/2013/how-to-install-puppet/">How to install Puppet</a>, <a href="http://soivi.net/2013/template-hello-world-module-to-puppet/">Hello World module using template to Puppet</a>,<br />
-<a href="http://soivi.net/2013/installing-apache-and-php-with-puppet-module/">Installing Apache and PHP with Puppet module</a>, <a href="http://soivi.net/2013/installing-puppet-master-and-slaves/">Installing Puppet master and slaves</a>, <a href="http://soivi.net/2013/parametrized-class-with-puppet/">Parametrized Class with Puppet</a>.</em></p>
+<a href="http://soivi.net/2013/installing-apache-and-php-with-puppet-module/">Installing Apache and PHP with Puppet module</a>, <a href="http://soivi.net/2013/installing-puppet-master-and-slaves/">Installing Puppet master and slaves</a>, <a href="http://soivi.net/2013/parametrized-class-with-puppet/">Parametrized Class with Puppet</a>.</strong></p>
 <p>I’m using Xubuntu 12.04.03 32bit</p>
 <h2>Install and create</h2>
 <p>Update apt and use it to install Puppet</p>
@@ -65,10 +65,10 @@ $ puppet apply --modulepath modules/ -e 'class {"hello_define":}'
 <p>Now hello_define module has created two files. Files are in /tmp/ folder. You can cat those files and see what are inside them</p>
 <pre>
 $ cat /tmp/hello_define1 
-<em>Hello World. This is first define</em>
+Hello World. This is first define
 
 $ cat /tmp/hello_define2
-<em>This is my second define. Greeting from soivi.net</em>
+This is my second define. Greeting from soivi.net
 </pre>
 <p>The folder tree looks now like this</p>
 <pre>

@@ -56,14 +56,14 @@ def whoami_check():
 <pre>
 $ fab -l
 
-<em>Available commands:
-    whoami_check</em>
+Available commands:
+    whoami_check
 </pre>
 <p>Run whoami_check with fabric.</p>
 <pre>
 $ fab whoami_check
 
-<em>[soivite01@localhost] Executing task 'whoami_check'
+[soivite01@localhost] Executing task 'whoami_check'
 ...
 [soivite04@localhost] run: whoami
 ...
@@ -71,16 +71,16 @@ $ fab whoami_check
 [soivite02@localhost] out: soivite02
 [soivite03@localhost] out: soivite03
 [soivite04@localhost] out: soivite04
-Done.</em>
+Done.
 </pre>
 <p>Using time before the command you can see how much time is used to run fabric command.</p>
 <pre>
 $ time fab whoami_check
 
-<em>...
+...
 real	0m2.234s
 user	0m0.692s
-sys	0m0.060s</em>
+sys	0m0.060s
 </pre>
 <h2>Put and get files</h2>
 <p>Create example file that you can put to users and get that same file from users.</p>
@@ -115,22 +115,22 @@ def file_get():
 <pre>
 $ fab file_put
 
-<em>[soivite01@localhost] Executing task 'file_put'
+[soivite01@localhost] Executing task 'file_put'
 [soivite01@localhost] put: sendFile.txt -> /home/soivite01/sendFile.txt
 ...
 Done.
 Disconnecting from soivite01@localhost... done.
-...</em>
+...
 </pre>
 <p>Run file_get to get same files what you have added.</p>
 <pre>
 $ fab file_get
-<em>
+
 [soivite01@localhost] Executing task 'file_get'
 [soivite01@localhost] download: /home/xubuntu/fabric/soivite01@localhost/sendFile.txt <- /home/soivite01/sendFile.txt
 ...
 Done.
-Disconnecting from soivite01@localhost... done.</em>
+Disconnecting from soivite01@localhost... done.
 ...
 </pre>
 <p>Your fabric folder now looks like this.</p>
@@ -169,12 +169,12 @@ def folder():
 <pre>
 $ fab folder
 
-<em>[soivite01@localhost] Executing task 'folder'
+[soivite01@localhost] Executing task 'folder'
 [soivite01@localhost] put: testFolder/file2 -> /home/soivite01/testFolder/file2
 [soivite01@localhost] put: testFolder/file1 -> /home/soivite01/testFolder/file1
 [soivite01@localhost] download: /home/xubuntu/fabric/soivite01@localhost/testFolder/file1 <- /home/soivite01/testFolder/file1
 [soivite01@localhost] download: /home/xubuntu/fabric/soivite01@localhost/testFolder/file2 <- /home/soivite01/testFolder/file2
-...</em>
+...
 </pre>
 <p>Your folder tree looks like this.</p>
 <pre>

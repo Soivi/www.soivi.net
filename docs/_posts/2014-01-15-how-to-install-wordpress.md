@@ -14,7 +14,7 @@ tags:
 - Xubuntu 12.04
 permalink: "/2014/how-to-install-wordpress/"
 ---
-<p><em>I’m using Ubuntu 12.04.03 32bit and Wordpress 3.8</em><br />
+<p>I’m using Ubuntu 12.04.03 32bit and Wordpress 3.8<br />
 This tutorial I'm going to install <a href="http://en.wikipedia.org/wiki/WordPress">Wordpress</a>.<br />
 <a href="http://www.lennu.net/best-blogging-platform-is-wordpress/">Why to choose wordpress</a><br />
 First you need to install LAMP: <a href="http://soivi.net/2014/how-to-install-lamp/">How to install LAMP</a></p>

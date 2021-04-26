@@ -16,9 +16,9 @@ tags:
 - Ubuntu 12.04
 permalink: "/2014/simple-script-to-remotely-monitor-lamp-on-server/"
 ---
-<p><em>I'm using Ubuntu 12.04 on my server and local computer<br />
+<p>I'm using Ubuntu 12.04 on my server and local computer<br />
 If you use Windows computer for your local. Here is tutorial how to get it working<br />
-<a href="http://soivi.net/2014/how-to-remotely-monitor-linux-server-from-windows/">How to remotely monitor Linux server from Windows</a></em><br />
+<a href="http://soivi.net/2014/how-to-remotely-monitor-linux-server-from-windows/">How to remotely monitor Linux server from Windows</a><br />
 <a href="http://soivi.net/wp-content/uploads/2014/03/testerError1.png"><img src="{{ site.baseurl }}/assets/2014/03/testerError1.png" alt="testerError1" width="375" height="108" class="alignright size-full wp-image-696" /></a></p>
 <p>In this tutorial I'm going to create simple script that checks every 30 minutes that LAMP is running properly on my server. If something is wrong it shows notification on your local computers desktop.</p>
 <h2>Install curl to local computer</h2>
@@ -74,7 +74,7 @@ server$ sudo service apache2 reload
 <p>Check that site really works. Curl should print "works"</p>
 <pre>
 local$ curl tester.net
-<em>works</em>
+works
 </pre>
 <h2>Create script to local</h2>
 <p>Create shell script that will get tester.net site with curl and checks if site is still on.</p>

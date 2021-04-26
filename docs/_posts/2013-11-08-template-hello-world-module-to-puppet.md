@@ -18,8 +18,8 @@ tags:
 - Xubuntu 12.04
 permalink: "/2013/template-hello-world-module-to-puppet/"
 ---
-<p><em>If you haven't seen my previous tutorial you should see that:<br />
-<a href="http://soivi.net/2013/how-to-install-puppet/">How to install Puppet</a>.</em></p>
+<p><strong>If you haven't seen my previous tutorial you should see that:<br />
+<a href="http://soivi.net/2013/how-to-install-puppet/">How to install Puppet</a>.</strong></p>
 <p>I’m using Xubuntu 12.04.03 32bit<br />
 Here is example how you can create template files to your Puppet module</p>
 <p>Create folders and init.pp file</p>
@@ -50,10 +50,10 @@ Operating system release = <%= @operatingsystemrelease %>
 <pre>$ sudo puppet apply --modulepath modules/ -e 'class {"hellotemplate":}'</pre>
 <p>Test if file was created to your computer</p>
 <pre>$ cat /tmp/testModule
-<em>Greetings from template!
+Greetings from template!
 TestVariable: I am variable from init.pp
 Operating system release = 12.04
-Time to change to a new release?</em></pre>
+Time to change to a new release?</pre>
 <p>Now you have created module that uses templates!</p>
 <p>More facter variables you can find with</p>
 <pre>$ facter

@@ -19,9 +19,9 @@ tags:
 - Xubuntu 12.04
 permalink: "/2013/parameterized-class-with-puppet/"
 ---
-<p><em>If you haven't seen my previous tutorials you should see them:<br />
+<p><strong>If you haven't seen my previous tutorials you should see them:<br />
 <a href="http://soivi.net/2013/how-to-install-puppet/">How to install Puppet</a>, <a href="http://soivi.net/2013/template-hello-world-module-to-puppet/">Hello World module using template to Puppet</a>,<br />
-<a href="http://soivi.net/2013/installing-apache-and-php-with-puppet-module/">Installing Apache and PHP with Puppet module</a>, <a href="http://soivi.net/2013/installing-puppet-master-and-slaves/">Installing Puppet master and slaves</a>.</em></p>
+<a href="http://soivi.net/2013/installing-apache-and-php-with-puppet-module/">Installing Apache and PHP with Puppet module</a>, <a href="http://soivi.net/2013/installing-puppet-master-and-slaves/">Installing Puppet master and slaves</a>.<strong></p>
 <p>I’m using Xubuntu 12.04.03 32bit</p>
 <p>This tutorial I'm creating parametrized class. Class is installing Apache2 and you can change Apaches port when running Puppet module.</p>
 <p>Install Puppet, create folders and init.pp file. </p>

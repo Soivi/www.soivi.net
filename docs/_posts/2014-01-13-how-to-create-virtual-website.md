@@ -17,7 +17,7 @@ tags:
 - Xubuntu 12.04
 permalink: "/2014/how-to-create-virtual-website/"
 ---
-<p><em>I’m using Ubuntu 12.04.03 32bit</em></p>
+<p>I’m using Ubuntu 12.04.03 32bit</p>
 <p>It's possible to do virtual websites so domains are seen in locally. Here is tutorial how to do that.</p>
 <p>First you need to install Apache. Here is tutorial how you do that: <a href="http://soivi.net/2014/how-to-install-lamp/">How to install LAMP</a></p>
 <p>Find out your ip address and add it to your hosts file</p>

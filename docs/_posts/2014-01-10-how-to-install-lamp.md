@@ -18,7 +18,7 @@ tags:
 - Xubuntu 12.04
 permalink: "/2014/how-to-install-lamp/"
 ---
-<p><em>I'm using Ubuntu 12.04.03 32bit</em><br />
+<p>I'm using Ubuntu 12.04.03 32bit<br />
 What is <a href="http://en.wikipedia.org/wiki/LAMP_%28software_bundle%29">LAMP</a>?<br />
 This tutorial I'm going to install  <a href="http://en.wikipedia.org/wiki/Apache_HTTP_Server">Apache</a>, <a href="http://en.wikipedia.org/wiki/MySQL">MySQL</a>, <a href="http://en.wikipedia.org/wiki/PHP">PHP</a>.</p>
 <h2>Linux</h2>
@@ -35,10 +35,10 @@ $ curl localhost
 </pre>
 <p>Apache is working because you get default index with your localhost</p>
 <pre>
-<em>&lt;html&gt;&lt;body&gt;&lt;h1&gt;It works!&lt;/h1&gt;
+&lt;html&gt;&lt;body&gt;&lt;h1&gt;It works!&lt;/h1&gt;
 &lt;p&gt;This is the default web page for this server.&lt;/p&gt;
 &lt;p&gt;The web server software is running but no content has been added, yet.&lt;/p&gt;
-&lt;/body&gt;&lt;/html&gt;</em>
+&lt;/body&gt;&lt;/html&gt;
 </pre>
 <p>Find out your IP address</p>
 <pre>
@@ -46,7 +46,7 @@ $ ifconfig
 </pre>
 <p>If your using ethernet your IP is under eth0 or if your using wireless your IP is under wlan0</p>
 <pre>
-<em>eth0 / wlan0     inet addr:1.2.3.4</em>
+eth0 / wlan0     inet addr:1.2.3.4
 </pre>
 <p>Curl with your IP address. ( 1.2.3.4 is your IP address )</p>
 <pre>
@@ -54,8 +54,8 @@ $ curl http://1.2.3.4/
 </pre>
 <p>Same IT WORKS should come what came in localhost.</p>
 <pre>
-<em>&lt;html&gt;&lt;body&gt;&lt;h1&gt;It works!&lt;/h1&gt;
-...</em>
+&lt;html&gt;&lt;body&gt;&lt;h1&gt;It works!&lt;/h1&gt;
+...
 </pre>
 <p>Enable userdirs so computer users can use public_html folders and restart Apache</p>
 <pre>
@@ -83,12 +83,12 @@ $ curl http://1.2.3.4/~user/
 </pre>
 <p>With curl there should come same code what you added in index.html</p>
 <pre>
-<em>&lt;!DOCTYPE HTML&gt;
+&lt;!DOCTYPE HTML&gt;
 &lt;html&gt;
     &lt;body&gt;
          &lt;p&gt;Hello World!&lt;/p&gt;
     &lt;/body&gt;
-&lt;/html&gt;</em>
+&lt;/html&gt;
 </pre>
 <p>You can test page with your firefox too.</p>
 <pre>
@@ -156,7 +156,7 @@ $ curl 1.2.3.4/~user/
 </pre>
 <p>Html code should look like this. So it works!</p>
 <pre>
-<em>
+
 &lt;!DOCTYPE html&gt;
 &lt;html&gt;
     &lt;body&gt;
@@ -164,7 +164,7 @@ $ curl 1.2.3.4/~user/
         &lt;p&gt;Hello World!&lt;/p&gt;
     &lt;/body&gt;
 &lt;/html&gt;
-</em>
+
 </pre>
 <p>Now PHP is working too.</p>
 <h2>MySQL</h2>

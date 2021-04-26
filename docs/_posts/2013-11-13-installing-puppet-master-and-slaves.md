@@ -21,9 +21,9 @@ tags:
 - Xubuntu 12.04
 permalink: "/2013/installing-puppet-master-and-slaves/"
 ---
-<p><em>If you haven't seen my previous tutorials you should see them:<br />
+<p><strong>If you haven't seen my previous tutorials you should see them:<br />
 <a href="http://soivi.net/2013/how-to-install-puppet/">How to install Puppet</a>, <a href="http://soivi.net/2013/template-hello-world-module-to-puppet/">Hello World module using template to Puppet</a>,<br />
-<a href="http://soivi.net/2013/installing-apache-and-php-with-puppet-module/">Installing Apache and PHP with Puppet module</a>.</em></p>
+<a href="http://soivi.net/2013/installing-apache-and-php-with-puppet-module/">Installing Apache and PHP with Puppet module</a>.</strong></p>
 <p>I’m using Xubuntu 12.04.03 32bit</p>
 <p>Here is tutorial how you create PuppetMaster and two slaves. And how to use three modules using nodes to determine slaves to use different modules.</p>
 <p>These are my steps:<br />
@@ -97,7 +97,7 @@ class hellotest {
 <pre>
 master$ puppet apply --modulepath modules/ -e 'class {"hellotest":}'
 $ cat /tmp/testModule
-<em>Come visit Soivi.net!</em>
+Come visit Soivi.net!
 </pre>
 <p>Hellotest module works so you can share it with your slaves</p>
 <pre>
@@ -148,7 +148,7 @@ master$ sudo puppet cert --sign pc11.foo.bar.com
 <pre>
 slave2$ sudo service puppet restart
 slave2$ cat /tmp/testModule
-<em>Come visit Soivi.net!</em>
+Come visit Soivi.net!
 </pre>
 <p>Now lets make three different modules</p>
 <p>First module installs LibreOffice</p>

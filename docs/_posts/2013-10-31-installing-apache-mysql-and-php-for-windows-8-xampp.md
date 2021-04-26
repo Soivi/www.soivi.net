@@ -26,9 +26,9 @@ Run</p>
 <p>Check the settings file</p>
 <pre>$ \xampp\php\php.ini</pre>
 <p>Check these three non-commented lines that they match. Date.timezone should be your timezone.</p>
-<pre><em>error_reporting = E_ALL | E_STRICT
+<pre>error_reporting = E_ALL | E_STRICT
 magic_quotes_gpc = Off
-date.timezone = "Europe/Helsinki"</em></pre>
+date.timezone = "Europe/Helsinki"</pre>
 <p>Close Skype and IIS if you are using those.<br />
 Run Apache and MySQL with</p>
 <pre>$ \xampp\xampp-control.exe</pre>
@@ -45,13 +45,13 @@ Stop and start Apache and MySQL with.</p>
 <p>and create file there</p>
 <pre>helloworld.php</pre>
 <p>And inside the file</p>
-<pre><em>&lt;?php 
+<pre>&lt;?php 
  Print "Hello, World!";
- ?&gt; </em> </pre>
+ ?&gt;  </pre>
 <p>Go to</p>
 <pre>http://localhost/php/helloworld.php</pre>
 <p>Php works.</p>
-<pre><em>Hello, World!</em></pre>
+<pre>Hello, World!</pre>
 <p>Open cmd and open MySQL with root user.</p>
 <pre>$ cd \xampp\mysql\bin
 $ mysql.exe -u root -p </pre>

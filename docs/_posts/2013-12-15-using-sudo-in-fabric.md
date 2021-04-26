@@ -62,13 +62,13 @@ soivite04 ALL=(ALL) NOPASSWD: ALL
 <pre>
 $ fab super
 
-<em>[soivite01@localhost] Executing task 'super'
+[soivite01@localhost] Executing task 'super'
 [soivite01@localhost] sudo: cp /var/log/syslog $HOME
 [soivite01@localhost] run: whoami
 [soivite01@localhost] out: soivite01
 [soivite01@localhost] sudo: chown -R soivite01 /home/soivite01
 [soivite01@localhost] download: /home/xubuntu/fabric/soivite01@localhost/syslog <- /home/soivite01/syslog
-...</em>
+...
 </pre>
 <p>Run superfolder command.</p>
 <pre>

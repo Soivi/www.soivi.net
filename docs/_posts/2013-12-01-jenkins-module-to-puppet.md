@@ -18,11 +18,11 @@ tags:
 - Xubuntu 12.04
 permalink: "/2013/jenkins-module-to-puppet/"
 ---
-<p><em>If you haven't seen my previous tutorials you should see them:<br />
+<p><strong>If you haven't seen my previous tutorials you should see them:<br />
 <a href="http://soivi.net/2013/how-to-install-puppet/">How to install Puppet</a>, <a href="http://soivi.net/2013/template-hello-world-module-to-puppet/">Hello World module using template to Puppet</a>,<br />
 <a href="http://soivi.net/2013/installing-apache-and-php-with-puppet-module/">Installing Apache and PHP with Puppet module</a>, <a href="http://soivi.net/2013/installing-puppet-master-and-slaves/">Installing Puppet master and slaves</a>,<br />
  <a href="http://soivi.net/2013/parametrized-class-with-puppet/">Parametrized Class with Puppet</a>,<a href="http://soivi.net/2013/define-types-example-in-puppet/"> Define Types example in Puppet</a>, <a href="http://soivi.net/2013/how-to-get-shared-git-repository-to-server/">How to get shared Git repository to server</a>.<br />
-</em></p>
+</strong></p>
 <p>I'm using Xubuntu 12.04.03.</p>
 <p>In this tutorial I'm creating module that:<br />
 - Installs Git and Jenkins ( Service makes sure Jenkins is up and running )<br />
@@ -136,7 +136,7 @@ $ cd ../../..
 $ sudo puppet apply --modulepath modules/ -e 'class {"jenkins":}'
 </pre>
 <p>Something like this should terminal print if module works</p>
-<pre><em>notice: /Stage[main]/Jenkins/Package[git]/ensure: ensure changed 'purged' to 'present'
+<pre>notice: /Stage[main]/Jenkins/Package[git]/ensure: ensure changed 'purged' to 'present'
 notice: /Stage[main]/Jenkins/Package[jenkins]/ensure: ensure changed 'purged' to 'present'
 notice: /Stage[main]/Jenkins/Jenkins::Plugins[/var/lib/jenkins/plugins/github.hpi]/File[/var/lib/jenkins/plugins/github.hpi]/ensure: defined content as '{md5}9b5f1bb17a78e77c390528b25b84071a'
 notice: /Stage[main]/Jenkins/Jenkins::Plugins[/var/lib/jenkins/plugins/github-api.hpi]/File[/var/lib/jenkins/plugins/github-api.hpi]/ensure: defined content as '{md5}7969f66ebad949af4aac8836c8e83a8a'
@@ -147,7 +147,7 @@ notice: /Stage[main]/Jenkins/Jenkins::Plugins[/var/lib/jenkins/plugins/git.hpi]/
 notice: /Stage[main]/Jenkins/Jenkins::Plugins[/var/lib/jenkins/plugins/scm-api.hpi]/File[/var/lib/jenkins/plugins/scm-api.hpi]/ensure: defined content as '{md5}9574c07bf6bfd02a57b451145c870f0e'
 notice: /Stage[main]/Jenkins/Service[jenkins]/enable: enable changed 'false' to 'true'
 notice: /Stage[main]/Jenkins/Service[jenkins]: Triggered 'refresh' from 7 events
-notice: Finished catalog run in 169.58 seconds</em></pre>
+notice: Finished catalog run in 169.58 seconds</pre>
 <p>Let's see if Jenkins is really working</p>
 <pre>
 $ firefox localhost:8080

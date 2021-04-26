@@ -14,9 +14,9 @@ tags:
 - Windows 8
 permalink: "/2014/how-to-remotely-monitor-linux-server-from-windows/"
 ---
-<p><em>I'm using Ubuntu 12.04 on my server computer and on my local computer I use Windows 8.1<br />
+<p>I'm using Ubuntu 12.04 on my server computer and on my local computer I use Windows 8.1<br />
 If you use Linux on your local computer here is tutorial how to get that working<br />
- <a href="http://soivi.net/2014/simple-script-to-remotely-monitor-lamp-on-server/">Simple script to remotely monitor LAMP on server</a></em></p>
+ <a href="http://soivi.net/2014/simple-script-to-remotely-monitor-lamp-on-server/">Simple script to remotely monitor LAMP on server</a></p>
 <p><a href="http://soivi.net/wp-content/uploads/2014/03/WindowsRemoteMonitor11.png"><img src="{{ site.baseurl }}/assets/2014/03/WindowsRemoteMonitor11.png" alt="WindowsRemoteMonitor11" width="372" height="187" class="alignright size-full wp-image-748" /></a></p>
 <p>This is tutorial how to monitor LAMP on Linux server remotely from Windows. I'm creating two scripts and schedule them to connect to my server in every 30minutes. If something goes wrong with the connection Windows shows notification something is wrong.</p>
 <h2>Server working correctly</h2>
@@ -36,7 +36,7 @@ local$ C:\Directory\Curl\curl.exe tester.net
 works
 </pre>
 <p>If you get error message<br />
-<em>"The Program can't start becuase MSVCR100.dll is missing from your computer. Try reinstalling the program to fix this problem."</em><br />
+"The Program can't start becuase MSVCR100.dll is missing from your computer. Try reinstalling the program to fix this problem."<br />
 You need to install Microsoft Visual C++ Redistributable Package. Depending on the version of Windows what you need to install. You can find different versions in here:<br />
 <a href="http://answers.microsoft.com/en-us/windows/forum/windows_7-windows_programs/trying-to-open-computer-management-the-program/5c9d301a-2191-4edb-916e-5e4958558090">The Program can't start because MSVCR100.dll is missing</a><br />
 I downloaded: Microsoft Visual C++ 2010 Redistributable Package (x64)</p>

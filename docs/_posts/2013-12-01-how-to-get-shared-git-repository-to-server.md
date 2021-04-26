@@ -38,7 +38,7 @@ server$ sudo adduser exampleUser soivishare</pre>
 <p>Login again and create file.</p>
 <pre>server$ nano /home/soivishare/repository/hello.txt
 server$ cat /home/soivishare/repository/hello.txt 
-<em>Hello World!</em></pre>
+Hello World!</pre>
 <p>Now you have shared folder.</p>
 <p>Create repository</p>
 <pre>server$ cd /home/soivishare/repository/
@@ -75,8 +75,8 @@ $ cd clone/
 $ git clone ssh://exampleUser@example.net/home/soivishare/repository/helloGit.git</pre>
 <p>Test that your newest version comes to repository.</p>
 <pre>$ cat helloGit/README 
-<em>MODIFIED 27.11.2013
-Hello GIT</em></pre>
+MODIFIED 27.11.2013
+Hello GIT</pre>
 <p>Now you have:<br />
 - Shared folder that other users can use<br />
 - Local repository<br />

@@ -15,7 +15,7 @@ tags:
 - Xubuntu 12.04
 permalink: "/2014/how-to-backup-wordpress/"
 ---
-<p><em>I’m using Ubuntu 12.04.03 32bit, WordPress 3.6.1 and WordPress 3.8</em><br />
+<p>I’m using Ubuntu 12.04.03 32bit, WordPress 3.6.1 and WordPress 3.8<br />
 Of course if you use WordPress you need to backup it at times.<br />
 In this tutorial I show how to backup your WordPress and import that backup.</p>
 <h2>Export</h2>
