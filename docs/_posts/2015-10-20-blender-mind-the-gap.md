@@ -9,12 +9,15 @@ tags:
 - Blender
 permalink: "/2015/blender-mind-the-gap/"
 ---
-<p>I started learning use Blender and created "Mind the gap" magnet.<br />
-[gallery ids="1010,1011,1012"]</p>
-<p><a href="https://www.blender.org/" target="_blank">What is Blender?</a></p>
-<p>Here is the .tar package what contains .blend file:<br />
-<a href="https://download.soivi.net/blender.tar.xz" target="_blank">https://download.soivi.net/blender.tar.xz</a></p>
-<p>You can open it with Linux terminal with this command:</p>
-<pre>
-$ tar -vxf blender.tar.xz
+I started learning use Blender and created "Mind the gap" magnet.  
+[gallery ids="1010,1011,1012"]
+
+[What is Blender?](https://www.blender.org/)
+
+Here is the .tar package what contains .blend file:  
+[https://download.soivi.net/blender.tar.xz](https://download.soivi.net/blender.tar.xz)
+
+You can open it with Linux terminal with this command:
+
+<pre>$ tar -vxf blender.tar.xz
 </pre>

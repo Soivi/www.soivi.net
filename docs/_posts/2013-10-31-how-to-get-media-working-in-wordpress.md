@@ -9,9 +9,11 @@ tags:
 - Wordpress
 permalink: "/2013/how-to-get-media-working-in-wordpress/"
 ---
-<p>Trouples to get media / pictures working in Wordpress?<br />
-Make uploads folder and permissions to the folder.</p>
+Trouples to get media / pictures working in Wordpress?  
+Make uploads folder and permissions to the folder.
+
 <pre>$ cd wordpress/wp-content/
 $ mkdir uploads
 $ chmod o+wr uploads/</pre>
-<p>Now you can use media in your Wordpress.</p>
+
+Now you can use media in your Wordpress.

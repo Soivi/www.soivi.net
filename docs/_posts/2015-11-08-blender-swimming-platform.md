@@ -9,13 +9,16 @@ tags:
 - Blender
 permalink: "/2015/blender-swimming-platform/"
 ---
-<p>I created swimming platform with Blender. <a href="https://www.blender.org/" target="_blank">What is Blender?</a><br />
-[gallery columns="5" ids="1006,1005,1004,1003,998"]</p>
-<p>Here is the .tar package what contains .blend file:<br />
-<a href="https://download.soivi.net/blender.tar.xz" target="_blank">https://download.soivi.net/blender.tar.xz</a></p>
-<p>You can open it with Linux terminal with this command:</p>
-<pre>
-$ tar -vxf blender.tar.xz
+I created swimming platform with Blender. [What is Blender?](https://www.blender.org/)  
+[gallery columns="5" ids="1006,1005,1004,1003,998"]
+
+Here is the .tar package what contains .blend file:  
+[https://download.soivi.net/blender.tar.xz](https://download.soivi.net/blender.tar.xz)
+
+You can open it with Linux terminal with this command:
+
+<pre>$ tar -vxf blender.tar.xz
 </pre>
-<p>Check my last Blender post:<br />
-<a href="https://soivi.net/2015/blender-mind-the-gap/" target="_blank">https://soivi.net/2015/blender-mind-the-gap/</a></p>
+
+Check my last Blender post:  
+[https://soivi.net/2015/blender-mind-the-gap/](https://soivi.net/2015/blender-mind-the-gap/)

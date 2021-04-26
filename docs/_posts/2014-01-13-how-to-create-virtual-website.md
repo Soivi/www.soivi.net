@@ -17,17 +17,21 @@ tags:
 - Xubuntu 12.04
 permalink: "/2014/how-to-create-virtual-website/"
 ---
-<p>I’m using Ubuntu 12.04.03 32bit</p>
-<p>It's possible to do virtual websites so domains are seen in locally. Here is tutorial how to do that.</p>
-<p>First you need to install Apache. Here is tutorial how you do that: <a href="http://soivi.net/2014/how-to-install-lamp/">How to install LAMP</a></p>
-<p>Find out your ip address and add it to your hosts file</p>
-<pre>
-$ ifconfig
+I’m using Ubuntu 12.04.03 32bit
+
+It's possible to do virtual websites so domains are seen in locally. Here is tutorial how to do that.
+
+First you need to install Apache. Here is tutorial how you do that: [How to install LAMP](http://soivi.net/2014/how-to-install-lamp/)
+
+Find out your ip address and add it to your hosts file
+
+<pre>$ ifconfig
 $ sudoedit /etc/hosts
 </pre>
-<p>1.2.3.4 is my ip address and test.soivi and www.test.soivi are my domain names.</p>
-<pre>
-127.0.0.1       localhost
+
+1.2.3.4 is my ip address and test.soivi and www.test.soivi are my domain names.
+
+<pre>127.0.0.1       localhost
 127.0.1.1       yourComputerName
 1.2.3.4    test.soivi
 1.2.3.4    www.test.soivi
@@ -39,27 +43,32 @@ ff00::0 ip6-mcastprefix
 ff02::1 ip6-allnodes
 ff02::2 ip6-allrouters
 </pre>
-<p>Add file test.soivi in /etc/apache2/sites-available/</p>
-<pre>
-$ cd /etc/apache2/sites-available/
+
+Add file test.soivi in /etc/apache2/sites-available/
+
+<pre>$ cd /etc/apache2/sites-available/
 $ sudoedit test.soivi
 </pre>
-<p>This file tells where is the test.soivi's index file. This is my directory "/home/user/public_html/" where my index file is.</p>
-<pre>
-&lt;VirtualHost *:80&gt;
+
+This file tells where is the test.soivi's index file. This is my directory "/home/user/public_html/" where my index file is.
+
+<pre><VirtualHost *:80>
         ServerName test.soivi
         ServerAlias www.test.soivi
-        DocumentRoot &quot;/home/user/public_html/&quot;
-&lt;/VirtualHost&gt;
+        DocumentRoot "/home/user/public_html/"
+</VirtualHost>
 </pre>
-<p>Enable site and reload Apache</p>
-<pre>
-$ sudo a2ensite test.soivi
+
+Enable site and reload Apache
+
+<pre>$ sudo a2ensite test.soivi
 $ sudo service apache2 reload
 </pre>
-<p>Now www.test.soivi and test.soivi domains works in your local computer.</p>
-<pre>
-$ firefox http://www.test.soivi/
+
+Now www.test.soivi and test.soivi domains works in your local computer.
+
+<pre>$ firefox http://www.test.soivi/
 $ firefox http://test.soivi/
 </pre>
-<p>Now you have virtual websites in your local computer.</p>
+
+Now you have virtual websites in your local computer.

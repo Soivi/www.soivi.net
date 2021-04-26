@@ -18,11 +18,14 @@ tags:
 - Xubuntu 12.04
 permalink: "/2013/template-hello-world-module-to-puppet/"
 ---
-<p><strong>If you haven't seen my previous tutorial you should see that:<br />
-<a href="http://soivi.net/2013/how-to-install-puppet/">How to install Puppet</a>.</strong></p>
-<p>I’m using Xubuntu 12.04.03 32bit<br />
-Here is example how you can create template files to your Puppet module</p>
-<p>Create folders and init.pp file</p>
+**If you haven't seen my previous tutorial you should see that:  
+[How to install Puppet](http://soivi.net/2013/how-to-install-puppet/).**
+
+I’m using Xubuntu 12.04.03 32bit  
+Here is example how you can create template files to your Puppet module
+
+Create folders and init.pp file
+
 <pre>$ mkdir puppet/
 $ cd puppet/
 $ mkdir -p modules/hellotemplate/manifests/
@@ -34,10 +37,14 @@ class hellotemplate {
                 content => template("hellotemplate/testTemplate.erb"),
         }
 }</pre>
-<p>Create folder to your template and template file</p>
+
+Create folder to your template and template file
+
 <pre>$ mkdir -p modules/hellotemplate/templates/
 $ nano modules/hellotemplate/templates/testTemplate.erb</pre>
-<p>Create test content using facter variables</p>
+
+Create test content using facter variables
+
 <pre>Greetings from template!
 TestVariable: <%= @testVariable %>
 Operating system release = <%= @operatingsystemrelease %>
@@ -46,20 +53,29 @@ Operating system release = <%= @operatingsystemrelease %>
 <% else -%>
      You have the newest release!
 <% end -%></pre>
-<p>Apply your hellotemplate module</p>
+
+Apply your hellotemplate module
+
 <pre>$ sudo puppet apply --modulepath modules/ -e 'class {"hellotemplate":}'</pre>
-<p>Test if file was created to your computer</p>
+
+Test if file was created to your computer
+
 <pre>$ cat /tmp/testModule
 Greetings from template!
 TestVariable: I am variable from init.pp
 Operating system release = 12.04
 Time to change to a new release?</pre>
-<p>Now you have created module that uses templates!</p>
-<p>More facter variables you can find with</p>
+
+Now you have created module that uses templates!
+
+More facter variables you can find with
+
 <pre>$ facter
 $ sudo facter 
 $ sudo facter -p | less</pre>
-<p>These is what your folder/file tree should look like</p>
+
+These is what your folder/file tree should look like
+
 <pre>puppet/
 └── modules
     └── hellotemplate
@@ -69,4 +85,5 @@ $ sudo facter -p | less</pre>
             └── testTemplate.erb
 
 4 directories, 2 files</pre>
-<p>This post is part of <a href="http://terokarvinen.com/2013/aikataulu-%E2%80%93-linuxin-keskitetty-hallinta-%E2%80%93-ict4tn011-4-syksylla-2013">course</a></p>
+
+This post is part of [course](http://terokarvinen.com/2013/aikataulu-%E2%80%93-linuxin-keskitetty-hallinta-%E2%80%93-ict4tn011-4-syksylla-2013)
