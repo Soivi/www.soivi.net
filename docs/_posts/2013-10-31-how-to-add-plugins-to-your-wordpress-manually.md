@@ -29,4 +29,4 @@ $ rm google-analytics-for-wordpress.4.3.3.zip{% endhighlight %}
 
 Then you can go to your Wordpress and choose plugins -> installed plugins and new plugin have came to the site and ready to be activated.
 
-[![plugin]({{ site.baseurl }}/assets/2013/10/plugin.png)](http://soivi.net/wp-content/uploads/2013/10/plugin.png)
+![plugin](/assets/2013/10/plugin.png)
