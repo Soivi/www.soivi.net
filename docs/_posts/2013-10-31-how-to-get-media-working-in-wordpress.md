@@ -7,13 +7,15 @@ categories:
 tags:
 - Media
 - Wordpress
-permalink: "/2013/how-to-get-media-working-in-wordpress/"
 ---
+
 Trouples to get media / pictures working in Wordpress?  
 Make uploads folder and permissions to the folder.
 
-{% highlight shell %}$ cd wordpress/wp-content/
+{% highlight shell %}
+$ cd wordpress/wp-content/
 $ mkdir uploads
-$ chmod o+wr uploads/{% endhighlight %}
+$ chmod o+wr uploads/
+{% endhighlight %}
 
 Now you can use media in your Wordpress.
