@@ -42,7 +42,7 @@ Run Apache and MySQL with
 
 {% highlight shell %}$ \xampp\xampp-control.exe{% endhighlight %}
 
-[![1]({{ site.baseurl }}/assets/2013/10/1.png)](http://soivi.net/wp-content/uploads/2013/10/1.png)  
+![1](/assets/2013/10/1.png)  
 Go to and choose your language.
 
 {% highlight shell %}http://localhost/{% endhighlight %}
@@ -51,7 +51,7 @@ Go to and change your MySQL password
 
 {% highlight shell %}http://localhost/security/index.php{% endhighlight %}
 
-[![2]({{ site.baseurl }}/assets/2013/10/2.png)](http://soivi.net/wp-content/uploads/2013/10/2.png)[![3]({{ site.baseurl }}/assets/2013/10/3.png)](http://soivi.net/wp-content/uploads/2013/10/3.png)  
+![2](/assets/2013/10/2.png)![3](/assets/2013/10/3.png)  
 Stop and start Apache and MySQL with.
 
 {% highlight shell %}$ \xampp\xampp-control.exe{% endhighlight %}
@@ -138,7 +138,7 @@ Go to
 
 {% highlight shell %}http://localhost/php/helloworld.php{% endhighlight %}
 
-[![4]({{ site.baseurl }}/assets/2013/10/4.png)](http://soivi.net/wp-content/uploads/2013/10/4.png)
+![4](/assets/2013/10/4.png)
 
 Now you have tested Apache, PHP and MySQL and confirmed that they all are working.  
 Then you can remove test user and test database from MySQL.
@@ -159,4 +159,4 @@ And work with you add url
 {% highlight shell %}http://download.eclipse.org/tools/pdt/updates/release{% endhighlight %}
 
 choose PDT and install it.  
-[![5]({{ site.baseurl }}/assets/2013/10/5.png)](http://soivi.net/wp-content/uploads/2013/10/5.png)
+![5](/assets/2013/10/5.png)
