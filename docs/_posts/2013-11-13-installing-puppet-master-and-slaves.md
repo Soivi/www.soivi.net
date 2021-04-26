@@ -240,10 +240,10 @@ slave2$ sudo service puppet reload
 {% endhighlight %}
 
 Slave1 installed softwares  
-[![slave1]({{ site.baseurl }}/assets/2013/11/slave1.png)](http://soivi.net/wp-content/uploads/2013/11/slave1.png)
+![slave1](/assets/2013/11/slave1.png)
 
 Slave2 installed softwares  
-[![slave2]({{ site.baseurl }}/assets/2013/11/slave2.png)](http://soivi.net/wp-content/uploads/2013/11/slave2.png)
+![slave2](/assets/2013/11/slave2.png)
 
 Under /etc/puppet your folder/file tree now looks like this.
 

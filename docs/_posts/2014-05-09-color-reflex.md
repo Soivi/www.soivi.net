@@ -14,7 +14,8 @@ tags:
 - PHP
 permalink: "/2014/color-reflex/"
 ---
-[![ColorReflex]({{ site.baseurl }}/assets/2014/05/ColorReflex.png)](http://soivi.net/wp-content/uploads/2014/05/ColorReflex.png)
+
+![ColorReflex](/assets/2014/05/ColorReflex.png)
 
 Color Reflex is Javascript game. You can find site in [**HERE**](http://colorreflex-angularjs.soivi.net/)
 

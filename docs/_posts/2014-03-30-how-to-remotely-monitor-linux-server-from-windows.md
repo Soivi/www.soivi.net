@@ -18,7 +18,7 @@ I'm using Ubuntu 12.04 on my server computer and on my local computer I use Wind
 If you use Linux on your local computer here is tutorial how to get that working  
 [Simple script to remotely monitor LAMP on server](http://soivi.net/2014/simple-script-to-remotely-monitor-lamp-on-server/)
 
-[![WindowsRemoteMonitor11]({{ site.baseurl }}/assets/2014/03/WindowsRemoteMonitor11.png)](http://soivi.net/wp-content/uploads/2014/03/WindowsRemoteMonitor11.png)
+![WindowsRemoteMonitor11](/assets/2014/03/WindowsRemoteMonitor11.png)
 
 This is tutorial how to monitor LAMP on Linux server remotely from Windows. I'm creating two scripts and schedule them to connect to my server in every 30minutes. If something goes wrong with the connection Windows shows notification something is wrong.
 
@@ -99,7 +99,7 @@ Schedule .vbs file run every 5 minutes. So we can test it.
 
 Open "Task Scheduler" and create "Basic Task"
 
-[![WindowsRemoteMonitor1]({{ site.baseurl }}/assets/2014/03/WindowsRemoteMonitor1.png)](http://soivi.net/wp-content/uploads/2014/03/WindowsRemoteMonitor1.png)
+![WindowsRemoteMonitor1](/assets/2014/03/WindowsRemoteMonitor1.png)
 
 Create basic task that runs every day and runs your serverTesterScript.vbs script.  
 [gallery ids="728,729,730,731,732,733"]
@@ -114,19 +114,19 @@ Go to your server and test these. Of course you have to wait 5 minutes every tim
 {% highlight shell %}server$ mv public_html/tester/index.php public_html/tester/index.php2
 {% endhighlight %}
 
-[![WindowsRemoteMonitor11]({{ site.baseurl }}/assets/2014/03/WindowsRemoteMonitor11.png)](http://soivi.net/wp-content/uploads/2014/03/WindowsRemoteMonitor11.png)
+![WindowsRemoteMonitor11](/assets/2014/03/WindowsRemoteMonitor11.png)
 
 {% highlight shell %}server$ mv public_html/tester/index.php2 public_html/tester/index.php
 server$ sudo service apache2 stop
 {% endhighlight %}
 
-[![WindowsRemoteMonitor11]({{ site.baseurl }}/assets/2014/03/WindowsRemoteMonitor11.png)](http://soivi.net/wp-content/uploads/2014/03/WindowsRemoteMonitor11.png)
+![WindowsRemoteMonitor11](/assets/2014/03/WindowsRemoteMonitor11.png)
 
 {% highlight shell %}server$ sudo service apache2 start
 server$ sudo service mysql stop
 {% endhighlight %}
 
-[![WindowsRemoteMonitor11]({{ site.baseurl }}/assets/2014/03/WindowsRemoteMonitor11.png)](http://soivi.net/wp-content/uploads/2014/03/WindowsRemoteMonitor11.png)
+![WindowsRemoteMonitor11](/assets/2014/03/WindowsRemoteMonitor11.png)
 
 {% highlight shell %}server$ sudo service mysql start
 {% endhighlight %}
@@ -136,6 +136,6 @@ server$ sudo service mysql stop
 Now you have tested your script and now you can start using it.
 
 Schedule task to run every 30 minute.  
-[![WindowsRemoteMonitor12]({{ site.baseurl }}/assets/2014/03/WindowsRemoteMonitor12.png)](http://soivi.net/wp-content/uploads/2014/03/WindowsRemoteMonitor12.png)
+![WindowsRemoteMonitor12](/assets/2014/03/WindowsRemoteMonitor12.png)
 
 Now you have script that checks every 30 minute if your server is working. If something goes wrong it notifies you.

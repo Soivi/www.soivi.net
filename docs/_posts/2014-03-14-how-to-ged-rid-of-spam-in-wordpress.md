@@ -40,11 +40,11 @@ $ mv growmap-anti-spambot-plugin/ wordpress/wp-content/plugins/
 
 ## Activate the plugin  
 
-## [![GrowmapAntiSpambotPlugin1]({{ site.baseurl }}/assets/2014/03/GrowmapAntiSpambotPlugin1.png)](http://soivi.net/wp-content/uploads/2014/03/GrowmapAntiSpambotPlugin1.png)
+![GrowmapAntiSpambotPlugin1](/assets/2014/03/GrowmapAntiSpambotPlugin1.png)
 
 ## Now in you have installed G.A.S.P
 
-[![GrowmapAntiSpambotPlugin2]({{ site.baseurl }}/assets/2014/03/GrowmapAntiSpambotPlugin2.png)](http://soivi.net/wp-content/uploads/2014/03/GrowmapAntiSpambotPlugin2.png)
+![GrowmapAntiSpambotPlugin2](/assets/2014/03/GrowmapAntiSpambotPlugin2.png)
 
 ## Hint: how to change text
 

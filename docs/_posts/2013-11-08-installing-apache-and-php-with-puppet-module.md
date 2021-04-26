@@ -19,7 +19,8 @@ tags:
 - Xubuntu 12.04
 permalink: "/2013/installing-apache-and-php-with-puppet-module/"
 ---
-[![puppet]({{ site.baseurl }}/assets/2013/11/Puppet_Logo.svg_.min_.png)](https://puppet.com/)Tutorial guides how to install Apache and PHP with Puppet modules using Linux. I’m using Xubuntu 12.04.03 32bit. Puppet is great way to handle several computers from one computer.
+![puppet](/assets/2013/11/Puppet_Logo.svg_.min_.png)
+Tutorial guides how to install Apache and PHP with Puppet modules using Linux. I’m using Xubuntu 12.04.03 32bit. Puppet is great way to handle several computers from one computer.
 
 In this tutorial there are two modules. First module is installing Apache. Second module is installing Apache2 and PHP. After both modules there are explanation how to test modules.
 

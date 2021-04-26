@@ -129,7 +129,7 @@ Restart service and now warning should be away.
 Go to your site.net. It should redirect you to https://site.net.
 
 Then you get warning like this:  
-[![sitenetcertificate]({{ site.baseurl }}/assets/2015/11/sitenetcertificate.png)](http://soivi.net/wp-content/uploads/2015/11/sitenetcertificate.png)
+![sitenetcertificate](/assets/2015/11/sitenetcertificate.png)
 
 This warning comes because you use Self-Signed SSL Certificate. That means browser can't confirm your certificate and there for can't trust your certificate. You get this off by purchasing trusted certificate.
 
@@ -138,7 +138,7 @@ Click I Understand the Risks - Add Exception - Confirm Security Expetion.
 Now your site.net should be opening and using your Self-Signed SSL Certificate.
 
 On url you can see icon of the lock and that means you are using https.  
-[![soivinetlock]({{ site.baseurl }}/assets/2015/11/soivinetlock.png)](http://soivi.net/wp-content/uploads/2015/11/soivinetlock.png)
+![sitenetcertsoivinetlockificate](/assets/2015/11/soivinetlock.png)
 
 Source:  
 https://www.digitalocean.com/community/tutorials/how-to-create-a-ssl-certificate-on-apache-for-ubuntu-14-04

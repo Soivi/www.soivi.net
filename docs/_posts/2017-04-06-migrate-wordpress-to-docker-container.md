@@ -18,7 +18,7 @@ tags:
 - Wordpress
 permalink: "/2017/migrate-wordpress-to-docker-container/"
 ---
-[![migrate WordPress to Docker]({{ site.baseurl }}/assets/2017/04/docker-min.png)](https://www.docker.com/)
+![migrate WordPress to Docker](/assets/2017/04/docker-min.png)
 
 This is the tutorial how to migrate WordPress to a Docker container. I have [LAMP](https://soivi.net/2014/how-to-install-lamp/) on my server and I'm going to use [LEMP](https://en.wikipedia.org/wiki/Solution_stack) on my Docker container.
 

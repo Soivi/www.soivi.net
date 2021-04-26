@@ -31,7 +31,7 @@ In my server setup I have been installed Ubuntu 12.04, other parts of LAMP and W
 ## Finding your php configurations
 
 As you can see my maximum upload file size is 2mb.  
-[![151124_MediaUploadIncrease1]({{ site.baseurl }}/assets/2015/11/151124_MediaUploadIncrease1.png)](http://soivi.net/wp-content/uploads/2015/11/151124_MediaUploadIncrease1.png)
+![151124_MediaUploadIncrease1](/assets/2015/11/151124_MediaUploadIncrease1.png)
 
 First you need to know where your php configurations is. Create info.php under your wp-admin.
 
@@ -52,7 +52,7 @@ Goto to site: yourdomain.com/wp-admin/info.php. Example I go to:
 {% endhighlight %}
 
 Here you can see where php configurations are.  
-[![151124_MediaUploadIncrease2]({{ site.baseurl }}/assets/2015/11/151124_MediaUploadIncrease2.png)](http://soivi.net/wp-content/uploads/2015/11/151124_MediaUploadIncrease2.png)
+![151124_MediaUploadIncrease2](/assets/2015/11/151124_MediaUploadIncrease2.png)
 
 ## Change php configurations
 
@@ -77,10 +77,10 @@ Then restart your apache
 {% endhighlight %}
 
 In php info you can see the new conf.d file have been added.  
-[![151124_MediaUploadIncrease3]({{ site.baseurl }}/assets/2015/11/151124_MediaUploadIncrease3.png)](http://soivi.net/wp-content/uploads/2015/11/151124_MediaUploadIncrease3.png)
+![151124_MediaUploadIncrease3](/assets/2015/11/151124_MediaUploadIncrease3.png)
 
 Go to your media and see that maximum upload size have been increased.  
-[![151124_MediaUploadIncrease4]({{ site.baseurl }}/assets/2015/11/151124_MediaUploadIncrease4.png)](http://soivi.net/wp-content/uploads/2015/11/151124_MediaUploadIncrease4.png)
+![151124_MediaUploadIncrease4](/assets/2015/11/151124_MediaUploadIncrease4.png)
 
 Remember to delete your info.php that you created at beginning of this post.
 

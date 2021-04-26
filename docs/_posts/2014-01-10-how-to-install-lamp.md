@@ -303,7 +303,7 @@ Test in your Firefox.
 {% endhighlight %}
 
 Page should look something like this.  
-[![LampTest]({{ site.baseurl }}/assets/2014/01/LampTest.png)](http://soivi.net/wp-content/uploads/2014/01/LampTest.png)
+![LampTest](/assets/2014/01/LampTest.png)
 
 Now you have installed whole LAMP ( Linux, Apache, MySQL, PHP ). You have also tested all those is working together.
 

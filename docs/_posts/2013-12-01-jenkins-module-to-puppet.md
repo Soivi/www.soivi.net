@@ -166,14 +166,14 @@ Let's see if Jenkins is really working
 {% endhighlight %}
 
 It works!  
-[![puppetjenkins1]({{ site.baseurl }}/assets/2013/12/puppetjenkins1.png)](http://soivi.net/wp-content/uploads/2013/12/puppetjenkins1.png)
+![puppetjenkins1](/2013/12/puppetjenkins1.png)  
 
 Let's check if plugins really installed. Push manage Jenkins  
-[![puppetjenkins2]({{ site.baseurl }}/assets/2013/12/puppetjenkins2.png)](http://soivi.net/wp-content/uploads/2013/12/puppetjenkins2.png)  
+![puppetjenkins2](/2013/12/puppetjenkins2.png)  
 And select manage plugins  
-[![puppetjenkins3]({{ site.baseurl }}/assets/2013/12/puppetjenkins3.png)](http://soivi.net/wp-content/uploads/2013/12/puppetjenkins3.png)  
+![puppetjenkins3](/2013/12/puppetjenkins3.png)  
 Choose installed plugins. We are installed 7 plugins. All is there what we need to get Git plugin working in Jenkins  
-[![puppetjenkins4]({{ site.baseurl }}/assets/2013/12/puppetjenkins4.png)](http://soivi.net/wp-content/uploads/2013/12/puppetjenkins4.png)
+![puppetjenkins4](/2013/12/puppetjenkins4.png)  
 
 ## Test project to Jenkins
 
@@ -275,16 +275,16 @@ Or change repository path example our TiPi project.
 {% endhighlight %}
 
 New job is added to jenkins. Push jobs name.  
-[![puppetjenkins5]({{ site.baseurl }}/assets/2013/12/puppetjenkins5.png)](http://soivi.net/wp-content/uploads/2013/12/puppetjenkins5.png)
+![puppetjenkins5](/2013/12/puppetjenkins5.png)  
 
 Choose configure  
-[![puppetjenkins6]({{ site.baseurl }}/assets/2013/12/puppetjenkins6.png)](http://soivi.net/wp-content/uploads/2013/12/puppetjenkins6.png)
+![puppetjenkins6](/2013/12/puppetjenkins6.png)  
 
 In here you can see what is repositorys path and you can make changes to project if you like  
-[![puppetjenkins7]({{ site.baseurl }}/assets/2013/12/puppetjenkins7.png)](http://soivi.net/wp-content/uploads/2013/12/puppetjenkins7.png)
+![puppetjenkins7](/2013/12/puppetjenkins7.png)  
 
 Push Build Now. Project is building and after that you can see in workspace your git project.  
-[![puppetjenkins8]({{ site.baseurl }}/assets/2013/12/puppetjenkins8.png)](http://soivi.net/wp-content/uploads/2013/12/puppetjenkins8.png)
+![puppetjenkins8](/2013/12/puppetjenkins8.png)  
 
 Your folder tree should look like this.
 

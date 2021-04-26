@@ -54,13 +54,13 @@ Open firefox. ( My domain name is test.soivi where I'm going to install WordPres
 {% endhighlight %}
 
 Push "Create Configuration File"  
-[![HowToInstallWordpress1]({{ site.baseurl }}/assets/2014/01/HowToInstallWordpress1.png)](http://soivi.net/wp-content/uploads/2014/01/HowToInstallWordpress1.png)
+![HowToInstallWordpress1](/assets/2014/01/HowToInstallWordpress1.png)
 
 Push "Let's go!"  
-[![HowToInstallWordpress2]({{ site.baseurl }}/assets/2014/01/HowToInstallWordpress2.png)](http://soivi.net/wp-content/uploads/2014/01/HowToInstallWordpress2.png)
+![HowToInstallWordpress2](/assets/2014/01/HowToInstallWordpress2.png)
 
 Add your databases name, username and password to that user. Press "Submit"  
-[![HowToInstallWordpress3]({{ site.baseurl }}/assets/2014/01/HowToInstallWordpress3.png)](http://soivi.net/wp-content/uploads/2014/01/HowToInstallWordpress3.png)
+![HowToInstallWordpress3](/assets/2014/01/HowToInstallWordpress3.png)
 
 You have to create manually wp-config.php
 
@@ -83,21 +83,21 @@ BE SURE YOU WILL COPY THE WHOLE TEXT WHAT WORDPRESS IS ASKING YOU TO COPY.
 {% endhighlight %}
 
 After you have copied wp-config.php press "Run the install"  
-[![HowToInstallWordpress4]({{ site.baseurl }}/assets/2014/01/HowToInstallWordpress4.png)](http://soivi.net/wp-content/uploads/2014/01/HowToInstallWordpress4.png)
+![HowToInstallWordpress4](/assets/2014/01/HowToInstallWordpress4.png)
 
 Add your WordPress information. DON'T FORGET TO ALLOW SEARCH ENGINES TO INDEX YOUR SITE. This means you get more hits from search engines and people will find your blog.  
-[![HowToInstallWordpress5]({{ site.baseurl }}/assets/2014/01/HowToInstallWordpress5.png)](http://soivi.net/wp-content/uploads/2014/01/HowToInstallWordpress5.png)
+![HowToInstallWordpress5](/assets/2014/01/HowToInstallWordpress5.png)
 
 You have successfully installed WordPress. Now you can Log in  
-[![HowToInstallWordpress6]({{ site.baseurl }}/assets/2014/01/HowToInstallWordpress6.png)](http://soivi.net/wp-content/uploads/2014/01/HowToInstallWordpress6.png)
+![HowToInstallWordpress6](/assets/2014/01/HowToInstallWordpress6.png)
 
 Add your username and password what you gave to WordPress. (NOT THE DATABASE USER AND PASSWORD)  
-[![HowToInstallWordpress7]({{ site.baseurl }}/assets/2014/01/HowToInstallWordpress7.png)](http://soivi.net/wp-content/uploads/2014/01/HowToInstallWordpress7.png)
+![HowToInstallWordpress7](/assets/2014/01/HowToInstallWordpress7.png)
 
 Now you can create test post. So you can be sure WordPress really working. Remember to publish your post!  
-[![HowToInstallWordpress8]({{ site.baseurl }}/assets/2014/01/HowToInstallWordpress8.png)](http://soivi.net/wp-content/uploads/2014/01/HowToInstallWordpress8.png)
+![HowToInstallWordpress8](/assets/2014/01/HowToInstallWordpress8.png)
 
 Post is published and WordPress is working  
-[![HowToInstallWordpress9]({{ site.baseurl }}/assets/2014/01/HowToInstallWordpress9.png)](http://soivi.net/wp-content/uploads/2014/01/HowToInstallWordpress9.png)
+![HowToInstallWordpress9](/assets/2014/01/HowToInstallWordpress9.png)
 
 Now you have successfully installed WordPress and tested it really works.

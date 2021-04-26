@@ -19,7 +19,7 @@ permalink: "/2014/simple-script-to-remotely-monitor-lamp-on-server/"
 I'm using Ubuntu 12.04 on my server and local computer  
 If you use Windows computer for your local. Here is tutorial how to get it working  
 [How to remotely monitor Linux server from Windows](http://soivi.net/2014/how-to-remotely-monitor-linux-server-from-windows/)  
-[![testerError1]({{ site.baseurl }}/assets/2014/03/testerError1.png)](http://soivi.net/wp-content/uploads/2014/03/testerError1.png)
+![testerError1](/assets/2014/03/testerError1.png)
 
 In this tutorial I'm going to create simple script that checks every 30 minutes that LAMP is running properly on my server. If something is wrong it shows notification on your local computers desktop.
 
@@ -124,19 +124,19 @@ Now you can test if it works.
 {% highlight shell %}server$ mv public_html/tester/index.php public_html/tester/index.php2
 {% endhighlight %}
 
-[![testerError1]({{ site.baseurl }}/assets/2014/03/testerError1.png)](http://soivi.net/wp-content/uploads/2014/03/testerError1.png)
+![testerError1](/assets/2014/03/testerError1.png)
 
 {% highlight shell %}server$ mv public_html/tester/index.php2 public_html/tester/index.php
 server$ sudo service apache2 stop
 {% endhighlight %}
 
-[![testerError2]({{ site.baseurl }}/assets/2014/03/testerError2.png)](http://soivi.net/wp-content/uploads/2014/03/testerError2.png)
+![testerError2](/assets/2014/03/testerError2.png)
 
 {% highlight shell %}server$ sudo service apache2 start
 server$ sudo service mysql stop
 {% endhighlight %}
 
-[![testerError3]({{ site.baseurl }}/assets/2014/03/testerError3.png)](http://soivi.net/wp-content/uploads/2014/03/testerError3.png)
+![testerError3](/assets/2014/03/testerError3.png)
 
 {% highlight shell %}server$ sudo service mysql start
 {% endhighlight %}
