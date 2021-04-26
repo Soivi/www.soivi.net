@@ -19,5 +19,5 @@ Here is the .tar package what contains .blend file:
 
 You can open it with Linux terminal with this command:
 
-<pre>$ tar -vxf blender.tar.xz
-</pre>
+{% highlight shell %}$ tar -vxf blender.tar.xz
+{% endhighlight %}

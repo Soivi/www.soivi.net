@@ -19,13 +19,13 @@ If you want to add Wordpress plugins manually without using FTP here are the ins
 Example plugin i use Google Analytics.  
 First download plugin ZIP and extract it.
 
-<pre>$ wget http://downloads.wordpress.org/plugin/google-analytics-for-wordpress.4.3.3.zip
-$ unzip google-analytics-for-wordpress.4.3.3.zip</pre>
+{% highlight shell %}$ wget http://downloads.wordpress.org/plugin/google-analytics-for-wordpress.4.3.3.zip
+$ unzip google-analytics-for-wordpress.4.3.3.zip{% endhighlight %}
 
 Move folder what came in the ZIP file in wordpress/wp-content/plugins. And remove useless ZIP file.
 
-<pre>$ mv google-analytics-for-wordpress wordpress/wp-content/plugins/
-$ rm google-analytics-for-wordpress.4.3.3.zip</pre>
+{% highlight shell %}$ mv google-analytics-for-wordpress wordpress/wp-content/plugins/
+$ rm google-analytics-for-wordpress.4.3.3.zip{% endhighlight %}
 
 Then you can go to your Wordpress and choose plugins -> installed plugins and new plugin have came to the site and ready to be activated.
 

@@ -31,24 +31,24 @@ I’m using Xubuntu 12.04.03 32bit
 
 Update apt and use it to install Puppet
 
-<pre>$ sudo apt-get update && sudo apt-get -y install puppet
-</pre>
+{% highlight shell %}$ sudo apt-get update && sudo apt-get -y install puppet
+{% endhighlight %}
 
 Create folders where you add your init.pp file
 
-<pre>$ mkdir puppet/
+{% highlight shell %}$ mkdir puppet/
 $ cd puppet/
 $ mkdir -p modules/hello_define/manifests/
-</pre>
+{% endhighlight %}
 
 Then create init.pp file and modify it
 
-<pre>$ nano modules/hello_define/manifests/init.pp
-</pre>
+{% highlight shell %}$ nano modules/hello_define/manifests/init.pp
+{% endhighlight %}
 
 Make hello_define class that creates two files with different content using define types. Modify your init.pp file look like this
 
-<pre>class hello_define {
+{% highlight shell %}class hello_define {
     define hello_define ($content_variable) {
       file {"$title":
         ensure  => file,
@@ -64,32 +64,32 @@ Make hello_define class that creates two files with different content using defi
       content_variable => "This is my second define. Greeting from soivi.net\n",
     }
 }
-</pre>
+{% endhighlight %}
 
 ## Apply Define Types
 
 Apply hello_define module with Puppet.
 
-<pre>$ puppet apply --modulepath modules/ -e 'class {"hello_define":}'
-</pre>
+{% highlight shell %}$ puppet apply --modulepath modules/ -e 'class {"hello_define":}'
+{% endhighlight %}
 
 Now hello_define module has created two files. Files are in /tmp/ folder. You can cat those files and see what are inside them
 
-<pre>$ cat /tmp/hello_define1 
+{% highlight shell %}$ cat /tmp/hello_define1 
 Hello World. This is first define
 
 $ cat /tmp/hello_define2
 This is my second define. Greeting from soivi.net
-</pre>
+{% endhighlight %}
 
 The folder tree looks now like this
 
-<pre>puppet/
+{% highlight shell %}puppet/
 └── modules
     └── hello_define
         └── manifests
             └── init.pp
-</pre>
+{% endhighlight %}
 
 Comment and let me know what you think of this guide. Did you manage to do hello_define module? Was there something incorrect?
 

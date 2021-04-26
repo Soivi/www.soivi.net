@@ -22,22 +22,22 @@ This is step by step how you will install Puppet to your Xubuntu 12.04.03.
 
 Update your packages and install Puppet
 
-<pre>$ sudo apt-get update && sudo apt-get -y install puppet</pre>
+{% highlight shell %}$ sudo apt-get update && sudo apt-get -y install puppet{% endhighlight %}
 
 Test if Puppet works. One line command to Puppet.
 
-<pre>$ puppet apply -e 'file { "/tmp/helloPuppet": content => "Hello World!\n" }'
+{% highlight shell %}$ puppet apply -e 'file { "/tmp/helloPuppet": content => "Hello World!\n" }'
 notice: /Stage[main]//File[/tmp/helloPuppet]/ensure: defined content as '{md5}8ddd8be4b179a529afa5f2ffae4b9858'
-notice: Finished catalog run in 0.01 seconds</pre>
+notice: Finished catalog run in 0.01 seconds{% endhighlight %}
 
 Let's make sure if the file was created.
 
-<pre>$ cat /tmp/helloPuppet
-Hello World!</pre>
+{% highlight shell %}$ cat /tmp/helloPuppet
+Hello World!{% endhighlight %}
 
 Make hellotest module
 
-<pre>$ mkdir puppet
+{% highlight shell %}$ mkdir puppet
 $ cd puppet/
 $ mkdir -p modules/hellotest/manifests/
 $ nano modules/hellotest/manifests/init.pp
@@ -46,37 +46,37 @@ class hellotest {
     file { '/tmp/testModule':
         content => "Come visit Soivi.net!\n"
     } 
-}</pre>
+}{% endhighlight %}
 
 Apply Puppet module and test if the file is created.
 
-<pre>$ puppet apply --modulepath modules/ -e 'class {"hellotest":}'
+{% highlight shell %}$ puppet apply --modulepath modules/ -e 'class {"hellotest":}'
 notice: /Stage[main]/Hellotest/File[/tmp/testModule]/ensure: defined content as '{md5}f0033e0a0e954ec5096ef8af2126fc21'
 notice: Finished catalog run in 0.03 seconds
 $ cat /tmp/testModule
-Come visit [Soivi.net](http://soivi.net)!</pre>
+Come visit [Soivi.net](http://soivi.net)!{% endhighlight %}
 
 Make module that installs gedit.
 
-<pre>$ mkdir -p modules/gedit/manifests/
+{% highlight shell %}$ mkdir -p modules/gedit/manifests/
 $ nano modules/gedit/manifests/init.pp
 
 class gedit {
     package { "gedit":
         ensure     => present,
     }
-}</pre>
+}{% endhighlight %}
 
 Apply Puppet module that installs Gedit
 
-<pre>$ sudo puppet apply --modulepath modules/ -e 'class {"gedit":}'
+{% highlight shell %}$ sudo puppet apply --modulepath modules/ -e 'class {"gedit":}'
 
 notice: /Stage[main]/Gedit/Package[gedit]/ensure: ensure changed 'purged' to 'present'
-notice: Finished catalog run in 16.29 seconds</pre>
+notice: Finished catalog run in 16.29 seconds{% endhighlight %}
 
 Let's test that Gedit will start
 
-<pre>$ gedit</pre>
+{% highlight shell %}$ gedit{% endhighlight %}
 
 Now you have successfully installed Puppet and tested it.
 

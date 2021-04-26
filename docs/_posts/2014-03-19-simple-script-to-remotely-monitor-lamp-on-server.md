@@ -27,26 +27,26 @@ In this tutorial I'm going to create simple script that checks every 30 minutes 
 
 First install curl and test your site where you going to put your tester index.php. Anwser should be empty.
 
-<pre>local$ sudo apt-get install curl
+{% highlight shell %}local$ sudo apt-get install curl
 local$ curl tester.net
-</pre>
+{% endhighlight %}
 
 ## <a name="mysqlonserver" style="color:rgb(0,0,0);">Create mysql user to server</a>
 
 Create user tester in MySQL
 
-<pre>server$ mysql -u root -p
+{% highlight shell %}server$ mysql -u root -p
 
 CREATE DATABASE tester;
 GRANT ALL ON tester.* TO tester@localhost IDENTIFIED BY "SECRETPASSWORD";
 EXIT;
-</pre>
+{% endhighlight %}
 
 ## <a name="phponserver" style="color:rgb(0,0,0);">Create tester php file to server</a>
 
 Create folder where is index.php what checks connection to MySQL
 
-<pre>server$ cd public_html/
+{% highlight shell %}server$ cd public_html/
 server$ mkdir tester
 server$ nano tester/index.php
 
@@ -62,13 +62,13 @@ server$ nano tester/index.php
         }
 
 ?> 
-</pre>
+{% endhighlight %}
 
 ## <a name="apacheonserver" style="color:rgb(0,0,0);">Create new site to Apache in server</a>
 
 Add new site to Apache and enable it
 
-<pre>server$ sudoedit /etc/apache2/sites-available/tester.net
+{% highlight shell %}server$ sudoedit /etc/apache2/sites-available/tester.net
 
 <VirtualHost *:80>
         ServerName tester.net
@@ -78,21 +78,21 @@ Add new site to Apache and enable it
 
 server$ sudo a2ensite tester.net
 server$ sudo service apache2 reload
-</pre>
+{% endhighlight %}
 
 ## Check that server side works using local
 
 Check that site really works. Curl should print "works"
 
-<pre>local$ curl tester.net
+{% highlight shell %}local$ curl tester.net
 works
-</pre>
+{% endhighlight %}
 
 ## Create script to local
 
 Create shell script that will get tester.net site with curl and checks if site is still on.
 
-<pre>local$ nano serverTesterScript.sh
+{% highlight shell %}local$ nano serverTesterScript.sh
 
 #!/bin/bash/
 
@@ -106,46 +106,46 @@ else
                 /usr/bin/notify-send 'Something wrong with the server' 'Server doesnt work properly'
         fi
 fi
-</pre>
+{% endhighlight %}
 
 ## Schedule script to local using crontab
 
 Then add your script to crontab so it runs script every minute.
 
-<pre>local$ crontab -e
+{% highlight shell %}local$ crontab -e
 
 */1 *   *   *   *    export DISPLAY=:0.0 && sudo -u user bash /home/user/serverTesterScript.sh
-</pre>
+{% endhighlight %}
 
 ## Test everything works in local
 
 Now you can test if it works.
 
-<pre>server$ mv public_html/tester/index.php public_html/tester/index.php2
-</pre>
+{% highlight shell %}server$ mv public_html/tester/index.php public_html/tester/index.php2
+{% endhighlight %}
 
 [![testerError1]({{ site.baseurl }}/assets/2014/03/testerError1.png)](http://soivi.net/wp-content/uploads/2014/03/testerError1.png)
 
-<pre>server$ mv public_html/tester/index.php2 public_html/tester/index.php
+{% highlight shell %}server$ mv public_html/tester/index.php2 public_html/tester/index.php
 server$ sudo service apache2 stop
-</pre>
+{% endhighlight %}
 
 [![testerError2]({{ site.baseurl }}/assets/2014/03/testerError2.png)](http://soivi.net/wp-content/uploads/2014/03/testerError2.png)
 
-<pre>server$ sudo service apache2 start
+{% highlight shell %}server$ sudo service apache2 start
 server$ sudo service mysql stop
-</pre>
+{% endhighlight %}
 
 [![testerError3]({{ site.baseurl }}/assets/2014/03/testerError3.png)](http://soivi.net/wp-content/uploads/2014/03/testerError3.png)
 
-<pre>server$ sudo service mysql start
-</pre>
+{% highlight shell %}server$ sudo service mysql start
+{% endhighlight %}
 
 ## Start using
 
 Now everything should work and you can edit crontab so script is runned every 30 minutes.
 
-<pre>local$ crontab -e
+{% highlight shell %}local$ crontab -e
 
 */30 *   *   *   *    export DISPLAY=:0.0 && sudo -u user bash /home/user/serverTesterScript.sh
-</pre>
+{% endhighlight %}

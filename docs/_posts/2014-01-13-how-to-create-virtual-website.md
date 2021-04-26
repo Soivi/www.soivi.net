@@ -25,13 +25,13 @@ First you need to install Apache. Here is tutorial how you do that: [How to inst
 
 Find out your ip address and add it to your hosts file
 
-<pre>$ ifconfig
+{% highlight shell %}$ ifconfig
 $ sudoedit /etc/hosts
-</pre>
+{% endhighlight %}
 
 1.2.3.4 is my ip address and test.soivi and www.test.soivi are my domain names.
 
-<pre>127.0.0.1       localhost
+{% highlight shell %}127.0.0.1       localhost
 127.0.1.1       yourComputerName
 1.2.3.4    test.soivi
 1.2.3.4    www.test.soivi
@@ -42,33 +42,33 @@ fe00::0 ip6-localnet
 ff00::0 ip6-mcastprefix
 ff02::1 ip6-allnodes
 ff02::2 ip6-allrouters
-</pre>
+{% endhighlight %}
 
 Add file test.soivi in /etc/apache2/sites-available/
 
-<pre>$ cd /etc/apache2/sites-available/
+{% highlight shell %}$ cd /etc/apache2/sites-available/
 $ sudoedit test.soivi
-</pre>
+{% endhighlight %}
 
 This file tells where is the test.soivi's index file. This is my directory "/home/user/public_html/" where my index file is.
 
-<pre><VirtualHost *:80>
+{% highlight shell %}<VirtualHost *:80>
         ServerName test.soivi
         ServerAlias www.test.soivi
         DocumentRoot "/home/user/public_html/"
 </VirtualHost>
-</pre>
+{% endhighlight %}
 
 Enable site and reload Apache
 
-<pre>$ sudo a2ensite test.soivi
+{% highlight shell %}$ sudo a2ensite test.soivi
 $ sudo service apache2 reload
-</pre>
+{% endhighlight %}
 
 Now www.test.soivi and test.soivi domains works in your local computer.
 
-<pre>$ firefox http://www.test.soivi/
+{% highlight shell %}$ firefox http://www.test.soivi/
 $ firefox http://test.soivi/
-</pre>
+{% endhighlight %}
 
 Now you have virtual websites in your local computer.

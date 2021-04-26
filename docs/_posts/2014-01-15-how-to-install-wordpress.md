@@ -21,37 +21,37 @@ First you need to install LAMP: [How to install LAMP](http://soivi.net/2014/how-
 
 Login in to mysql as a root
 
-<pre>$ mysql -u root -p
-</pre>
+{% highlight shell %}$ mysql -u root -p
+{% endhighlight %}
 
 Create database and user what your WordPress is using.
 
-<pre>CREATE DATABASE soiviwordpress;
+{% highlight shell %}CREATE DATABASE soiviwordpress;
 GRANT ALL ON soiviwordpress.* TO soiviwordpress@localhost IDENTIFIED BY "SECRETPASSWORD";
 EXIT;
-</pre>
+{% endhighlight %}
 
 Create public_html folder and download latest WordPress tar package.
 
-<pre>$ mkdir ~/public_html/
+{% highlight shell %}$ mkdir ~/public_html/
 $ cd ~/public_html/
 $ wget http://wordpress.org/latest.tar.gz
-</pre>
+{% endhighlight %}
 
 Extract tar file and remove it. Then move all files and folders to public_html folder and remove wordpress folder.
 
-<pre>$ tar -xf latest.tar.gz
+{% highlight shell %}$ tar -xf latest.tar.gz
 $ rm latest.tar.gz
 $ mv wordpress/* .
 $ rmdir wordpress/
-</pre>
+{% endhighlight %}
 
 If your going to use domain name I recommend you use it when installing WordPress. That will save your time. ( I'm using virtual website. Here is tutorial how to do virtual website: [How to create virtual website](http://soivi.net/2014/how-to-create-virtual-website/) )
 
 Open firefox. ( My domain name is test.soivi where I'm going to install WordPress )
 
-<pre>$ firefox http://test.soivi/
-</pre>
+{% highlight shell %}$ firefox http://test.soivi/
+{% endhighlight %}
 
 Push "Create Configuration File"  
 [![HowToInstallWordpress1]({{ site.baseurl }}/assets/2014/01/HowToInstallWordpress1.png)](http://soivi.net/wp-content/uploads/2014/01/HowToInstallWordpress1.png)
@@ -64,13 +64,13 @@ Add your databases name, username and password to that user. Press "Submit"
 
 You have to create manually wp-config.php
 
-<pre>$ nano ~/public_html/wp-config.php
-</pre>
+{% highlight shell %}$ nano ~/public_html/wp-config.php
+{% endhighlight %}
 
 Paste whole text what WordPress is asking you to do. ( Text is something like this ).  
 BE SURE YOU WILL COPY THE WHOLE TEXT WHAT WORDPRESS IS ASKING YOU TO COPY.
 
-<pre><?php
+{% highlight shell %}<?php
 /**
  * The base configurations of the WordPress.
  *
@@ -80,7 +80,7 @@ BE SURE YOU WILL COPY THE WHOLE TEXT WHAT WORDPRESS IS ASKING YOU TO COPY.
 ...
   /** Sets up WordPress vars and included files. */
   require_once(ABSPATH . 'wp-settings.php');
-</pre>
+{% endhighlight %}
 
 After you have copied wp-config.php press "Run the install"  
 [![HowToInstallWordpress4]({{ site.baseurl }}/assets/2014/01/HowToInstallWordpress4.png)](http://soivi.net/wp-content/uploads/2014/01/HowToInstallWordpress4.png)

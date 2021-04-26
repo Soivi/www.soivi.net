@@ -30,13 +30,13 @@ In this tutorial there are two modules. First module is installing Apache. Secon
 
 Create folders and make init.pp file
 
-<pre>$ mkdir -p puppet/modules/apache2/manifests
+{% highlight shell %}$ mkdir -p puppet/modules/apache2/manifests
 $ cd puppet/
-$ nano modules/apache2/manifests/init.pp</pre>
+$ nano modules/apache2/manifests/init.pp{% endhighlight %}
 
 Add package, service and files in to init.pp. Package is installing Apache. Files will create symlinks. This is obligatory if you want to use user directories. Files modify a2enmod so it's enabling userdirs. When Apache is installed and symlinks are created. Service is checking your Apache is really started and running. If Apache isn't running service will start it.
 
-<pre>class apache2 {
+{% highlight shell %}class apache2 {
         package {'apache2':
                 ensure => present,
         }
@@ -60,11 +60,11 @@ Add package, service and files in to init.pp. Package is installing Apache. File
                 notify => Service["apache2"],
                 require => Package["apache2"],
         }
-}</pre>
+}{% endhighlight %}
 
 Apply apache2 module.
 
-<pre>$ sudo puppet apply --modulepath modules/ -e 'class {"apache2":}'</pre>
+{% highlight shell %}$ sudo puppet apply --modulepath modules/ -e 'class {"apache2":}'{% endhighlight %}
 
 Now you have module that will install Apache, if it isn't installed. Enables user directories, if those aren't enabled. And will make sure that Apache is running.
 
@@ -72,7 +72,7 @@ Now you have module that will install Apache, if it isn't installed. Enables use
 
 Let's try your module is really working. Let's make public_html folder and add to there example index.html file
 
-<pre>$ mkdir ~/public_html
+{% highlight shell %}$ mkdir ~/public_html
 $ nano ~/public_html/index.html
 
 <!DOCTYPE HTML>
@@ -80,12 +80,12 @@ $ nano ~/public_html/index.html
      <body>
           <p>Hello World!</p>
      </body>
-</html></pre>
+</html>{% endhighlight %}
 
 Open firefox
 
-<pre>$ firefox localhost/~user/
-Hello World!</pre>
+{% highlight shell %}$ firefox localhost/~user/
+Hello World!{% endhighlight %}
 
 Now we are successfully used Puppet modules to install Apache. In second module we are installing Apache and PHP.
 
@@ -93,12 +93,12 @@ Now we are successfully used Puppet modules to install Apache. In second module 
 
 Now we create new module. Add needed folders and init.pp
 
-<pre>$ mkdir -p modules/phpwithapache/manifests
-$ nano modules/phpwithapache/manifests/init.pp</pre>
+{% highlight shell %}$ mkdir -p modules/phpwithapache/manifests
+$ nano modules/phpwithapache/manifests/init.pp{% endhighlight %}
 
 Create module that makes same things that first module, but also installs php5 and libapache2-mod-php5\. Then module enables php5 working in user directories.
 
-<pre>class phpwithapache{
+{% highlight shell %}class phpwithapache{
         package {'apache2':
                 ensure => present,
         }
@@ -132,11 +132,11 @@ Create module that makes same things that first module, but also installs php5 a
                 enable => "true",
                 require => Package["apache2"],
         }
-}</pre>
+}{% endhighlight %}
 
 Create templates folder and php5.conf.erb file there what overwrites your php5.conf file. New php5.conf file enables php5 to users. Without making these configure changes to php5.conf php5 isn't working in user directories.
 
-<pre>$ mkdir -p modules/phpwithapache/templates
+{% highlight shell %}$ mkdir -p modules/phpwithapache/templates
 $ nano modules/phpwithapache/templates/php5.conf.erb 
 
 <IfModule mod_php5.c>
@@ -154,18 +154,18 @@ $ nano modules/phpwithapache/templates/php5.conf.erb
    #         php_admin_value engine Off
    #     </Directory>
    # </IfModule>
-</IfModule></pre>
+</IfModule>{% endhighlight %}
 
 Apply phpwithapache module
 
-<pre>$ sudo puppet apply --modulepath modules/ -e 'class {"phpwithapache":}'
-</pre>
+{% highlight shell %}$ sudo puppet apply --modulepath modules/ -e 'class {"phpwithapache":}'
+{% endhighlight %}
 
 ## Testing PHP
 
 Modify index.html to index.php what is in your public_html and create example php page
 
-<pre>$ mv ~/public_html/index.html ~/public_html/index.php
+{% highlight shell %}$ mv ~/public_html/index.html ~/public_html/index.php
 $ nano ~/public_html/index.php
 
 <!DOCTYPE html>
@@ -176,14 +176,14 @@ $ nano ~/public_html/index.php
               echo "Hello World!";
           ?>
      </body>
-</html></pre>
+</html>{% endhighlight %}
 
 Test your index.php
 
-<pre>$ firefox localhost/~user/
+{% highlight shell %}$ firefox localhost/~user/
 
 My first PHP page
-Hello World! </pre>
+Hello World! {% endhighlight %}
 
 ## Conclusion
 
@@ -191,7 +191,7 @@ Now you have created two Puppet modules. First module installed Apache2\. Second
 
 Here is what your folder/file tree should look like
 
-<pre>puppet/
+{% highlight shell %}puppet/
 └── modules
     ├── apache2
     │   └── manifests
@@ -202,7 +202,7 @@ Here is what your folder/file tree should look like
         └── templates
             └── php5.conf.erb
 
-6 directories, 3 files</pre>
+6 directories, 3 files{% endhighlight %}
 
 Sources:  
 [Samuel Kontiomaa](http://samuelkontiomaa.com/2013/11/01/hello-puppet-module/)

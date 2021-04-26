@@ -27,37 +27,37 @@ Install LAMP:
 
 Install git
 
-<pre>$ sudo apt-get install git</pre>
+{% highlight shell %}$ sudo apt-get install git{% endhighlight %}
 
 Clone repository:
 
-<pre>$ git clone https://github.com/Soivi/postalcode.git</pre>
+{% highlight shell %}$ git clone https://github.com/Soivi/postalcode.git{% endhighlight %}
 
 Create config.php
 
-<pre>$ cd postalcode
-$ nano config.php</pre>
+{% highlight shell %}$ cd postalcode
+$ nano config.php{% endhighlight %}
 
 Inside config.php add these lines.
 
-<pre><?php
+{% highlight shell %}<?php
         define (DSN, "mysql:host=localhost;dbname=postalcodesoivi");
         define (DB_USER, "user");
         define (DB_PASSWORD, "password");
 ?>
-</pre>
+{% endhighlight %}
 
 Create database
 
-<pre>$ mysql -u root -p
+{% highlight shell %}$ mysql -u root -p
 
 CREATE DATABASE postalcodesoivi;
 GRANT ALL ON postalcodesoivi.* TO user@localhost IDENTIFIED BY 'password';
 exit
-</pre>
+{% endhighlight %}
 
 Add postalcode table and test data
 
-<pre>$ mysql -u user -ppassword postalcodesoivi < create.sql
+{% highlight shell %}$ mysql -u user -ppassword postalcodesoivi < create.sql
 $ mysql -u user -ppassword postalcodesoivi < insert.sql
-</pre>
+{% endhighlight %}

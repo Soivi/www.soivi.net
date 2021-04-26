@@ -28,85 +28,85 @@ You need to have installed openssh-server and git.
 
 Create user and lock it.
 
-<pre>server$ sudo adduser soivishare
-server$ sudo usermod --lock soivishare</pre>
+{% highlight shell %}server$ sudo adduser soivishare
+server$ sudo usermod --lock soivishare{% endhighlight %}
 
 Create folder and give group rights. Use SetGID ( 's' ) so all folders have same permissions.
 
-<pre>server$ sudo mkdir /home/soivishare/repository
-server$ sudo chmod g+rwxs /home/soivishare/repository/</pre>
+{% highlight shell %}server$ sudo mkdir /home/soivishare/repository
+server$ sudo chmod g+rwxs /home/soivishare/repository/{% endhighlight %}
 
 Add folder owner group to soivishare and add it to users what can use the shared folder.
 
-<pre>server$ sudo chown .soivishare /home/soivishare/repository/
-server$ sudo adduser exampleUser soivishare</pre>
+{% highlight shell %}server$ sudo chown .soivishare /home/soivishare/repository/
+server$ sudo adduser exampleUser soivishare{% endhighlight %}
 
 You need to logout / exit to get rights working.
 
-<pre>server$ exit</pre>
+{% highlight shell %}server$ exit{% endhighlight %}
 
 Login again and create file.
 
-<pre>server$ nano /home/soivishare/repository/hello.txt
+{% highlight shell %}server$ nano /home/soivishare/repository/hello.txt
 server$ cat /home/soivishare/repository/hello.txt 
-Hello World!</pre>
+Hello World!{% endhighlight %}
 
 Now you have shared folder.
 
 Create repository
 
-<pre>server$ cd /home/soivishare/repository/
+{% highlight shell %}server$ cd /home/soivishare/repository/
 server$ mkdir helloGit.git
 server$ cd helloGit.git/
 server$ git init --bare --shared
-server$ exit</pre>
+server$ exit{% endhighlight %}
 
 Create folder what you want to add in repository.
 
-<pre>$ mkdir helloGit
-$ cd helloGit/</pre>
+{% highlight shell %}$ mkdir helloGit
+$ cd helloGit/{% endhighlight %}
 
 Create empty git and add README file
 
-<pre>$ git init
+{% highlight shell %}$ git init
 $ nano README
 
-Hello GIT</pre>
+Hello GIT{% endhighlight %}
 
 Add and commit. Using -m you can write message directly to commit command.
 
-<pre>$ git add .
-$ git commit -m "Added README"</pre>
+{% highlight shell %}$ git add .
+$ git commit -m "Added README"{% endhighlight %}
 
 Add repository to your repository
 
-<pre>$ git remote add origin ssh://exampleUser@example.net/home/soivishare/repository/helloGit.git</pre>
+{% highlight shell %}$ git remote add origin ssh://exampleUser@example.net/home/soivishare/repository/helloGit.git{% endhighlight %}
 
 Push your project to repository
 
-<pre>$ git push origin master
-$ git branch --set-upstream master origin/master</pre>
+{% highlight shell %}$ git push origin master
+$ git branch --set-upstream master origin/master{% endhighlight %}
 
 Modify README and test repository really works
 
-<pre>$ nano README
+{% highlight shell %}$ nano README
 MODIFIED 27.11.2013
 Hello GIT
 $ git add . && git commit -m "Modified README"
 $ git pull && git push
-$ cd ..</pre>
+$ cd ..{% endhighlight %}
 
 Create new folder and make clone.
 
-<pre>$ mkdir clone
+{% highlight shell %}$ mkdir clone
 $ cd clone/
-$ git clone ssh://exampleUser@example.net/home/soivishare/repository/helloGit.git</pre>
+$ git clone ssh://exampleUser@example.net/home/soivishare/repository/helloGit.git{% endhighlight %}
 
 Test that your newest version comes to repository.
 
-<pre>$ cat helloGit/README 
+{% highlight shell %}$ cat helloGit/README 
 MODIFIED 27.11.2013
-Hello GIT</pre>
+Hello GIT{% endhighlight %}
 
 Now you have:  
 - Shared folder that other users can use  

@@ -26,7 +26,7 @@ Here is example how you can create template files to your Puppet module
 
 Create folders and init.pp file
 
-<pre>$ mkdir puppet/
+{% highlight shell %}$ mkdir puppet/
 $ cd puppet/
 $ mkdir -p modules/hellotemplate/manifests/
 $ nano modules/hellotemplate/manifests/init.pp
@@ -36,47 +36,47 @@ class hellotemplate {
         file { '/tmp/testModule':
                 content => template("hellotemplate/testTemplate.erb"),
         }
-}</pre>
+}{% endhighlight %}
 
 Create folder to your template and template file
 
-<pre>$ mkdir -p modules/hellotemplate/templates/
-$ nano modules/hellotemplate/templates/testTemplate.erb</pre>
+{% highlight shell %}$ mkdir -p modules/hellotemplate/templates/
+$ nano modules/hellotemplate/templates/testTemplate.erb{% endhighlight %}
 
 Create test content using facter variables
 
-<pre>Greetings from template!
+{% highlight shell %}Greetings from template!
 TestVariable: <%= @testVariable %>
 Operating system release = <%= @operatingsystemrelease %>
 <% if @operatingsystemrelease != "13.10" -%>
      Time to change to a new release?
 <% else -%>
      You have the newest release!
-<% end -%></pre>
+<% end -%>{% endhighlight %}
 
 Apply your hellotemplate module
 
-<pre>$ sudo puppet apply --modulepath modules/ -e 'class {"hellotemplate":}'</pre>
+{% highlight shell %}$ sudo puppet apply --modulepath modules/ -e 'class {"hellotemplate":}'{% endhighlight %}
 
 Test if file was created to your computer
 
-<pre>$ cat /tmp/testModule
+{% highlight shell %}$ cat /tmp/testModule
 Greetings from template!
 TestVariable: I am variable from init.pp
 Operating system release = 12.04
-Time to change to a new release?</pre>
+Time to change to a new release?{% endhighlight %}
 
 Now you have created module that uses templates!
 
 More facter variables you can find with
 
-<pre>$ facter
+{% highlight shell %}$ facter
 $ sudo facter 
-$ sudo facter -p | less</pre>
+$ sudo facter -p | less{% endhighlight %}
 
 These is what your folder/file tree should look like
 
-<pre>puppet/
+{% highlight shell %}puppet/
 └── modules
     └── hellotemplate
         ├── manifests
@@ -84,6 +84,6 @@ These is what your folder/file tree should look like
         └── templates
             └── testTemplate.erb
 
-4 directories, 2 files</pre>
+4 directories, 2 files{% endhighlight %}
 
 This post is part of [course](http://terokarvinen.com/2013/aikataulu-%E2%80%93-linuxin-keskitetty-hallinta-%E2%80%93-ict4tn011-4-syksylla-2013)

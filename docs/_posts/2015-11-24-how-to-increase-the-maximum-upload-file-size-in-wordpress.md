@@ -35,21 +35,21 @@ As you can see my maximum upload file size is 2mb.
 
 First you need to know where your php configurations is. Create info.php under your wp-admin.
 
-<pre>$ cd wordpress/wp-admin
+{% highlight shell %}$ cd wordpress/wp-admin
 $ nano info.php
-</pre>
+{% endhighlight %}
 
 In info.php add these lines. This is just normal phpinfo.
 
-<pre><?php
+{% highlight shell %}<?php
 phpinfo();
 ?>
-</pre>
+{% endhighlight %}
 
 Goto to site: yourdomain.com/wp-admin/info.php. Example I go to:
 
-<pre>https://soivi.net/wp-admin/info.php
-</pre>
+{% highlight shell %}https://soivi.net/wp-admin/info.php
+{% endhighlight %}
 
 Here you can see where php configurations are.  
 [![151124_MediaUploadIncrease2]({{ site.baseurl }}/assets/2015/11/151124_MediaUploadIncrease2.png)](http://soivi.net/wp-content/uploads/2015/11/151124_MediaUploadIncrease2.png)
@@ -60,21 +60,21 @@ There are couple ways to modify php configurations. One way is to modify php.ini
 
 Go to where your "Scan this dir for additional .ini files" points and create new file upload.ini
 
-<pre>$ cd /etc/php5/apache2/conf.d
+{% highlight shell %}$ cd /etc/php5/apache2/conf.d
 $ sudoedit upload.ini
-</pre>
+{% endhighlight %}
 
 In this upload.ini add these lines
 
-<pre>upload_max_filesize = 64M
+{% highlight shell %}upload_max_filesize = 64M
 post_max_size = 64M
 max_execution_time = 300
-</pre>
+{% endhighlight %}
 
 Then restart your apache
 
-<pre>$ sudo service apache2 restart
-</pre>
+{% highlight shell %}$ sudo service apache2 restart
+{% endhighlight %}
 
 In php info you can see the new conf.d file have been added.  
 [![151124_MediaUploadIncrease3]({{ site.baseurl }}/assets/2015/11/151124_MediaUploadIncrease3.png)](http://soivi.net/wp-content/uploads/2015/11/151124_MediaUploadIncrease3.png)
@@ -84,5 +84,5 @@ Go to your media and see that maximum upload size have been increased.
 
 Remember to delete your info.php that you created at beginning of this post.
 
-<pre>$ rm wordpress/wp-admin/info.php
-</pre>
+{% highlight shell %}$ rm wordpress/wp-admin/info.php
+{% endhighlight %}

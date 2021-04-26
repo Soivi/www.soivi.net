@@ -28,27 +28,27 @@ I have done 4 users and created public key authentication to them. You can see h
 
 Install Fabric from apt
 
-<pre>$ sudo apt-get update && sudo apt-get -y install fabric
-</pre>
+{% highlight shell %}$ sudo apt-get update && sudo apt-get -y install fabric
+{% endhighlight %}
 
 Or you can get it from pip.
 
-<pre>$ sudo apt-get update && sudo apt-get -y install python-pip
+{% highlight shell %}$ sudo apt-get update && sudo apt-get -y install python-pip
 $ sudo pip install fabric
-</pre>
+{% endhighlight %}
 
 ## Whoami
 
 Create fabric folder and fabfile.py
 
-<pre>$ mkdir fabric
+{% highlight shell %}$ mkdir fabric
 $ cd fabric/
 $ nano fabfile.py
-</pre>
+{% endhighlight %}
 
 Create fabfile what runs command whoami to every user over ssh.
 
-<pre>from fabric.api import env, run
+{% highlight shell %}from fabric.api import env, run
 
 env.hosts=["soivite01@localhost", "soivite02@localhost",
                 "soivite03@localhost", "soivite04@localhost"]
@@ -58,19 +58,19 @@ env.parallel=True
 
 def whoami_check():
     run("whoami")
-</pre>
+{% endhighlight %}
 
 With fab -l you can see all commands
 
-<pre>$ fab -l
+{% highlight shell %}$ fab -l
 
 Available commands:
     whoami_check
-</pre>
+{% endhighlight %}
 
 Run whoami_check with fabric.
 
-<pre>$ fab whoami_check
+{% highlight shell %}$ fab whoami_check
 
 [soivite01@localhost] Executing task 'whoami_check'
 ...
@@ -81,56 +81,56 @@ Run whoami_check with fabric.
 [soivite03@localhost] out: soivite03
 [soivite04@localhost] out: soivite04
 Done.
-</pre>
+{% endhighlight %}
 
 Using time before the command you can see how much time is used to run fabric command.
 
-<pre>$ time fab whoami_check
+{% highlight shell %}$ time fab whoami_check
 
 ...
 real	0m2.234s
 user	0m0.692s
 sys	0m0.060s
-</pre>
+{% endhighlight %}
 
 ## Put and get files
 
 Create example file that you can put to users and get that same file from users.
 
-<pre>$ nano sendFile.txt
+{% highlight shell %}$ nano sendFile.txt
 
 Hello World
-</pre>
+{% endhighlight %}
 
 Modify fabfile. Add file_put and file_get methods.
 
-<pre>$ nano fabfile.py
-</pre>
+{% highlight shell %}$ nano fabfile.py
+{% endhighlight %}
 
 Add put and get to imports
 
-<pre>from fabric.api import env, run, put, get
-</pre>
+{% highlight shell %}from fabric.api import env, run, put, get
+{% endhighlight %}
 
 If you don't want to give every import by hand you can use this too
 
-<pre>from fabric.api import *
-</pre>
+{% highlight shell %}from fabric.api import *
+{% endhighlight %}
 
 Add file_put and file_get methods to end of the class.
 
-<pre>...
+{% highlight shell %}...
 
 def file_put():
     put("sendFile.txt")
 
 def file_get():
     get("sendFile.txt")
-</pre>
+{% endhighlight %}
 
 Run file_put so your adding files to users.
 
-<pre>$ fab file_put
+{% highlight shell %}$ fab file_put
 
 [soivite01@localhost] Executing task 'file_put'
 [soivite01@localhost] put: sendFile.txt -> /home/soivite01/sendFile.txt
@@ -138,11 +138,11 @@ Run file_put so your adding files to users.
 Done.
 Disconnecting from soivite01@localhost... done.
 ...
-</pre>
+{% endhighlight %}
 
 Run file_get to get same files what you have added.
 
-<pre>$ fab file_get
+{% highlight shell %}$ fab file_get
 
 [soivite01@localhost] Executing task 'file_get'
 [soivite01@localhost] download: /home/xubuntu/fabric/soivite01@localhost/sendFile.txt <- /home/soivite01/sendFile.txt
@@ -150,11 +150,11 @@ Run file_get to get same files what you have added.
 Done.
 Disconnecting from soivite01@localhost... done.
 ...
-</pre>
+{% endhighlight %}
 
 Your fabric folder now looks like this.
 
-<pre>fabric/
+{% highlight shell %}fabric/
 ├── fabfile.py
 ├── fabfile.pyc
 ├── sendFile.txt
@@ -166,32 +166,32 @@ Your fabric folder now looks like this.
 │   └── sendFile.txt
 └── soivite04@localhost
     └── sendFile.txt
-</pre>
+{% endhighlight %}
 
 ## Put and get folders
 
 Create folder and couple files in there
 
-<pre>$ mkdir testFolder && touch testFolder/file1 testFolder/file2
-</pre>
+{% highlight shell %}$ mkdir testFolder && touch testFolder/file1 testFolder/file2
+{% endhighlight %}
 
 Modify fabfile
 
-<pre>$ nano fabfile.py
-</pre>
+{% highlight shell %}$ nano fabfile.py
+{% endhighlight %}
 
 Create method that puts folder to users and gets it.
 
-<pre>...
+{% highlight shell %}...
 
 def folder():
     put("testFolder")
     get("testFolder")
-</pre>
+{% endhighlight %}
 
 Run command
 
-<pre>$ fab folder
+{% highlight shell %}$ fab folder
 
 [soivite01@localhost] Executing task 'folder'
 [soivite01@localhost] put: testFolder/file2 -> /home/soivite01/testFolder/file2
@@ -199,11 +199,11 @@ Run command
 [soivite01@localhost] download: /home/xubuntu/fabric/soivite01@localhost/testFolder/file1 <- /home/soivite01/testFolder/file1
 [soivite01@localhost] download: /home/xubuntu/fabric/soivite01@localhost/testFolder/file2 <- /home/soivite01/testFolder/file2
 ...
-</pre>
+{% endhighlight %}
 
 Your folder tree looks like this.
 
-<pre>fabric/
+{% highlight shell %}fabric/
 ├── fabfile.py
 ├── fabfile.pyc
 ├── sendFile.txt
@@ -230,11 +230,11 @@ Your folder tree looks like this.
 └── testFolder
     ├── file1
     └── file2
-</pre>
+{% endhighlight %}
 
 Your fabfile.py looks like this
 
-<pre>from fabric.api import env, run, put, get
+{% highlight shell %}from fabric.api import env, run, put, get
 
 env.hosts=["soivite01@localhost", "soivite02@localhost",
                 "soivite03@localhost", "soivite04@localhost"]
@@ -254,7 +254,7 @@ def file_get():
 def folder():
     put("testFolder")
     get("testFolder")
-</pre>
+{% endhighlight %}
 
 Next tutorial you learn how to use sudo:  
 [Using sudo in Fabric](http://soivi.net/2013/using-sudo-in-fabric/)
