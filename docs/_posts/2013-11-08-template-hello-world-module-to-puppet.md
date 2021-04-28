@@ -19,7 +19,7 @@ tags:
 permalink: "/2013/template-hello-world-module-to-puppet/"
 ---
 **If you haven't seen my previous tutorial you should see that:  
-[How to install Puppet](http://soivi.net/2013/how-to-install-puppet/).**
+[How to install Puppet](/2013/how-to-install-puppet/).**
 
 I’m using Xubuntu 12.04.03 32bit  
 Here is example how you can create template files to your Puppet module
@@ -99,5 +99,3 @@ puppet/
 
 4 directories, 2 files
 {% endhighlight %}
-
-This post is part of [course](http://terokarvinen.com/2013/aikataulu-%E2%80%93-linuxin-keskitetty-hallinta-%E2%80%93-ict4tn011-4-syksylla-2013)
