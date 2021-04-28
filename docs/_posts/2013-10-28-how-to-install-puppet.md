@@ -22,8 +22,8 @@ This is step by step how you will install Puppet to your Xubuntu 12.04.03.
 
 Update your packages and install Puppet
 
-{% highlight shell %
-}$ sudo apt-get update && sudo apt-get -y install puppet
+{% highlight shell %}
+$ sudo apt-get update && sudo apt-get -y install puppet
 {% endhighlight %}
 
 Test if Puppet works. One line command to Puppet.
