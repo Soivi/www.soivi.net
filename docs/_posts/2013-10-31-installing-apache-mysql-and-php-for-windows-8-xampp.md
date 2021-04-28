@@ -19,7 +19,7 @@ Here are instructions how to install XAMPP in Windows 8 computer.
 What is [XAMPP](http://en.wikipedia.org/wiki/XAMPP)?  
 Go to
 
-{% highlight shell %}[http://www.apachefriends.org/en/xampp-windows.html](http://www.apachefriends.org/en/xampp-windows.html){% endhighlight %}
+[http://www.apachefriends.org/en/xampp-windows.html](http://www.apachefriends.org/en/xampp-windows.html)
 
 Download ZIP file for Windows.  
 Extract ZIP to you C:\ so the XAMPP folder is in C:\xampp  
@@ -51,7 +51,9 @@ Go to and change your MySQL password
 
 {% highlight shell %}http://localhost/security/index.php{% endhighlight %}
 
-![2](/assets/2013/10/2.png)![3](/assets/2013/10/3.png)  
+![2](/assets/2013/10/2.png)
+
+![3](/assets/2013/10/3.png)  
 Stop and start Apache and MySQL with.
 
 {% highlight shell %}$ \xampp\xampp-control.exe{% endhighlight %}
@@ -76,12 +78,16 @@ Go to
 
 Php works.
 
-{% highlight shell %}Hello, World!{% endhighlight %}
+{% highlight shell %}
+Hello, World!
+{% endhighlight %}
 
 Open cmd and open MySQL with root user.
 
-{% highlight shell %}$ cd \xampp\mysql\bin
-$ mysql.exe -u root -p {% endhighlight %}
+{% highlight shell %}
+$ cd \xampp\mysql\bin
+$ mysql.exe -u root -p
+{% endhighlight %}
 
 Create test database and user
 
@@ -91,8 +97,10 @@ mysql> exit{% endhighlight %}
 
 Login with new user and use created database
 
-{% highlight shell %}$ mysql.exe -u soiviPersons -p
-mysql> USE soiviPersons ; {% endhighlight %}
+{% highlight shell %}
+$ mysql.exe -u soiviPersons -p
+mysql> USE soiviPersons ;
+{% endhighlight %}
 
 Create new test table with test material
 
