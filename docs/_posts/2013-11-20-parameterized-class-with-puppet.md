@@ -108,7 +108,7 @@ Run it without parameter. Apache should get installed and should work in localho
 $ sudo puppet apply --modulepath modules/ -e 'class {"apache2":}'
 {% endhighlight %}
 
-[![ParametrizedClassWithPuppet1]({{ site.baseurl }}/assets/2013/11/ParametrizedClassWithPuppet1.png)](http://soivi.net/wp-content/uploads/2013/11/ParametrizedClassWithPuppet1.png)
+![ParametrizedClassWithPuppet1]({{ site.baseurl }}/assets/2013/11/ParametrizedClassWithPuppet1.png)]
 
 Then run Puppet and add to 8080 to port parameter.
 
@@ -117,10 +117,10 @@ $ sudo puppet apply --modulepath modules/ -e 'class {"apache2": port => "8080",}
 {% endhighlight %}
 
 Localhost now stop working.  
-[![ParametrizedClassWithPuppet2]({{ site.baseurl }}/assets/2013/11/ParametrizedClassWithPuppet2.png)](http://soivi.net/wp-content/uploads/2013/11/ParametrizedClassWithPuppet2.png)
+![ParametrizedClassWithPuppet2]({{ site.baseurl }}/assets/2013/11/ParametrizedClassWithPuppet2.png)]
 
 Apache should listen localhost:8080.  
-[![ParametrizedClassWithPuppet3]({{ site.baseurl }}/assets/2013/11/ParametrizedClassWithPuppet3.png)](http://soivi.net/wp-content/uploads/2013/11/ParametrizedClassWithPuppet3.png)  
+![ParametrizedClassWithPuppet3]({{ site.baseurl }}/assets/2013/11/ParametrizedClassWithPuppet3.png)]  
 Ok. We don't want use that port now. So let's change it back to 80.
 
 {% highlight shell %}
@@ -128,10 +128,10 @@ $ sudo puppet apply --modulepath modules/ -e 'class {"apache2": port => "80",}'
 {% endhighlight %}
 
 Localhost:8080 doesn't work no more.  
-[![ParametrizedClassWithPuppet4]({{ site.baseurl }}/assets/2013/11/ParametrizedClassWithPuppet4.png)](http://soivi.net/wp-content/uploads/2013/11/ParametrizedClassWithPuppet4.png)
+![ParametrizedClassWithPuppet4]({{ site.baseurl }}/assets/2013/11/ParametrizedClassWithPuppet4.png)]
 
 Now Apache listens port 80.  
-[![ParametrizedClassWithPuppet5]({{ site.baseurl }}/assets/2013/11/ParametrizedClassWithPuppet5.png)](http://soivi.net/wp-content/uploads/2013/11/ParametrizedClassWithPuppet5.png)
+![ParametrizedClassWithPuppet5]({{ site.baseurl }}/assets/2013/11/ParametrizedClassWithPuppet5.png)]
 
 You have installed Apache2 successfully and changed Apaches port from template using parametrized class.
 
