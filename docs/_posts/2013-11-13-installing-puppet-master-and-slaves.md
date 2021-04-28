@@ -22,8 +22,8 @@ tags:
 permalink: "/2013/installing-puppet-master-and-slaves/"
 ---
 **If you haven't seen my previous tutorials you should see them:  
-[How to install Puppet](http://soivi.net/2013/how-to-install-puppet/), [Hello World module using template to Puppet](http://soivi.net/2013/template-hello-world-module-to-puppet/),  
-[Installing Apache and PHP with Puppet module](http://soivi.net/2013/installing-apache-and-php-with-puppet-module/).**
+[How to install Puppet](/2013/how-to-install-puppet/), [Hello World module using template to Puppet](/2013/template-hello-world-module-to-puppet/),  
+[Installing Apache and PHP with Puppet module](/2013/installing-apache-and-php-with-puppet-module/).**
 
 I’m using Xubuntu 12.04.03 32bit
 

@@ -17,7 +17,7 @@ permalink: "/2014/how-to-install-wordpress/"
 I’m using Ubuntu 12.04.03 32bit and Wordpress 3.8  
 This tutorial I'm going to install [Wordpress](http://en.wikipedia.org/wiki/WordPress).  
 [Why to choose wordpress](http://www.lennu.net/best-blogging-platform-is-wordpress/)  
-First you need to install LAMP: [How to install LAMP](http://soivi.net/2014/how-to-install-lamp/)
+First you need to install LAMP: [How to install LAMP](/2014/how-to-install-lamp/)
 
 Login in to mysql as a root
 
@@ -50,7 +50,7 @@ $ mv wordpress/* .
 $ rmdir wordpress/
 {% endhighlight %}
 
-If your going to use domain name I recommend you use it when installing WordPress. That will save your time. ( I'm using virtual website. Here is tutorial how to do virtual website: [How to create virtual website](http://soivi.net/2014/how-to-create-virtual-website/) )
+If your going to use domain name I recommend you use it when installing WordPress. That will save your time. ( I'm using virtual website. Here is tutorial how to do virtual website: [How to create virtual website](/2014/how-to-create-virtual-website/) )
 
 Open firefox. ( My domain name is test.soivi where I'm going to install WordPress )
 

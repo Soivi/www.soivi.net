@@ -24,7 +24,7 @@ In this tutorial I'm using fabric to:
 - method that gets file/folder from user
 
 I have done 4 users and created public key authentication to them. You can see how I have done it from this tutorial:  
-[Public key authentication over SSH](http://soivi.net/2013/public-key-authentication-over-ssh/)
+[Public key authentication over SSH](/2013/public-key-authentication-over-ssh/)
 
 Install Fabric from apt
 
@@ -278,7 +278,7 @@ def folder():
 {% endhighlight %}
 
 Next tutorial you learn how to use sudo:  
-[Using sudo in Fabric](http://soivi.net/2013/using-sudo-in-fabric/)
+[Using sudo in Fabric](/2013/using-sudo-in-fabric/)
 
 Source:  
 [Fabric tutorial 1 – Take command of your network](http://awaseroot.wordpress.com/2012/04/23/fabric-tutorial-1-take-command-of-your-network/)

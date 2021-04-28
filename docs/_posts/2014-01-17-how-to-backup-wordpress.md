@@ -30,14 +30,14 @@ Now you have backupped your WordPress.
 ## Import
 
 Of course we want to test if backup is really working so let's import it to empty WordPress.  
-I have empty WordPress installed to my computer: [How to install WordPress](http://soivi.net/2014/how-to-install-wordpress/)  
+I have empty WordPress installed to my computer: [How to install WordPress](/2014/how-to-install-wordpress/)  
 Download [WordPress Importer](http://wordpress.org/plugins/wordpress-importer/).
 
 {% highlight shell %}
 $ wget http://downloads.wordpress.org/plugin/wordpress-importer.0.6.1.zip
 {% endhighlight %}
 
-We add plugin to WordPress manually: [How to add plugins to your WordPress manually](http://soivi.net/2013/how-to-add-plugins-to-your-wordpress-manually/)
+We add plugin to WordPress manually: [How to add plugins to your WordPress manually](/2013/how-to-add-plugins-to-your-wordpress-manually/)
 
 {% highlight shell %}
 $ unzip wordpress-importer.0.6.1.zip
@@ -46,7 +46,7 @@ $ rm wordpress-importer.0.6.1.zip
 {% endhighlight %}
 
 Before you can import your backup you need to get media working:  
-[How to get Media working in WordPress](http://soivi.net/2013/how-to-get-media-working-in-wordpress/)
+[How to get Media working in WordPress](/2013/how-to-get-media-working-in-wordpress/)
 
 Go to Tools -> Import and Push "WordPress"  
 ![wordpressbackup2](/assets/2014/01/wordpressbackup2.png)

@@ -23,7 +23,7 @@ You can find source codes in GitHub: [https://github.com/Soivi/postalcode](https
 ## Deploy
 
 Install LAMP:  
-[https://soivi.net/2014/how-to-install-lamp/](https://soivi.net/2014/how-to-install-lamp/)
+[https://soivi.net/2014/how-to-install-lamp/](/2014/how-to-install-lamp/)
 
 Install git
 

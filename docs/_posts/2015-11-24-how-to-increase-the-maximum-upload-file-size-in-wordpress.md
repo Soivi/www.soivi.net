@@ -26,7 +26,7 @@ Before my way I tried to:
 Nothing of these were working, but then I found a way what really worked. I hope this helps you too.
 
 In my server setup I have been installed Ubuntu 12.04, other parts of LAMP and Wordpress. Here is instructions to:  
-[How to install LAMP](https://soivi.net/2014/how-to-install-lamp/) and [How to install WordPress](https://soivi.net/2014/how-to-install-wordpress/)
+[How to install LAMP](/2014/how-to-install-lamp/) and [How to install WordPress](/2014/how-to-install-wordpress/)
 
 ## Finding your php configurations
 

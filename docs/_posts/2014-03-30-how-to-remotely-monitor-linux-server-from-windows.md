@@ -16,7 +16,7 @@ permalink: "/2014/how-to-remotely-monitor-linux-server-from-windows/"
 ---
 I'm using Ubuntu 12.04 on my server computer and on my local computer I use Windows 8.1  
 If you use Linux on your local computer here is tutorial how to get that working  
-[Simple script to remotely monitor LAMP on server](http://soivi.net/2014/simple-script-to-remotely-monitor-lamp-on-server/)
+[Simple script to remotely monitor LAMP on server](/2014/simple-script-to-remotely-monitor-lamp-on-server/)
 
 ![WindowsRemoteMonitor11](/assets/2014/03/WindowsRemoteMonitor11.png)
 
@@ -24,12 +24,12 @@ This is tutorial how to monitor LAMP on Linux server remotely from Windows. I'm 
 
 ## Server working correctly
 
-In my previous tutorial I showed how to get your server side working correctly: [Simple script to remotely monitor LAMP on server](http://soivi.net/2014/simple-script-to-remotely-monitor-lamp-on-server/#mysqlonserver)
+In my previous tutorial I showed how to get your server side working correctly: [Simple script to remotely monitor LAMP on server](/2014/simple-script-to-remotely-monitor-lamp-on-server/#mysqlonserver)
 
 Do these steps so you can get your server side working:  
-[Create mysql user to server](http://soivi.net/2014/simple-script-to-remotely-monitor-lamp-on-server/#mysqlonserver)  
-[Create tester php file to server](http://soivi.net/2014/simple-script-to-remotely-monitor-lamp-on-server/#phponserver)  
-[Create new site to Apache in server](http://soivi.net/2014/simple-script-to-remotely-monitor-lamp-on-server/#apacheonserver)
+[Create mysql user to server](/2014/simple-script-to-remotely-monitor-lamp-on-server/#mysqlonserver)  
+[Create tester php file to server](/2014/simple-script-to-remotely-monitor-lamp-on-server/#phponserver)  
+[Create new site to Apache in server](/2014/simple-script-to-remotely-monitor-lamp-on-server/#apacheonserver)
 
 ## Downloadin Curl and testing it
 

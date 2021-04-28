@@ -25,7 +25,7 @@ Tutorial guides how to install Apache and PHP with Puppet modules using Linux. I
 In this tutorial there are two modules. First module is installing Apache. Second module is installing Apache2 and PHP. After both modules there are explanation how to test modules.
 
 **If you haven't seen my previous tutorials you should check them out:  
-[How_to_install_Puppet](http://soivi.net/2013/how-to-install-puppet/), [Hello_World_module_using_Puppet_template](http://soivi.net/2013/template-hello-world-module-to-puppet/).**
+[How_to_install_Puppet](/2013/how-to-install-puppet/), [Hello_World_module_using_Puppet_template](/2013/template-hello-world-module-to-puppet/).**
 
 ## Installing Apache
 

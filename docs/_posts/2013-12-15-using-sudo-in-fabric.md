@@ -19,7 +19,7 @@ permalink: "/2013/using-sudo-in-fabric/"
 I’m using Xubuntu 12.04.03 32bit
 
 If you haven't seen my previous tutorial you should see it:  
-[Fabric hello world](http://soivi.net/2013/fabric-hello-world/)
+[Fabric hello world](/2013/fabric-hello-world/)
 
 In this tutorial I'm using sudo to copy logs.
 

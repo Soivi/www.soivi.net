@@ -360,7 +360,7 @@ EXIT;
 {% endhighlight %}
 
 NEXT TUTORIAL  
-[How to create virtual website](http://soivi.net/2014/how-to-create-virtual-website/)
+[How to create virtual website](/2014/how-to-create-virtual-website/)
 
 SOURCE:  
 [Samuel Kontiomaa - Installing wordpress under apache 2](http://samuelkontiomaa.com/2012/10/03/installing-wordpress-under-apache-2/)

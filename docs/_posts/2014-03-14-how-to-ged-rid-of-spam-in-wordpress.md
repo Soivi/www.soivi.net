@@ -22,7 +22,7 @@ In this tutorial I'm going to teach how to install [Growmap Anti Spambot Plugin]
 
 G.A.S.P creates a checkbox in your comment form that you need to check before you can comment. It uses client side javascript so bots should not see it. In my case it has been working and I haven't got any spam commets in a long time.
 
-If you need more help installing plugins here is a tutorial: [How to add plugins to your WordPress manually](http://soivi.net/2013/how-to-add-plugins-to-your-wordpress-manually/)
+If you need more help installing plugins here is a tutorial: [How to add plugins to your WordPress manually](/2013/how-to-add-plugins-to-your-wordpress-manually/)
 
 ## Download and add plugin
 

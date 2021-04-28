@@ -20,7 +20,7 @@ In this tutorial I guide how to add Self-Signed SSL to your Apache and to your w
 ## Install Apache
 
 First you need to have Apache installed and site created. Here you can find instructions to that:  
-[https://soivi.net/2014/how-to-install-lamp/](https://soivi.net/2014/how-to-install-lamp/)
+[https://soivi.net/2014/how-to-install-lamp/](/2014/how-to-install-lamp/)
 
 ## Enable the SSL module and create a Self-Signed SSL Certificate
 

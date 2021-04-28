@@ -22,8 +22,8 @@ permalink: "/2013/define-types-example-in-puppet/"
 In this tutorial I'm creating hello_define module that uses Puppet define types. Hello_define module creates two files with different content.
 
 **If you haven't seen my previous tutorials you should see them:  
-[How to install Puppet](http://soivi.net/2013/how-to-install-puppet/), [Hello World module using template to Puppet](http://soivi.net/2013/template-hello-world-module-to-puppet/),  
-[Installing Apache and PHP with Puppet module](http://soivi.net/2013/installing-apache-and-php-with-puppet-module/), [Installing Puppet master and slaves](http://soivi.net/2013/installing-puppet-master-and-slaves/), [Parametrized Class with Puppet](http://soivi.net/2013/parametrized-class-with-puppet/).**
+[How to install Puppet](/2013/how-to-install-puppet/), [Hello World module using template to Puppet](/2013/template-hello-world-module-to-puppet/),  
+[Installing Apache and PHP with Puppet module](/2013/installing-apache-and-php-with-puppet-module/), [Installing Puppet master and slaves](/2013/installing-puppet-master-and-slaves/), [Parametrized Class with Puppet](/2013/parametrized-class-with-puppet/).**
 
 I’m using Xubuntu 12.04.03 32bit
 
@@ -103,5 +103,5 @@ Comment and let me know what you think of this guide. Did you manage to do hello
 This post is part of [course](http://terokarvinen.com/2013/aikataulu-%E2%80%93-linuxin-keskitetty-hallinta-%E2%80%93-ict4tn011-4-syksylla-2013)
 
 I used [Puppet](https://puppet.com/) in this blog post. Puppet is create way to centralize manage many computers at the same time. You should check it out. I have created couple beginners guides. If you want to learn more you should check them out:  
-[How to install Puppet](http://soivi.net/2013/how-to-install-puppet/), [Hello World module using template to Puppet](http://soivi.net/2013/template-hello-world-module-to-puppet/),  
-[Installing Apache and PHP with Puppet module](http://soivi.net/2013/installing-apache-and-php-with-puppet-module/), [Installing Puppet master and slaves](http://soivi.net/2013/installing-puppet-master-and-slaves/), [Parametrized Class with Puppet](http://soivi.net/2013/parametrized-class-with-puppet/).
+[How to install Puppet](/2013/how-to-install-puppet/), [Hello World module using template to Puppet](/2013/template-hello-world-module-to-puppet/),  
+[Installing Apache and PHP with Puppet module](/2013/installing-apache-and-php-with-puppet-module/), [Installing Puppet master and slaves](/2013/installing-puppet-master-and-slaves/), [Parametrized Class with Puppet](/2013/parametrized-class-with-puppet/).

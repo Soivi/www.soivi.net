@@ -19,9 +19,9 @@ tags:
 permalink: "/2013/jenkins-module-to-puppet/"
 ---
 **If you haven't seen my previous tutorials you should see them:  
-[How to install Puppet](http://soivi.net/2013/how-to-install-puppet/), [Hello World module using template to Puppet](http://soivi.net/2013/template-hello-world-module-to-puppet/),  
-[Installing Apache and PHP with Puppet module](http://soivi.net/2013/installing-apache-and-php-with-puppet-module/), [Installing Puppet master and slaves](http://soivi.net/2013/installing-puppet-master-and-slaves/),  
-[Parametrized Class with Puppet](http://soivi.net/2013/parametrized-class-with-puppet/), [Define Types example in Puppet](http://soivi.net/2013/define-types-example-in-puppet/), [How to get shared Git repository to server](http://soivi.net/2013/how-to-get-shared-git-repository-to-server/).  
+[How to install Puppet](/2013/how-to-install-puppet/), [Hello World module using template to Puppet](/2013/template-hello-world-module-to-puppet/),  
+[Installing Apache and PHP with Puppet module](/2013/installing-apache-and-php-with-puppet-module/), [Installing Puppet master and slaves](/2013/installing-puppet-master-and-slaves/),  
+[Parametrized Class with Puppet](/2013/parametrized-class-with-puppet/), [Define Types example in Puppet](/2013/define-types-example-in-puppet/), [How to get shared Git repository to server](/2013/how-to-get-shared-git-repository-to-server/).  
 **
 
 I'm using Xubuntu 12.04.03.
@@ -189,7 +189,7 @@ Choose installed plugins. We are installed 7 plugins. All is there what we need 
 Let's create testproject to Jenkins.  
 Default folder to Git repository I use /home/soivishare/repository/helloGit.git  
 If you wanna use this here is tutorial how to get it working:  
-[How to get shared Git repository to server](http://soivi.net/2013/how-to-get-shared-git-repository-to-server/)
+[How to get shared Git repository to server](/2013/how-to-get-shared-git-repository-to-server/)
 
 But you can easily change it giving attributes to parameterized class.
 

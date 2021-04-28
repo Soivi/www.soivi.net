@@ -18,7 +18,7 @@ permalink: "/2014/simple-script-to-remotely-monitor-lamp-on-server/"
 ---
 I'm using Ubuntu 12.04 on my server and local computer  
 If you use Windows computer for your local. Here is tutorial how to get it working  
-[How to remotely monitor Linux server from Windows](http://soivi.net/2014/how-to-remotely-monitor-linux-server-from-windows/)  
+[How to remotely monitor Linux server from Windows](/2014/how-to-remotely-monitor-linux-server-from-windows/)  
 ![testerError1](/assets/2014/03/testerError1.png)
 
 In this tutorial I'm going to create simple script that checks every 30 minutes that LAMP is running properly on my server. If something is wrong it shows notification on your local computers desktop.

@@ -20,7 +20,7 @@ permalink: "/2017/migrate-wordpress-to-docker-container/"
 ---
 ![migrate WordPress to Docker](/assets/2017/04/docker-min.png)
 
-This is the tutorial how to migrate WordPress to a Docker container. I have [LAMP](https://soivi.net/2014/how-to-install-lamp/) on my server and I'm going to use [LEMP](https://en.wikipedia.org/wiki/Solution_stack) on my Docker container.
+This is the tutorial how to migrate WordPress to a Docker container. I have [LAMP](/2014/how-to-install-lamp/) on my server and I'm going to use [LEMP](https://en.wikipedia.org/wiki/Solution_stack) on my Docker container.
 
 If you need more ideas on how to make your Docker environment more complex, in following link you can take a look how you can use a proxy, a logging software, LAMP and LEMP on same the enviroment: [docker-server-stack](https://github.com/Soivi/docker-server-stack). I prefer you to start with migrating WordPress to Docker container and after that make it more complex.
 

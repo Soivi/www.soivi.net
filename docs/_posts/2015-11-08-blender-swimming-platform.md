@@ -22,4 +22,4 @@ $ tar -vxf blender.tar.xz
 {% endhighlight %}
 
 Check my last Blender post:  
-[https://soivi.net/2015/blender-mind-the-gap/](https://soivi.net/2015/blender-mind-the-gap/)
+[https://soivi.net/2015/blender-mind-the-gap/](/2015/blender-mind-the-gap/)
