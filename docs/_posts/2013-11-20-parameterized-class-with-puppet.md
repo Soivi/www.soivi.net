@@ -23,7 +23,7 @@ permalink: "/2013/parameterized-class-with-puppet/"
 [How to install Puppet](/2013/how-to-install-puppet/), [Hello World module using template to Puppet](/2013/template-hello-world-module-to-puppet/),  
 [Installing Apache and PHP with Puppet module](/2013/installing-apache-and-php-with-puppet-module/), [Installing Puppet master and slaves](/2013/installing-puppet-master-and-slaves/).**
 
-****
+
 
 I’m using Xubuntu 12.04.03 32bit
 
@@ -146,7 +146,3 @@ puppet/
         └── templates
             └── ports.conf.erb
 {% endhighlight %}
-
-This post is part of [course](http://terokarvinen.com/2013/aikataulu-%E2%80%93-linuxin-keskitetty-hallinta-%E2%80%93-ict4tn011-4-syksylla-2013)
-
-****

@@ -228,9 +228,11 @@ $ sudo apt install mysql-client
 Then you need to know what IP address your Docker MySQL is running. Give this command to find out IP address
 
 {% highlight shell %}
+{% raw %}
 $ docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' dockerlempstack_mysql_1
 
 172.20.0.2
+{% endraw %}
 {% endhighlight %}
 
 So my Docker MySQL running on 172.20.0.2\. So this is mysql_ip. Then restore your mysqldump to Docker Mysql.
@@ -293,13 +295,13 @@ If you want to configure more of your Docker environment you can take a look how
 Stop docker-compose file containers
 
 {% highlight shell %}
-$ sudo docker-compose -f <filename>.yaml stop</filename>
+$ sudo docker-compose -f <filename>.yaml stop
 {% endhighlight %}
 
 Delete docker-compose file containers and volumes
 
 {% highlight shell %}
-$ sudo docker-compose -f <filename>.yaml rm -v</filename>
+$ sudo docker-compose -f <filename>.yaml rm -v
 {% endhighlight %}
 
 Stop all containers

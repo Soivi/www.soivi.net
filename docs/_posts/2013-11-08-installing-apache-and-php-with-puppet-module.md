@@ -231,6 +231,4 @@ puppet/
 Sources:  
 [Samuel Kontiomaa](http://samuelkontiomaa.com/2013/11/01/hello-puppet-module/)
 
-This post is part of [course](http://terokarvinen.com/2013/aikataulu-%E2%80%93-linuxin-keskitetty-hallinta-%E2%80%93-ict4tn011-4-syksylla-2013)
-
 #### What is Puppet? [Link](https://en.wikipedia.org/wiki/Puppet_(software))

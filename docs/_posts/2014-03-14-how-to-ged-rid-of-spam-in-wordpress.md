@@ -54,8 +54,9 @@ If you want change checkbox text or popUp text etc. You can change text (lines a
 
 {% highlight shell %}
 $ nano wordpress/wp-content/plugins/growmap-anti-spambot-plugin/growmap-anti-spambot-plugin.php
- _114 'checkbox_alert' => __('Please check the box to confirm that you are NOT a spammer','ab_gasp'),
+
+114 'checkbox_alert' => __('Please check the box to confirm that you are NOT a spammer','ab_gasp'),
 115 'no_checkbox_message' => __('You may have disabled javascript. Please enable javascript before leaving a comment on this site.','ab_gasp'),
 116 'hidden_email_message' => __('You appear to be a spambot. Contact admin another way if you feel this message is in error','ab_gasp'),
-117 'checkbox_label' => __('Confirm you are NOT a spammer','ab_gasp'),_ 
+117 'checkbox_label' => __('Confirm you are NOT a spammer','ab_gasp'),
 {% endhighlight %}

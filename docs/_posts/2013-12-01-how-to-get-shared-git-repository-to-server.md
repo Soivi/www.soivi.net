@@ -145,5 +145,3 @@ Source
 [Initializing Git remote server](http://samuelkontiomaa.com/2013/11/30/initializing-git-remote-server/)  
 [Git from Offline to Network](http://terokarvinen.com/2012/git-from-offline-to-network)  
 [Shared Folder with chmod SetGID](http://terokarvinen.com/2011/shared-folder-with-chmod-setgid)
-
-This post is part of [course](http://terokarvinen.com/2013/aikataulu-%E2%80%93-linuxin-keskitetty-hallinta-%E2%80%93-ict4tn011-4-syksylla-2013)

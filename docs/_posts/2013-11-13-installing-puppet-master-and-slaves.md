@@ -308,5 +308,3 @@ puppet/
 Sources:  
 [Learning Puppet — Basic Agent/Master Puppet](http://docs.puppetlabs.com/learning/agent_master_basic.html)  
 [PuppetMaster on Ubuntu 12.04](http://terokarvinen.com/2012/puppetmaster-on-ubuntu-12-04)
-
-This post is part of [course](http://terokarvinen.com/2013/aikataulu-%E2%80%93-linuxin-keskitetty-hallinta-%E2%80%93-ict4tn011-4-syksylla-2013)

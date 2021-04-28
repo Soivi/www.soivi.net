@@ -21,8 +21,7 @@ permalink: "/2013/jenkins-module-to-puppet/"
 **If you haven't seen my previous tutorials you should see them:  
 [How to install Puppet](/2013/how-to-install-puppet/), [Hello World module using template to Puppet](/2013/template-hello-world-module-to-puppet/),  
 [Installing Apache and PHP with Puppet module](/2013/installing-apache-and-php-with-puppet-module/), [Installing Puppet master and slaves](/2013/installing-puppet-master-and-slaves/),  
-[Parametrized Class with Puppet](/2013/parametrized-class-with-puppet/), [Define Types example in Puppet](/2013/define-types-example-in-puppet/), [How to get shared Git repository to server](/2013/how-to-get-shared-git-repository-to-server/).  
-**
+[Parametrized Class with Puppet](/2013/parameterized-class-with-puppet/), [Define Types example in Puppet](/2013/define-types-example-in-puppet/), [How to get shared Git repository to server](/2013/how-to-get-shared-git-repository-to-server/).**
 
 I'm using Xubuntu 12.04.03.
 
@@ -175,14 +174,16 @@ $ firefox localhost:8080
 {% endhighlight %}
 
 It works!  
-![puppetjenkins1](/2013/12/puppetjenkins1.png)  
+![puppetjenkins1](/assets/2013/12/puppetjenkins1.png)  
 
 Let's check if plugins really installed. Push manage Jenkins  
-![puppetjenkins2](/2013/12/puppetjenkins2.png)  
+![puppetjenkins2](/assets/2013/12/puppetjenkins2.png)  
+
 And select manage plugins  
-![puppetjenkins3](/2013/12/puppetjenkins3.png)  
+![puppetjenkins3](/assets/2013/12/puppetjenkins3.png)  
+
 Choose installed plugins. We are installed 7 plugins. All is there what we need to get Git plugin working in Jenkins  
-![puppetjenkins4](/2013/12/puppetjenkins4.png)  
+![puppetjenkins4](/assets/2013/12/puppetjenkins4.png)  
 
 ## Test project to Jenkins
 
@@ -290,16 +291,16 @@ $ sudo puppet apply --modulepath modules/ -e 'class {"jenkinstestjob": grpath =>
 {% endhighlight %}
 
 New job is added to jenkins. Push jobs name.  
-![puppetjenkins5](/2013/12/puppetjenkins5.png)  
+![puppetjenkins5](/assets/2013/12/puppetjenkins5.png)  
 
 Choose configure  
-![puppetjenkins6](/2013/12/puppetjenkins6.png)  
+![puppetjenkins6](/assets/2013/12/puppetjenkins6.png)  
 
 In here you can see what is repositorys path and you can make changes to project if you like  
-![puppetjenkins7](/2013/12/puppetjenkins7.png)  
+![puppetjenkins7](/assets/2013/12/puppetjenkins7.png)  
 
 Push Build Now. Project is building and after that you can see in workspace your git project.  
-![puppetjenkins8](/2013/12/puppetjenkins8.png)  
+![puppetjenkins8](/assets/2013/12/puppetjenkins8.png)  
 
 Your folder tree should look like this.
 
@@ -326,4 +327,3 @@ modules/
 
 Now you have Jenkins module that installs Git plugin. You have testproject what uses Jenkins and Git plugin.
 
-This post is part of [course](http://terokarvinen.com/2013/aikataulu-%E2%80%93-linuxin-keskitetty-hallinta-%E2%80%93-ict4tn011-4-syksylla-2013)

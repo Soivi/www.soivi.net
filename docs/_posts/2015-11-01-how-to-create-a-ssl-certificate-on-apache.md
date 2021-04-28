@@ -167,4 +167,4 @@ On url you can see icon of the lock and that means you are using https.
 ![sitenetcertsoivinetlockificate](/assets/2015/11/soivinetlock.png)
 
 Source:  
-https://www.digitalocean.com/community/tutorials/how-to-create-a-ssl-certificate-on-apache-for-ubuntu-14-04
+[https://www.digitalocean.com/community/tutorials/how-to-create-a-ssl-certificate-on-apache-for-ubuntu-14-04](https://www.digitalocean.com/community/tutorials/how-to-create-a-ssl-certificate-on-apache-for-ubuntu-14-04)

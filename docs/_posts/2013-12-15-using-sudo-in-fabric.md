@@ -69,7 +69,7 @@ soivite03 ALL=(ALL) NOPASSWD: ALL
 soivite04 ALL=(ALL) NOPASSWD: ALL
 {% endhighlight %}
 
-$ Run super command.
+Run super command.
 
 {% highlight shell %}
 $ fab super
@@ -119,5 +119,3 @@ sudofabric/
 
 Source:  
 [Fabric tutorial 1 – Take command of your network](http://awaseroot.wordpress.com/2012/04/23/fabric-tutorial-1-take-command-of-your-network/)
-
-This post is part of [course](http://terokarvinen.com/2013/aikataulu-%E2%80%93-linuxin-keskitetty-hallinta-%E2%80%93-ict4tn011-4-syksylla-2013)

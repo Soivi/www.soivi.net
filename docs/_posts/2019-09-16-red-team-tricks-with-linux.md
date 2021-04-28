@@ -390,11 +390,18 @@ Copy creation and modification time for all files that has been modified in 7 da
 # touch $(find [target folder] -iname "*" -atime -7 -type f) -r [source folder/file]
 {% endhighlight %}
 
-# *******************************
+****
+****
+****
+****
 
 # UNDER THIS DOES NOT WORK YEAT
 
-# *******************************
+****
+****
+****
+****
+
 
 ## Get SSH credentials using strace
 
