@@ -21,26 +21,30 @@ First you need to install LAMP: [How to install LAMP](http://soivi.net/2014/how-
 
 Login in to mysql as a root
 
-{% highlight shell %}$ mysql -u root -p
+{% highlight shell %}
+$ mysql -u root -p
 {% endhighlight %}
 
 Create database and user what your WordPress is using.
 
-{% highlight shell %}CREATE DATABASE soiviwordpress;
+{% highlight shell %}
+CREATE DATABASE soiviwordpress;
 GRANT ALL ON soiviwordpress.* TO soiviwordpress@localhost IDENTIFIED BY "SECRETPASSWORD";
 EXIT;
 {% endhighlight %}
 
 Create public_html folder and download latest WordPress tar package.
 
-{% highlight shell %}$ mkdir ~/public_html/
+{% highlight shell %}
+$ mkdir ~/public_html/
 $ cd ~/public_html/
 $ wget http://wordpress.org/latest.tar.gz
 {% endhighlight %}
 
 Extract tar file and remove it. Then move all files and folders to public_html folder and remove wordpress folder.
 
-{% highlight shell %}$ tar -xf latest.tar.gz
+{% highlight shell %}
+$ tar -xf latest.tar.gz
 $ rm latest.tar.gz
 $ mv wordpress/* .
 $ rmdir wordpress/
@@ -50,7 +54,8 @@ If your going to use domain name I recommend you use it when installing WordPres
 
 Open firefox. ( My domain name is test.soivi where I'm going to install WordPress )
 
-{% highlight shell %}$ firefox http://test.soivi/
+{% highlight shell %}
+$ firefox http://test.soivi/
 {% endhighlight %}
 
 Push "Create Configuration File"  
@@ -64,13 +69,15 @@ Add your databases name, username and password to that user. Press "Submit"
 
 You have to create manually wp-config.php
 
-{% highlight shell %}$ nano ~/public_html/wp-config.php
+{% highlight shell %}
+$ nano ~/public_html/wp-config.php
 {% endhighlight %}
 
 Paste whole text what WordPress is asking you to do. ( Text is something like this ).  
 BE SURE YOU WILL COPY THE WHOLE TEXT WHAT WORDPRESS IS ASKING YOU TO COPY.
 
-{% highlight shell %}<?php
+{% highlight shell %}
+<?php
 /**
  * The base configurations of the WordPress.
  *

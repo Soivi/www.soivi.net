@@ -35,20 +35,23 @@ As you can see my maximum upload file size is 2mb.
 
 First you need to know where your php configurations is. Create info.php under your wp-admin.
 
-{% highlight shell %}$ cd wordpress/wp-admin
+{% highlight shell %}
+$ cd wordpress/wp-admin
 $ nano info.php
 {% endhighlight %}
 
 In info.php add these lines. This is just normal phpinfo.
 
-{% highlight shell %}<?php
+{% highlight shell %}
+<?php
 phpinfo();
 ?>
 {% endhighlight %}
 
 Goto to site: yourdomain.com/wp-admin/info.php. Example I go to:
 
-{% highlight shell %}https://soivi.net/wp-admin/info.php
+{% highlight shell %}
+https://soivi.net/wp-admin/info.php
 {% endhighlight %}
 
 Here you can see where php configurations are.  
@@ -60,20 +63,23 @@ There are couple ways to modify php configurations. One way is to modify php.ini
 
 Go to where your "Scan this dir for additional .ini files" points and create new file upload.ini
 
-{% highlight shell %}$ cd /etc/php5/apache2/conf.d
+{% highlight shell %}
+$ cd /etc/php5/apache2/conf.d
 $ sudoedit upload.ini
 {% endhighlight %}
 
 In this upload.ini add these lines
 
-{% highlight shell %}upload_max_filesize = 64M
+{% highlight shell %}
+upload_max_filesize = 64M
 post_max_size = 64M
 max_execution_time = 300
 {% endhighlight %}
 
 Then restart your apache
 
-{% highlight shell %}$ sudo service apache2 restart
+{% highlight shell %}
+$ sudo service apache2 restart
 {% endhighlight %}
 
 In php info you can see the new conf.d file have been added.  
@@ -84,5 +90,6 @@ Go to your media and see that maximum upload size have been increased.
 
 Remember to delete your info.php that you created at beginning of this post.
 
-{% highlight shell %}$ rm wordpress/wp-admin/info.php
+{% highlight shell %}
+$ rm wordpress/wp-admin/info.php
 {% endhighlight %}

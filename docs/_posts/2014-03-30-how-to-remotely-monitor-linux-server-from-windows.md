@@ -41,7 +41,8 @@ I downloaded: Win64 ia64 zip 7.33.0 binary SSL
 Then you can run curl on you cmd. To test if it runs correctly.  
 "C:\Directory\Curl\" is your path where you saved curl.exe
 
-{% highlight shell %}local$ C:\Directory\Curl\curl.exe tester.net
+{% highlight shell %}
+local$ C:\Directory\Curl\curl.exe tester.net
 works
 {% endhighlight %}
 
@@ -55,13 +56,15 @@ I downloaded: Microsoft Visual C++ 2010 Redistributable Package (x64)
 
 Create .bat file and open notepad
 
-{% highlight shell %}local$ type NUL > serverTesterScript.bat
+{% highlight shell %}
+local$ type NUL > serverTesterScript.bat
 local$ notepad serverTesterScript.bat
 {% endhighlight %}
 
 Now you can create bat script what connects to your server and checks if server is working. If it's not it notifies you with popup window. It also checks if you can ping google.com so you can be sure your internet connection is on. If ping doesn't work to Google script assumes you don't have internet connection so it goes to end and doesn't do nothing.
 
-{% highlight shell %}ping www.google.com -n 1 -w 1000
+{% highlight shell %}
+ping www.google.com -n 1 -w 1000
 if errorlevel 1 (
 	goto End
 )
@@ -76,19 +79,23 @@ if not "%var%"=="works " (
 EDIT:  
 If you want bat script to work with https. Then just add -k flag to curl command like this:
 
-{% highlight shell %}for /f "delims=" %%a in ('C:\Directory\Curl\curl.exe -s -k tester.net') do @set var=%%a{% endhighlight %}
+{% highlight shell %}
+for /f "delims=" %%a in ('C:\Directory\Curl\curl.exe -s -k tester.net') do @set var=%%a
+{% endhighlight %}
 
 ## Create .vbs script
 
 Then create .vbs file so you can run .bat file schedulet in background. Without everytime poping up on your screen
 
-{% highlight shell %}local$ type NUL > serverTesterScript.vbs
+{% highlight shell %}
+local$ type NUL > serverTesterScript.vbs
 local$ notepad serverTesterScript.vbs
 {% endhighlight %}
 
 Add to "C:\Directory\" your path to serverTesterScript.bat so .vbs file will found it.
 
-{% highlight shell %}Set WshShell = CreateObject("WScript.Shell")
+{% highlight shell %}
+Set WshShell = CreateObject("WScript.Shell")
 WshShell.Run chr(34) & "C:\Directory\serverTesterScript.bat" & Chr(34), 0
 Set WshShell = Nothing
 {% endhighlight %}
@@ -111,24 +118,28 @@ Then go your created task properties and edit task so it is repeated every 5 min
 
 Go to your server and test these. Of course you have to wait 5 minutes every time to be sure your script really runned.
 
-{% highlight shell %}server$ mv public_html/tester/index.php public_html/tester/index.php2
+{% highlight shell %}
+server$ mv public_html/tester/index.php public_html/tester/index.php2
 {% endhighlight %}
 
 ![WindowsRemoteMonitor11](/assets/2014/03/WindowsRemoteMonitor11.png)
 
-{% highlight shell %}server$ mv public_html/tester/index.php2 public_html/tester/index.php
+{% highlight shell %}
+server$ mv public_html/tester/index.php2 public_html/tester/index.php
 server$ sudo service apache2 stop
 {% endhighlight %}
 
 ![WindowsRemoteMonitor11](/assets/2014/03/WindowsRemoteMonitor11.png)
 
-{% highlight shell %}server$ sudo service apache2 start
+{% highlight shell %}
+server$ sudo service apache2 start
 server$ sudo service mysql stop
 {% endhighlight %}
 
 ![WindowsRemoteMonitor11](/assets/2014/03/WindowsRemoteMonitor11.png)
 
-{% highlight shell %}server$ sudo service mysql start
+{% highlight shell %}
+server$ sudo service mysql start
 {% endhighlight %}
 
 ## Start using

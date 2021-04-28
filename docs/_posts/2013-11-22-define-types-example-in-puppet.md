@@ -31,24 +31,28 @@ I’m using Xubuntu 12.04.03 32bit
 
 Update apt and use it to install Puppet
 
-{% highlight shell %}$ sudo apt-get update && sudo apt-get -y install puppet
+{% highlight shell %}
+$ sudo apt-get update && sudo apt-get -y install puppet
 {% endhighlight %}
 
 Create folders where you add your init.pp file
 
-{% highlight shell %}$ mkdir puppet/
+{% highlight shell %}
+$ mkdir puppet/
 $ cd puppet/
 $ mkdir -p modules/hello_define/manifests/
 {% endhighlight %}
 
 Then create init.pp file and modify it
 
-{% highlight shell %}$ nano modules/hello_define/manifests/init.pp
+{% highlight shell %}
+$ nano modules/hello_define/manifests/init.pp
 {% endhighlight %}
 
 Make hello_define class that creates two files with different content using define types. Modify your init.pp file look like this
 
-{% highlight shell %}class hello_define {
+{% highlight shell %}
+class hello_define {
     define hello_define ($content_variable) {
       file {"$title":
         ensure  => file,
@@ -70,12 +74,14 @@ Make hello_define class that creates two files with different content using defi
 
 Apply hello_define module with Puppet.
 
-{% highlight shell %}$ puppet apply --modulepath modules/ -e 'class {"hello_define":}'
+{% highlight shell %}
+$ puppet apply --modulepath modules/ -e 'class {"hello_define":}'
 {% endhighlight %}
 
 Now hello_define module has created two files. Files are in /tmp/ folder. You can cat those files and see what are inside them
 
-{% highlight shell %}$ cat /tmp/hello_define1 
+{% highlight shell %}
+$ cat /tmp/hello_define1 
 Hello World. This is first define
 
 $ cat /tmp/hello_define2
@@ -84,7 +90,8 @@ This is my second define. Greeting from soivi.net
 
 The folder tree looks now like this
 
-{% highlight shell %}puppet/
+{% highlight shell %}
+puppet/
 └── modules
     └── hello_define
         └── manifests

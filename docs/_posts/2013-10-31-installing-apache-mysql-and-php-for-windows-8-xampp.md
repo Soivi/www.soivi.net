@@ -25,56 +25,78 @@ Download ZIP file for Windows.
 Extract ZIP to you C:\ so the XAMPP folder is in C:\xampp  
 Run
 
-{% highlight shell %}$ \xampp\setup_xampp.bat{% endhighlight %}
+{% highlight shell %}
+$ \xampp\setup_xampp.bat
+{% endhighlight %}
 
 Check the settings file
 
-{% highlight shell %}$ \xampp\php\php.ini{% endhighlight %}
+{% highlight shell %}
+$ \xampp\php\php.ini
+{% endhighlight %}
 
 Check these three non-commented lines that they match. Date.timezone should be your timezone.
 
-{% highlight shell %}error_reporting = E_ALL | E_STRICT
+{% highlight shell %}
+error_reporting = E_ALL | E_STRICT
 magic_quotes_gpc = Off
-date.timezone = "Europe/Helsinki"{% endhighlight %}
+date.timezone = "Europe/Helsinki"
+{% endhighlight %}
 
 Close Skype and IIS if you are using those.  
 Run Apache and MySQL with
 
-{% highlight shell %}$ \xampp\xampp-control.exe{% endhighlight %}
+{% highlight shell %}
+$ \xampp\xampp-control.exe
+{% endhighlight %}
 
 ![1](/assets/2013/10/1.png)  
 Go to and choose your language.
 
-{% highlight shell %}http://localhost/{% endhighlight %}
+{% highlight shell %}
+http://localhost/
+{% endhighlight %}
 
 Go to and change your MySQL password
 
-{% highlight shell %}http://localhost/security/index.php{% endhighlight %}
+{% highlight shell %}
+http://localhost/security/index.php
+{% endhighlight %}
 
 ![2](/assets/2013/10/2.png)
 
 ![3](/assets/2013/10/3.png)  
 Stop and start Apache and MySQL with.
 
-{% highlight shell %}$ \xampp\xampp-control.exe{% endhighlight %}
+{% highlight shell %}
+$ \xampp\xampp-control.exe
+{% endhighlight %}
 
 Make folder php to
 
-{% highlight shell %}$ \xampp\htdocs\{% endhighlight %}
+{% highlight shell %}
+$ \xampp\htdocs\
+{% endhighlight %}
 
 and create file there
 
-{% highlight shell %}helloworld.php{% endhighlight %}
+{% highlight shell %}
+helloworld.php
+{% endhighlight %}
 
 And inside the file
 
-{% highlight shell %}<?php 
+{% highlight shell %}
+<?php 
  Print "Hello, World!";
- ?>  {% endhighlight %}
+ ?>
+{% endhighlight %}
 
 Go to
 
-{% highlight shell %}http://localhost/php/helloworld.php{% endhighlight %}
+{% highlight shell %}
+http://localhost/php/helloworld.php
+{% endhighlight %}
 
 Php works.
 
@@ -91,9 +113,11 @@ $ mysql.exe -u root -p
 
 Create test database and user
 
-{% highlight shell %}mysql> create database soiviPersons;
+{% highlight shell %}
+mysql> create database soiviPersons;
 mysql> grant all on soiviPersons.* to soiviPersons@localhost identified by "SECRETPASSWORD";
-mysql> exit{% endhighlight %}
+mysql> exit
+{% endhighlight %}
 
 Login with new user and use created database
 
@@ -104,15 +128,18 @@ mysql> USE soiviPersons ;
 
 Create new test table with test material
 
-{% highlight shell %}mysql> CREATE TABLE person (id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, FirstName VARCHAR(100), LastName VARCHAR(100));
+{% highlight shell %}
+mysql> CREATE TABLE person (id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, FirstName VARCHAR(100), LastName VARCHAR(100));
 mysql> INSERT INTO person (FirstName, LastName) VALUES ('Jaakko', 'Poskiparta');
 mysql> INSERT INTO person (FirstName, LastName) VALUES ('Kalevi', 'Hurmeinen');
 mysql> SELECT * FROM person;
-mysql> exit{% endhighlight %}
+mysql> exit
+{% endhighlight %}
 
 Modify helloworld.php
 
-{% highlight shell %}<!DOCTYPE html>
+{% highlight shell %}
+<!DOCTYPE html>
 <html>
 <body>
 <h1>My first PHP page</h1>
@@ -140,31 +167,40 @@ echo "</table>";
 mysqli_close($con);
 ?>
 </body>
-</html>{% endhighlight %}
+</html>
+{% endhighlight %}
 
 Go to
 
-{% highlight shell %}http://localhost/php/helloworld.php{% endhighlight %}
+{% highlight shell %}
+http://localhost/php/helloworld.php
+{% endhighlight %}
 
 ![4](/assets/2013/10/4.png)
 
 Now you have tested Apache, PHP and MySQL and confirmed that they all are working.  
 Then you can remove test user and test database from MySQL.
 
-{% highlight shell %}$ mysql.exe -u root -p
+{% highlight shell %}
+$ mysql.exe -u root -p
 mysql> DROP USER soiviPersons@localhost;
 mysql> DROP DATABASE soiviPersons;
 mysql> SHOW DATABASES;
-mysql> exit;{% endhighlight %}
+mysql> exit;
+{% endhighlight %}
 
 If you want use Eclipse to coding PHP you need to download PDT plugin to your Eclipse.  
 Go in your Eclipse
 
-{% highlight shell %}Help -> Install new software{% endhighlight %}
+{% highlight shell %}
+Help -> Install new software
+{% endhighlight %}
 
 And work with you add url
 
-{% highlight shell %}http://download.eclipse.org/tools/pdt/updates/release{% endhighlight %}
+{% highlight shell %}
+http://download.eclipse.org/tools/pdt/updates/release
+{% endhighlight %}
 
 choose PDT and install it.  
 ![5](/assets/2013/10/5.png)

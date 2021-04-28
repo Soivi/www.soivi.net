@@ -33,30 +33,35 @@ I'm using Ubuntu 16.04 and Python 2.7.12.
 
 First you need to enable the shutdown command without writing your password. Create a new file under sudoers.d folder
 
-{% highlight shell %}$ sudoedit /etc/sudoers.d/shutdown
+{% highlight shell %}
+$ sudoedit /etc/sudoers.d/shutdown
 {% endhighlight %}
 
 Add this next line to your new file, but remember to replace the username text with your own username
 
-{% highlight shell %}username ALL=(ALL) NOPASSWD: /sbin/shutdown
+{% highlight shell %}
+username ALL=(ALL) NOPASSWD: /sbin/shutdown
 {% endhighlight %}
 
 Now you can run the shutdown command without the need for typing your password
 
-{% highlight shell %}$ sudo shutdown -P now
+{% highlight shell %}
+$ sudo shutdown -P now
 {% endhighlight %}
 
 ## Shutdown script
 
 Create a new folder path and create a new Python script file under the cgi-bin folder
 
-{% highlight shell %}$ sudo mkdir -p /var/www/cgi-bin
+{% highlight shell %}
+$ sudo mkdir -p /var/www/cgi-bin
 $ sudoedit /var/www/cgi-bin/shutdown.py
 {% endhighlight %}
 
 Add these next lines inside your new Python script file
 
-{% highlight shell %}#! /usr/bin/python
+{% highlight shell %}
+#! /usr/bin/python
 import subprocess
 
 print "Content-Type: text/plain;charset=utf-8"
@@ -70,12 +75,14 @@ process = subprocess.Popen(cmdCommand.split(), stdout=subprocess.PIPE)
 
 Give execution permissions to the Python script file
 
-{% highlight shell %}$ sudo chmod a+x /var/www/cgi-bin/shutdown.py
+{% highlight shell %}
+$ sudo chmod a+x /var/www/cgi-bin/shutdown.py
 {% endhighlight %}
 
 Now you can test if your Python script works by running it
 
-{% highlight shell %}$ python /var/www/cgi-bin/shutdown.py
+{% highlight shell %}
+$ python /var/www/cgi-bin/shutdown.py
 {% endhighlight %}
 
 After you have run the Python script, your computer should shut down. If the Python script works and the computer shuts down, next you can try to shut down your computer using a web page.
@@ -84,7 +91,8 @@ After you have run the Python script, your computer should shut down. If the Pyt
 
 Start a web server on port 8000
 
-{% highlight shell %}$ cd /var/www/
+{% highlight shell %}
+$ cd /var/www/
 $ python -m CGIHTTPServer 8000
 {% endhighlight %}
 
@@ -96,16 +104,20 @@ It should say on the web page "Shutting down" and your computer should shut down
 
 Schedule the web server to start every time your computer boots up. Go to the crontab
 
-{% highlight shell %}$ crontab -e
+{% highlight shell %}
+$ crontab -e
 {% endhighlight %}
 
 At the end of the file add this line
 
-{% highlight shell %}@reboot cd /var/www/ && python -m CGIHTTPServer 8000{% endhighlight %}
+{% highlight shell %}
+@reboot cd /var/www/ && python -m CGIHTTPServer 8000
+{% endhighlight %}
 
 Now every time your computer starts up, you can use this next address to shut down your computer (remember to replace x.x.x.x with your own IP address)
 
-{% highlight shell %}x.x.x.x:8000/cgi-bin/shutdown.py
+{% highlight shell %}
+x.x.x.x:8000/cgi-bin/shutdown.py
 {% endhighlight %}
 
 You can use this shutdown web page on every device that can access this web page.

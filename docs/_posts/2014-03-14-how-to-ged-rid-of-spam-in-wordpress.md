@@ -28,13 +28,15 @@ If you need more help installing plugins here is a tutorial: [How to add plugins
 
 Download the plugin and unzip package
 
-{% highlight shell %}$ wget http://downloads.wordpress.org/plugin/growmap-anti-spambot-plugin.1.5.5.zip
+{% highlight shell %}
+$ wget http://downloads.wordpress.org/plugin/growmap-anti-spambot-plugin.1.5.5.zip
 $ unzip growmap-anti-spambot-plugin.1.5.5.zip
 {% endhighlight %}
 
 Remove unnecessary zip and move G.A.S.P folder under plugins
 
-{% highlight shell %}$ rm growmap-anti-spambot-plugin.1.5.5.zip
+{% highlight shell %}
+$ rm growmap-anti-spambot-plugin.1.5.5.zip
 $ mv growmap-anti-spambot-plugin/ wordpress/wp-content/plugins/
 {% endhighlight %}
 
@@ -50,7 +52,8 @@ $ mv growmap-anti-spambot-plugin/ wordpress/wp-content/plugins/
 
 If you want change checkbox text or popUp text etc. You can change text (lines are 114-117)
 
-{% highlight shell %}$ nano wordpress/wp-content/plugins/growmap-anti-spambot-plugin/growmap-anti-spambot-plugin.php
+{% highlight shell %}
+$ nano wordpress/wp-content/plugins/growmap-anti-spambot-plugin/growmap-anti-spambot-plugin.php
  _114 'checkbox_alert' => __('Please check the box to confirm that you are NOT a spammer','ab_gasp'),
 115 'no_checkbox_message' => __('You may have disabled javascript. Please enable javascript before leaving a comment on this site.','ab_gasp'),
 116 'hidden_email_message' => __('You appear to be a spambot. Contact admin another way if you feel this message is in error','ab_gasp'),

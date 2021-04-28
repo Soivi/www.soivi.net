@@ -27,7 +27,8 @@ In this tutorial I'm going to create simple script that checks every 30 minutes 
 
 First install curl and test your site where you going to put your tester index.php. Anwser should be empty.
 
-{% highlight shell %}local$ sudo apt-get install curl
+{% highlight shell %}
+local$ sudo apt-get install curl
 local$ curl tester.net
 {% endhighlight %}
 
@@ -35,7 +36,8 @@ local$ curl tester.net
 
 Create user tester in MySQL
 
-{% highlight shell %}server$ mysql -u root -p
+{% highlight shell %}
+server$ mysql -u root -p
 
 CREATE DATABASE tester;
 GRANT ALL ON tester.* TO tester@localhost IDENTIFIED BY "SECRETPASSWORD";
@@ -46,7 +48,8 @@ EXIT;
 
 Create folder where is index.php what checks connection to MySQL
 
-{% highlight shell %}server$ cd public_html/
+{% highlight shell %}
+server$ cd public_html/
 server$ mkdir tester
 server$ nano tester/index.php
 
@@ -68,7 +71,8 @@ server$ nano tester/index.php
 
 Add new site to Apache and enable it
 
-{% highlight shell %}server$ sudoedit /etc/apache2/sites-available/tester.net
+{% highlight shell %}
+server$ sudoedit /etc/apache2/sites-available/tester.net
 
 <VirtualHost *:80>
         ServerName tester.net
@@ -84,7 +88,8 @@ server$ sudo service apache2 reload
 
 Check that site really works. Curl should print "works"
 
-{% highlight shell %}local$ curl tester.net
+{% highlight shell %}
+local$ curl tester.net
 works
 {% endhighlight %}
 
@@ -92,7 +97,8 @@ works
 
 Create shell script that will get tester.net site with curl and checks if site is still on.
 
-{% highlight shell %}local$ nano serverTesterScript.sh
+{% highlight shell %}
+local$ nano serverTesterScript.sh
 
 #!/bin/bash/
 
@@ -112,7 +118,8 @@ fi
 
 Then add your script to crontab so it runs script every minute.
 
-{% highlight shell %}local$ crontab -e
+{% highlight shell %}
+local$ crontab -e
 
 */1 *   *   *   *    export DISPLAY=:0.0 && sudo -u user bash /home/user/serverTesterScript.sh
 {% endhighlight %}
@@ -121,31 +128,36 @@ Then add your script to crontab so it runs script every minute.
 
 Now you can test if it works.
 
-{% highlight shell %}server$ mv public_html/tester/index.php public_html/tester/index.php2
+{% highlight shell %}
+server$ mv public_html/tester/index.php public_html/tester/index.php2
 {% endhighlight %}
 
 ![testerError1](/assets/2014/03/testerError1.png)
 
-{% highlight shell %}server$ mv public_html/tester/index.php2 public_html/tester/index.php
+{% highlight shell %}
+server$ mv public_html/tester/index.php2 public_html/tester/index.php
 server$ sudo service apache2 stop
 {% endhighlight %}
 
 ![testerError2](/assets/2014/03/testerError2.png)
 
-{% highlight shell %}server$ sudo service apache2 start
+{% highlight shell %}
+server$ sudo service apache2 start
 server$ sudo service mysql stop
 {% endhighlight %}
 
 ![testerError3](/assets/2014/03/testerError3.png)
 
-{% highlight shell %}server$ sudo service mysql start
+{% highlight shell %}
+server$ sudo service mysql start
 {% endhighlight %}
 
 ## Start using
 
 Now everything should work and you can edit crontab so script is runned every 30 minutes.
 
-{% highlight shell %}local$ crontab -e
+{% highlight shell %}
+local$ crontab -e
 
 */30 *   *   *   *    export DISPLAY=:0.0 && sudo -u user bash /home/user/serverTesterScript.sh
 {% endhighlight %}

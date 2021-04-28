@@ -31,7 +31,8 @@ This tutorial I'm creating parametrized class. Class is installing Apache2 and y
 
 Install Puppet, create folders and init.pp file.
 
-{% highlight shell %}$ sudo apt-get update && sudo apt-get -y install puppet
+{% highlight shell %}
+$ sudo apt-get update && sudo apt-get -y install puppet
 $ mkdir -p puppet/modules/apache2/manifests
 $ cd puppet/
 $ nano modules/apache2/manifests/init.pp
@@ -39,7 +40,8 @@ $ nano modules/apache2/manifests/init.pp
 
 Create Apache2 class and in parameter it takes default port 80.
 
-{% highlight shell %}class apache2 ($port = '80') {
+{% highlight shell %}
+class apache2 ($port = '80') {
         package {'apache2':
                 ensure => present,
         }
@@ -66,13 +68,15 @@ Create Apache2 class and in parameter it takes default port 80.
 
 Create template folder and ports.conf.erb.
 
-{% highlight shell %}$ mkdir -p modules/apache2/templates
+{% highlight shell %}
+$ mkdir -p modules/apache2/templates
 $ nano modules/apache2/templates/ports.conf.erb
 {% endhighlight %}
 
 Ports.conf.erb is copy of /etc/apache2/ports.conf, but $port ( in ports.conf.erb file <%= @port %> ) variable changes port what Apache is listening.
 
-{% highlight shell %}# DON'T TOUCH MODIFIED BY SOIVI 20.11.2013
+{% highlight shell %}
+# DON'T TOUCH MODIFIED BY SOIVI 20.11.2013
 #
 # If you just change the port or add more ports here, you will likely also
 # have to change the VirtualHost statement in
@@ -100,13 +104,16 @@ Listen <%= @port %>
 
 Run it without parameter. Apache should get installed and should work in localhost
 
-{% highlight shell %}$ sudo puppet apply --modulepath modules/ -e 'class {"apache2":}' {% endhighlight %}
+{% highlight shell %}
+$ sudo puppet apply --modulepath modules/ -e 'class {"apache2":}'
+{% endhighlight %}
 
 [![ParametrizedClassWithPuppet1]({{ site.baseurl }}/assets/2013/11/ParametrizedClassWithPuppet1.png)](http://soivi.net/wp-content/uploads/2013/11/ParametrizedClassWithPuppet1.png)
 
 Then run Puppet and add to 8080 to port parameter.
 
-{% highlight shell %}$ sudo puppet apply --modulepath modules/ -e 'class {"apache2": port => "8080",}'
+{% highlight shell %}
+$ sudo puppet apply --modulepath modules/ -e 'class {"apache2": port => "8080",}'
 {% endhighlight %}
 
 Localhost now stop working.  
@@ -116,7 +123,8 @@ Apache should listen localhost:8080.
 [![ParametrizedClassWithPuppet3]({{ site.baseurl }}/assets/2013/11/ParametrizedClassWithPuppet3.png)](http://soivi.net/wp-content/uploads/2013/11/ParametrizedClassWithPuppet3.png)  
 Ok. We don't want use that port now. So let's change it back to 80.
 
-{% highlight shell %}$ sudo puppet apply --modulepath modules/ -e 'class {"apache2": port => "80",}'
+{% highlight shell %}
+$ sudo puppet apply --modulepath modules/ -e 'class {"apache2": port => "80",}'
 {% endhighlight %}
 
 Localhost:8080 doesn't work no more.  
@@ -129,7 +137,8 @@ You have installed Apache2 successfully and changed Apaches port from template u
 
 Folder tree looks like this
 
-{% highlight shell %}puppet/
+{% highlight shell %}
+puppet/
 └── modules
     └── apache2
         ├── manifests

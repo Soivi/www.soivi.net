@@ -46,14 +46,16 @@ Plugins
 
 Install Puppet, create folders and init.pp.
 
-{% highlight shell %}$ sudo apt-get update && sudo apt-get -y install puppet
+{% highlight shell %}
+$ sudo apt-get update && sudo apt-get -y install puppet
 $ mkdir -p modules/jenkins/manifests/
 $ nano modules/jenkins/manifests/init.pp
 {% endhighlight %}
 
 Init.pp is using plugins.pp define type file to adding all plugins files.
 
-{% highlight shell %}class jenkins {
+{% highlight shell %}
+class jenkins {
 	$pathvariable = "/var/lib/jenkins"
         $sourcevariable = "puppet:///modules/jenkins"
 
@@ -107,11 +109,13 @@ Init.pp is using plugins.pp define type file to adding all plugins files.
         jenkins::plugins {"${jenkins::pathvariable}/plugins/ssh-credentials.hpi":
                 pluginpath => "${sourcevariable}/ssh-credentials.hpi",
         }
-}{% endhighlight %}
+}
+{% endhighlight %}
 
 Plugins.pp determines plugins .hpi files configures.
 
-{% highlight shell %}$ nano modules/jenkins/manifests/plugins.pp
+{% highlight shell %}
+$ nano modules/jenkins/manifests/plugins.pp
 
 define jenkins::plugins ($pluginpath) {
                 file {"$title":
@@ -128,7 +132,8 @@ define jenkins::plugins ($pluginpath) {
 
 Create files folder where you add .hpi files what Jenkins needs to have to get plugins working. Module copies these files to /var/lib/jenkins/plugins/
 
-{% highlight shell %}$ mkdir -p modules/jenkins/files/
+{% highlight shell %}
+$ mkdir -p modules/jenkins/files/
 $ cd modules/jenkins/files/
 $ wget https://updates.jenkins-ci.org/download/plugins/credentials/1.9.4/credentials.hpi
 $ wget https://updates.jenkins-ci.org/download/plugins/git-client/1.4.6/git-client.hpi
@@ -142,12 +147,14 @@ $ cd ../../..
 
 Apply module. This could take couple minutes because Jenkins installation could take a while.
 
-{% highlight shell %}$ sudo puppet apply --modulepath modules/ -e 'class {"jenkins":}'
+{% highlight shell %}
+$ sudo puppet apply --modulepath modules/ -e 'class {"jenkins":}'
 {% endhighlight %}
 
 Something like this should terminal print if module works
 
-{% highlight shell %}notice: /Stage[main]/Jenkins/Package[git]/ensure: ensure changed 'purged' to 'present'
+{% highlight shell %}
+notice: /Stage[main]/Jenkins/Package[git]/ensure: ensure changed 'purged' to 'present'
 notice: /Stage[main]/Jenkins/Package[jenkins]/ensure: ensure changed 'purged' to 'present'
 notice: /Stage[main]/Jenkins/Jenkins::Plugins[/var/lib/jenkins/plugins/github.hpi]/File[/var/lib/jenkins/plugins/github.hpi]/ensure: defined content as '{md5}9b5f1bb17a78e77c390528b25b84071a'
 notice: /Stage[main]/Jenkins/Jenkins::Plugins[/var/lib/jenkins/plugins/github-api.hpi]/File[/var/lib/jenkins/plugins/github-api.hpi]/ensure: defined content as '{md5}7969f66ebad949af4aac8836c8e83a8a'
@@ -158,11 +165,13 @@ notice: /Stage[main]/Jenkins/Jenkins::Plugins[/var/lib/jenkins/plugins/git.hpi]/
 notice: /Stage[main]/Jenkins/Jenkins::Plugins[/var/lib/jenkins/plugins/scm-api.hpi]/File[/var/lib/jenkins/plugins/scm-api.hpi]/ensure: defined content as '{md5}9574c07bf6bfd02a57b451145c870f0e'
 notice: /Stage[main]/Jenkins/Service[jenkins]/enable: enable changed 'false' to 'true'
 notice: /Stage[main]/Jenkins/Service[jenkins]: Triggered 'refresh' from 7 events
-notice: Finished catalog run in 169.58 seconds{% endhighlight %}
+notice: Finished catalog run in 169.58 seconds
+{% endhighlight %}
 
 Let's see if Jenkins is really working
 
-{% highlight shell %}$ firefox localhost:8080
+{% highlight shell %}
+$ firefox localhost:8080
 {% endhighlight %}
 
 It works!  
@@ -186,13 +195,15 @@ But you can easily change it giving attributes to parameterized class.
 
 Create new module and init.pp.
 
-{% highlight shell %}$ mkdir -p modules/jenkinstestjob/manifests/
+{% highlight shell %}
+$ mkdir -p modules/jenkinstestjob/manifests/
 $ nano modules/jenkinstestjob/manifests/init.pp
 {% endhighlight %}
 
 Grpath is variable which determines path of the repository. This module checks if config.xml exists do not replace it.
 
-{% highlight shell %}class jenkinstestjob($grpath = "/home/soivishare/repository/helloGit.git") {
+{% highlight shell %}
+class jenkinstestjob($grpath = "/home/soivishare/repository/helloGit.git") {
         $pathvariable = "/var/lib/jenkins/jobs/jenkinstestjob"
 
         file { $pathvariable:
@@ -223,14 +234,16 @@ Grpath is variable which determines path of the repository. This module checks i
 
 Create template config.xml.erb.
 
-{% highlight shell %}$ mkdir -p modules/jenkinstestjob/templates/
+{% highlight shell %}
+$ mkdir -p modules/jenkinstestjob/templates/
 $ nano modules/jenkinstestjob/templates/config.xml.erb
 {% endhighlight %}
 
 This is copy of normal config.xml in jenkins jobs, but url variable is now <%= grpath %>.  
 So the path of the repository is easy to change when running module the first time.
 
-{% highlight shell %}<?xml version='1.0' encoding='UTF-8'?>
+{% highlight shell %}
+<?xml version='1.0' encoding='UTF-8'?>
 <project>
   <actions/>
   <description></description>
@@ -266,12 +279,14 @@ So the path of the repository is easy to change when running module the first ti
 
 Now you can run module and use default path /home/soivishare/repository/helloGit.git
 
-{% highlight shell %}$ sudo puppet apply --modulepath modules/ -e 'class {"jenkinstestjob":}'
+{% highlight shell %}
+$ sudo puppet apply --modulepath modules/ -e 'class {"jenkinstestjob":}'
 {% endhighlight %}
 
 Or change repository path example our TiPi project.
 
-{% highlight shell %}$ sudo puppet apply --modulepath modules/ -e 'class {"jenkinstestjob": grpath => "https://github.com/Scionar/TiPi.git"}'
+{% highlight shell %}
+$ sudo puppet apply --modulepath modules/ -e 'class {"jenkinstestjob": grpath => "https://github.com/Scionar/TiPi.git"}'
 {% endhighlight %}
 
 New job is added to jenkins. Push jobs name.  
@@ -288,7 +303,8 @@ Push Build Now. Project is building and after that you can see in workspace your
 
 Your folder tree should look like this.
 
-{% highlight shell %}modules/
+{% highlight shell %}
+modules/
 ├── jenkins
 │   ├── files
 │   │   ├── credentials.hpi

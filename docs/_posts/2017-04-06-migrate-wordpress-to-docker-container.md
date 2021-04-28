@@ -28,7 +28,8 @@ If you need more ideas on how to make your Docker environment more complex, in f
 
 First find out what is your WordPress database name (wpdb), user (wpuser) and password (wppassword). You can find it in your wp-config.php file in your server
 
-{% highlight shell %}$ cat wordpress/wp-config.php
+{% highlight shell %}
+$ cat wordpress/wp-config.php
 
 ...
 // ** MySQL settings - You can get this info from your web host ** //
@@ -45,12 +46,14 @@ define('DB_PASSWORD', 'wppassword');
 
 Now you know your wpuser, wppassword and wpdb. Use this information to create a mysqldump that contains your Wordpress database
 
-{% highlight shell %}$ mysqldump -u [wpuser] -p[wppassword] [wpdb] | gzip -9 > wordpress.sql.gz
+{% highlight shell %}
+$ mysqldump -u [wpuser] -p[wppassword] [wpdb] | gzip -9 > wordpress.sql.gz
 {% endhighlight %}
 
 Create a tar file from your WordPress folder
 
-{% highlight shell %}$ tar -zcvf wordpress.tar.gz wordpress/
+{% highlight shell %}
+$ tar -zcvf wordpress.tar.gz wordpress/
 {% endhighlight %}
 
 ## A docker LEMP stack
@@ -59,7 +62,8 @@ I prefer to use [LEMP stack](https://github.com/Soivi/docker-lemp-stack) than Do
 
 Clone git repository and move your mysqldump and Wordpress tar to repository.
 
-{% highlight shell %}$ git clone https://github.com/Soivi/docker-lemp-stack
+{% highlight shell %}
+$ git clone https://github.com/Soivi/docker-lemp-stack
 $ mv wordpress.tar.gz docker-lemp-stack/
 $ mv wordpress.sql.gz docker-lemp-stack/
 $ cd docker-lemp-stack
@@ -67,12 +71,14 @@ $ cd docker-lemp-stack
 
 Configure docker-compose file
 
-{% highlight shell %}$ nano docker-compose.lemp.yaml
+{% highlight shell %}
+$ nano docker-compose.lemp.yaml
 {% endhighlight %}
 
 Change your wpdb, wpuser and wppassword. These needs to be same as in the wp-config.php. MYSQL_ROOT_PASSWORD can be whatever you want. Of course I recommend it should be secure password.
 
-{% highlight shell %}      - MYSQL_ROOT_PASSWORD=password
+{% highlight shell %}
+      - MYSQL_ROOT_PASSWORD=password
       - MYSQL_DATABASE=[wpdb]
       - MYSQL_USER=[wpuser]
       - MYSQL_PASSWORD=[wppassword]
@@ -80,19 +86,22 @@ Change your wpdb, wpuser and wppassword. These needs to be same as in the wp-con
 
 On the docker file change your nginx and fpm volumes to wordpress
 
-{% highlight shell %}    volumes:
+{% highlight shell %}
+    volumes:
       - ./www/wordpress:/var/www/wordpress
 {% endhighlight %}
 
 I recommend to add volume to MySQL. This way it is easy to move your whole stack to other enviroment, backup your data and databases aren't inside of Docker container.
 
-{% highlight shell %}    volumes:
+{% highlight shell %}
+    volumes:
       - ./data/mysql:/var/lib/mysql
 {% endhighlight %}
 
 Now your docker-compose.lemp.yaml should look something like this
 
-{% highlight shell %}version: '2'
+{% highlight shell %}
+version: '2'
 services:
   nginx:
     image: nginx:1.11
@@ -125,17 +134,20 @@ services:
 
 If you created volume to mysql. Create data folder.
 
-{% highlight shell %}$ mkdir data
+{% highlight shell %}
+$ mkdir data
 {% endhighlight %}
 
 Change tester folder to wordpress. So it matches your volumes in docker-compose file
 
-{% highlight shell %}$ mv www/tester www/wordpress
+{% highlight shell %}
+$ mv www/tester www/wordpress
 {% endhighlight %}
 
 Change in dbtest.php your wpuser, wppassword and wpdb. This way you can test your LEMP stack.
 
-{% highlight shell %}$ nano www/wordpress/dbtest.php
+{% highlight shell %}
+$ nano www/wordpress/dbtest.php
 
         // Create connection
         $con=mysqli_connect("mysql","[wpuser]","[wppassword]","[wpdb]");
@@ -143,7 +155,8 @@ Change in dbtest.php your wpuser, wppassword and wpdb. This way you can test you
 
 In conf.d you need to change your server_name to your domain and root directory to /var/www/wordpress
 
-{% highlight shell %}$ nano configures/conf.d/default.conf
+{% highlight shell %}
+$ nano configures/conf.d/default.conf
 
 ...
     server_name [domain];
@@ -153,7 +166,8 @@ In conf.d you need to change your server_name to your domain and root directory 
 
 You need to do this step if you want to test your WordPress on local machine.
 
-{% highlight shell %}$ sudoedit /etc/hosts
+{% highlight shell %}
+$ sudoedit /etc/hosts
 
 127.0.0.1 [domain]
 {% endhighlight %}
@@ -162,12 +176,14 @@ You need to do this step if you want to test your WordPress on local machine.
 
 Start your LEMP stack (this could take a minute)
 
-{% highlight shell %}$ sudo docker-compose -f docker-compose.lemp.yaml up -d
+{% highlight shell %}
+$ sudo docker-compose -f docker-compose.lemp.yaml up -d
 {% endhighlight %}
 
 Now curl should answer from index.html. Nginx is working and answering.
 
-{% highlight shell %}$ curl [domain]/index.html
+{% highlight shell %}
+$ curl [domain]/index.html
 
 <!DOCTYPE HTML>
 <html>
@@ -179,7 +195,8 @@ Now curl should answer from index.html. Nginx is working and answering.
 
 Your index.php should be answering "My first PHP page". Now you know your fpm is working.
 
-{% highlight shell %}$ curl [domain]/index.php
+{% highlight shell %}
+$ curl [domain]/index.php
 
 <!DOCTYPE html>
 <html>
@@ -192,7 +209,8 @@ Your index.php should be answering "My first PHP page". Now you know your fpm is
 
 Finally curl dbtest.php. Answer should be just: works. Now you know MySQL is working.
 
-{% highlight shell %}$ curl [domain]/dbtest.php
+{% highlight shell %}
+$ curl [domain]/dbtest.php
 
 works
 {% endhighlight %}
@@ -203,41 +221,48 @@ So now your LEMP stack is fully working. If something went wrong don't go furthe
 
 First you need mysql-client if some reason you don't have. Like if you are building fresh environment.
 
-{% highlight shell %}$ sudo apt install mysql-client
+{% highlight shell %}
+$ sudo apt install mysql-client
 {% endhighlight %}
 
 Then you need to know what IP address your Docker MySQL is running. Give this command to find out IP address
 
-{% highlight shell %}$ docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' dockerlempstack_mysql_1
+{% highlight shell %}
+$ docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' dockerlempstack_mysql_1
 
 172.20.0.2
 {% endhighlight %}
 
 So my Docker MySQL running on 172.20.0.2\. So this is mysql_ip. Then restore your mysqldump to Docker Mysql.
 
-{% highlight shell %}$ gunzip < wordpress.sql.gz | mysql -u [wpuser] -p -h [mysql_ip] [wpdb]
+{% highlight shell %}
+$ gunzip < wordpress.sql.gz | mysql -u [wpuser] -p -h [mysql_ip] [wpdb]
 {% endhighlight %}
 
 After that you can stop your LEMP stack
 
-{% highlight shell %}$ sudo docker-compose -f docker-compose.lemp.yaml stop
+{% highlight shell %}
+$ sudo docker-compose -f docker-compose.lemp.yaml stop
 {% endhighlight %}
 
 ## WordPress folder to Docker
 
 Then remove your testing folder
 
-{% highlight shell %}$ rm -r www/wordpress/
+{% highlight shell %}
+$ rm -r www/wordpress/
 {% endhighlight %}
 
 Unpack your Wordpress folder from tar to www folder
 
-{% highlight shell %}$ tar -vzxf wordpress.tar.gz -C www/
+{% highlight shell %}
+$ tar -vzxf wordpress.tar.gz -C www/
 {% endhighlight %}
 
 Now you need to configure in wp-config.php your DB_HOST correctly. DB_HOST is the name of the mysql container on compose file so it is just mysql.
 
-{% highlight shell %}$ nano www/wordpress/wp-config.php
+{% highlight shell %}
+$ nano www/wordpress/wp-config.php
 
 ...
 define('DB_HOST', 'mysql');
@@ -246,14 +271,16 @@ define('DB_HOST', 'mysql');
 
 I prefer to add correct ownership and rights to WordPress folder.
 
-{% highlight shell %}$ sudo chown -R 33:33 www/wordpress/
+{% highlight shell %}
+$ sudo chown -R 33:33 www/wordpress/
 $ sudo chmod -R 755 www/wordpress/
 $ sudo chmod 444 www/wordpress/wp-config.php
 {% endhighlight %}
 
 Now you can start your LEMP stack
 
-{% highlight shell %}$ sudo docker-compose -f docker-compose.lemp.yaml up -d
+{% highlight shell %}
+$ sudo docker-compose -f docker-compose.lemp.yaml up -d
 {% endhighlight %}
 
 #### Now you have migrate WordPress to Docker
@@ -265,25 +292,32 @@ If you want to configure more of your Docker environment you can take a look how
 
 Stop docker-compose file containers
 
-{% highlight shell %}$ sudo docker-compose -f <filename>.yaml stop</filename> {% endhighlight %}
+{% highlight shell %}
+$ sudo docker-compose -f <filename>.yaml stop</filename>
+{% endhighlight %}
 
 Delete docker-compose file containers and volumes
 
-{% highlight shell %}$ sudo docker-compose -f <filename>.yaml rm -v</filename> {% endhighlight %}
+{% highlight shell %}
+$ sudo docker-compose -f <filename>.yaml rm -v</filename>
+{% endhighlight %}
 
 Stop all containers
 
-{% highlight shell %}$ sudo docker stop $(sudo docker ps -a -q)
+{% highlight shell %}
+$ sudo docker stop $(sudo docker ps -a -q)
 {% endhighlight %}
 
 Delete all containers and volumes
 
-{% highlight shell %}$ sudo docker rm -v $(sudo docker ps -a -q)
+{% highlight shell %}
+$ sudo docker rm -v $(sudo docker ps -a -q)
 {% endhighlight %}
 
 Delete all images
 
-{% highlight shell %}$ sudo docker rmi $(sudo docker images -q)
+{% highlight shell %}
+$ sudo docker rmi $(sudo docker images -q)
 {% endhighlight %}
 
 Comment and let me know what you think of this guide. Did you migrate WordPress to Docker correctly?

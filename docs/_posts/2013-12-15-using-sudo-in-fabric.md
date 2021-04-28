@@ -25,13 +25,15 @@ In this tutorial I'm using sudo to copy logs.
 
 Create folder and fabfile.py.
 
-{% highlight shell %}$ mkdir sudofabric && cd sudofabric
+{% highlight shell %}
+$ mkdir sudofabric && cd sudofabric
 $ nano fabfile.py
 {% endhighlight %}
 
 Create two methods: super and superfolder.
 
-{% highlight shell %}from fabric.api import  env, run, get, sudo
+{% highlight shell %}
+from fabric.api import  env, run, get, sudo
 
 env.hosts=["soivite01@localhost", "soivite02@localhost",
                 "soivite03@localhost", "soivite04@localhost"]
@@ -54,12 +56,14 @@ def superfolder():
 
 Modify sudoers file. (WARNING: modifying wrong or giving rights to wrong person could compromise your computer)
 
-{% highlight shell %}$ sudo visudo
+{% highlight shell %}
+$ sudo visudo
 {% endhighlight %}
 
 Because I don't want to give password everytime running fabfile I give rights to all 4 user to run sudo without password. I added these lines to end of sudoers file
 
-{% highlight shell %}soivite01 ALL=(ALL) NOPASSWD: ALL
+{% highlight shell %}
+soivite01 ALL=(ALL) NOPASSWD: ALL
 soivite02 ALL=(ALL) NOPASSWD: ALL
 soivite03 ALL=(ALL) NOPASSWD: ALL
 soivite04 ALL=(ALL) NOPASSWD: ALL
@@ -67,7 +71,8 @@ soivite04 ALL=(ALL) NOPASSWD: ALL
 
 $ Run super command.
 
-{% highlight shell %}$ fab super
+{% highlight shell %}
+$ fab super
 
 [soivite01@localhost] Executing task 'super'
 [soivite01@localhost] sudo: cp /var/log/syslog $HOME
@@ -80,12 +85,14 @@ $ Run super command.
 
 Run superfolder command.
 
-{% highlight shell %}$ fab superfolder
+{% highlight shell %}
+$ fab superfolder
 {% endhighlight %}
 
 Your folder tree should look like this.
 
-{% highlight shell %}sudofabric/
+{% highlight shell %}
+sudofabric/
 ├── fabfile.py
 ├── fabfile.pyc
 ├── soivite01@localhost
