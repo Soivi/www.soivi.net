@@ -4,7 +4,11 @@ title: About
 permalink: /about/
 ---
 
-Lauri Soivi is a Software Engineer & Developer at Tabella Finland Oy. Along with work, he is doing a Master’s Degree in Cyber Security. He has a Bachelor’s Degree in Business Information Technology and a Vocational Qualification (First Degree) in Electrical Engineering. He has worked at Planmeca Oy and Neste Oil.
+Lauri Soivi, currently works as a Senior Software Engineer at insightsoftware. He previously worked for over 7 years as a Software Engineer & Developer at Tabella Finland Oy.
+
+He holds a Master's Degree in Cyber Security, with minors in Financial Planning and Basic Business Studies. He also holds a Bachelor’s Degree in Business Information Technology and a Vocational Qualification (First Degree) in Electrical Engineering.
+
+Additionally, he has previous experience from his Software Development roles at Planmeca Oy and Neste Oyj.
 
 More about him you can find in his [LinkedIn profile][linkedin] and in [his blog](https://www.soivi.net).
 
