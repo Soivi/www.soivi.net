@@ -8,9 +8,14 @@ tags:
 - 3D modeling
 - Blender
 permalink: "/2015/blender-mind-the-gap/"
+images: 
+  - /assets/2015/10/magnet1-min.jpg
+  - /assets/2015/10/magnet2-min.jpg
+  - /assets/2015/10/magnet3-min.jpg
 ---
 I started learning use Blender and created "Mind the gap" magnet.  
-[gallery ids="1010,1011,1012"]
+
+{% include carousel.html images=page.images %}
 
 [What is Blender?](https://www.blender.org/)
 

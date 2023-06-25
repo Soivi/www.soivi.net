@@ -1,0 +1,86 @@
+<style>
+.carousel-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.carousel-slide {
+  display: flex;
+  transition: transform 0.3s ease-in-out;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: auto;
+}
+
+.carousel-frame {
+  position: relative;
+}
+
+.carousel-button {
+  cursor: pointer;
+  user-select: none;
+  padding: 10px;
+  background-color: #ddd;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.carousel-button.prev {
+  left: 10px;
+}
+
+.carousel-button.next {
+  right: 10px;
+}
+</style>
+
+<div class="carousel-container">
+  <div class="carousel-frame">
+    <div class="carousel-slide">
+      {% for image in include.images %}
+        <img src="{{ image }}" alt="Slide">
+      {% endfor %}
+    </div>
+    
+    <div class="carousel-button prev" onclick="prevSlide()">&#10094;</div>
+    <div class="carousel-button next" onclick="nextSlide()">&#10095;</div>
+  </div>
+</div>
+
+<script>
+var slideIndex = 0;
+var slideWidth = 100; // Width of each slide in percentage
+var slides;
+
+document.addEventListener("DOMContentLoaded", function() {
+  slides = document.querySelectorAll(".carousel-slide > img");
+  showSlides();
+});
+
+function showSlides() {
+  for (var i = 0; i < slides.length; i++) {
+    slides[i].style.transform = "translateX(-" + slideIndex * slideWidth + "%)";
+  }
+}
+
+function nextSlide() {
+  slideIndex++;
+  if (slideIndex >= slides.length) {
+    slideIndex = 0;
+  }
+  showSlides();
+}
+
+function prevSlide() {
+  slideIndex--;
+  if (slideIndex < 0) {
+    slideIndex = slides.length - 1;
+  }
+  showSlides();
+}
+</script>
