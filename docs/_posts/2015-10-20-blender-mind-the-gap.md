@@ -8,7 +8,7 @@ tags:
 - 3D modeling
 - Blender
 permalink: "/2015/blender-mind-the-gap/"
-images: 
+images:
   - /assets/2015/10/magnet1-min.jpg
   - /assets/2015/10/magnet2-min.jpg
   - /assets/2015/10/magnet3-min.jpg

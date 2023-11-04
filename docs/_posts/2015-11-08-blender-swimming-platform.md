@@ -8,9 +8,16 @@ tags:
 - 3D modeling
 - Blender
 permalink: "/2015/blender-swimming-platform/"
+images:
+  - /assets/2015/11/platform-min.jpg
+  - /assets/2015/11/side-min.jpg
+  - /assets/2015/11/WireFrame-min.jpg
+  - /assets/2015/11/up-min.jpg
+  - /assets/2015/11/back-min.jpg
 ---
-I created swimming platform with Blender. [What is Blender?](https://www.blender.org/)  
-[gallery columns="5" ids="1006,1005,1004,1003,998"]
+I created swimming platform with Blender. [What is Blender?](https://www.blender.org/)
+
+{% include carousel.html images=page.images %}
 
 Here is the .tar package what contains .blend file:  
 [https://download.soivi.net/blender.tar.xz](https://download.soivi.net/blender.tar.xz)
