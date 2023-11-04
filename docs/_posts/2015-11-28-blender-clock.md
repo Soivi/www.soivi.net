@@ -8,9 +8,14 @@ tags:
 - 3D modeling
 - Blender
 permalink: "/2015/blender-clock/"
+images:
+  - /assets/2015/11/kelloSide-min.jpg
+  - /assets/2015/11/kelloFront-min.jpg
+  - /assets/2015/11/kelloBack-min.jpg
 ---
 I created clock with Blender. [What is Blender?](https://www.blender.org/)  
-[gallery ids="1017,1015,1014"]
+
+{% include carousel.html images=page.images %}
 
 Here is the .tar package what contains .blend file:  
 [https://download.soivi.net/blender.tar.xz](https://download.soivi.net/blender.tar.xz)
