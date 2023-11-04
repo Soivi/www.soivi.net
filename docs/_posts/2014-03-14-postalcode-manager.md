@@ -9,6 +9,11 @@ tags:
 - Bootstrap
 - PHP
 permalink: "/2014/postalcode-manager/"
+images:
+  - /assets/2014/03/postalcode1.jpg
+  - /assets/2014/03/postalcode2.jpg
+  - /assets/2014/03/postalcode3.jpg
+  - /assets/2014/03/postalcode4.jpg
 ---
 Postalcode manager is made with PHP. It's webproject where you can add, list and delete information about finnish postalcode areas. Program uses database, sessions and cookies. I have used [bootstrap](http://getbootstrap.com/) in styles.
 
@@ -18,7 +23,7 @@ You can find source codes in GitHub: [https://github.com/Soivi/postalcode](https
 
 ## Screenshots
 
-[gallery columns="5" ids="1031,1029,1028,1027"]
+{% include carousel.html images=page.images %}
 
 ## Deploy
 
