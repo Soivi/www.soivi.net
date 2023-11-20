@@ -15,7 +15,7 @@ images:
 ---
 I started learning use Blender and created "Mind the gap" magnet.  
 
-{% include carousel.html images=page.images %}
+{% include carousel.html images=page.images number="1" %}
 
 [What is Blender?](https://www.blender.org/)
 

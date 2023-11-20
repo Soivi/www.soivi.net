@@ -1,3 +1,4 @@
+{% if include.number == "1" %}
 <style>
   .carousel-container {
     position: relative;
@@ -7,11 +8,12 @@
   
   .carousel-frame {
     position: relative;
-    display: flex; /* Add display flex to the frame */
+    display: flex;
   }
   
   .carousel-slide {
-    flex: 0 0 100%; /* Set each slide to occupy 100% width */
+    flex: 0 0 100%;
+    display: none;
   }
   
   .carousel-slide img {
@@ -38,8 +40,63 @@
     right: 10px;
   }
 </style>
-  
-<div class="carousel-container">
+
+<script>
+  function initializeCarousel(containerId) {
+    var slideIndex = 0;
+    var slides = document.getElementById(containerId).querySelectorAll(".carousel-slide");
+    var intervalId;
+
+    function showSlides() {
+      for (var i = 0; i < slides.length; i++) {
+        slides[i].style.display = i === slideIndex ? "block" : "none";
+      }
+    }
+
+    window['nextSlide' + containerId] = function() {
+      slideIndex++;
+      if (slideIndex >= slides.length) {
+        slideIndex = 0;
+      }
+      showSlides();
+      resetInterval();
+    };
+
+    window['prevSlide' + containerId] = function() {
+      slideIndex--;
+      if (slideIndex < 0) {
+        slideIndex = slides.length - 1;
+      }
+      showSlides();
+      resetInterval();
+    };
+
+    function resetInterval() {
+      clearInterval(intervalId);
+      intervalId = setInterval(function() {
+        window['nextSlide' + containerId]();
+      }, 10000);
+    }
+
+    // Call showSlides initially
+    showSlides();
+
+    // Set initial interval
+    resetInterval();
+  }
+
+  // Define functions in the global scope
+  function nextSlide(containerId) {
+    window['nextSlide' + containerId]();
+  }
+
+  function prevSlide(containerId) {
+    window['prevSlide' + containerId]();
+  }
+</script>
+{% endif %}
+
+<div class="carousel-container" id="carousel_{{ include.number }}">
   <div class="carousel-frame">
     {% for image in include.images %}
       <div class="carousel-slide">
@@ -47,39 +104,11 @@
       </div>
     {% endfor %}
 
-    <div class="carousel-button prev" onclick="prevSlide()">&#10094;</div>
-    <div class="carousel-button next" onclick="nextSlide()">&#10095;</div>
+    <div class="carousel-button prev" onclick="prevSlide('carousel_{{ include.number }}')">&#10094;</div>
+    <div class="carousel-button next" onclick="nextSlide('carousel_{{ include.number }}')">&#10095;</div>
   </div>
 </div>
-  
+
 <script>
-  var slideIndex = 0;
-  var slides;
-  
-  document.addEventListener("DOMContentLoaded", function() {
-    slides = document.querySelectorAll(".carousel-slide");
-    showSlides();
-  });
-  
-  function showSlides() {
-    for (var i = 0; i < slides.length; i++) {
-      slides[i].style.display = i === slideIndex ? "block" : "none";
-    }
-  }
-  
-  function nextSlide() {
-    slideIndex++;
-    if (slideIndex >= slides.length) {
-      slideIndex = 0;
-    }
-    showSlides();
-  }
-  
-  function prevSlide() {
-    slideIndex--;
-    if (slideIndex < 0) {
-      slideIndex = slides.length - 1;
-    }
-    showSlides();
-  }
+  initializeCarousel('carousel_{{ include.number }}');
 </script>

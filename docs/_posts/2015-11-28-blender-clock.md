@@ -15,7 +15,7 @@ images:
 ---
 I created clock with Blender. [What is Blender?](https://www.blender.org/)  
 
-{% include carousel.html images=page.images %}
+{% include carousel.html images=page.images number="1" %}
 
 Here is the .tar package what contains .blend file:  
 [https://download.soivi.net/blender.tar.xz](https://download.soivi.net/blender.tar.xz)

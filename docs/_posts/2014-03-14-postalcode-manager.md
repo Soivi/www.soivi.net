@@ -23,7 +23,7 @@ You can find source codes in GitHub: [https://github.com/Soivi/postalcode](https
 
 ## Screenshots
 
-{% include carousel.html images=page.images %}
+{% include carousel.html images=page.images number="1" %}
 
 ## Deploy
 
