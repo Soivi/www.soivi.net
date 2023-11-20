@@ -13,6 +13,17 @@ tags:
 - Windows
 - Windows 8
 permalink: "/2014/how-to-remotely-monitor-linux-server-from-windows/"
+images:
+  - /assets/2014/03/WindowsRemoteMonitor2.png
+  - /assets/2014/03/WindowsRemoteMonitor3.png
+  - /assets/2014/03/WindowsRemoteMonitor4.png
+  - /assets/2014/03/WindowsRemoteMonitor5.png
+  - /assets/2014/03/WindowsRemoteMonitor6.png
+  - /assets/2014/03/WindowsRemoteMonitor7.png
+images2:
+  - /assets/2014/03/WindowsRemoteMonitor8.png
+  - /assets/2014/03/WindowsRemoteMonitor9.png
+  - /assets/2014/03/WindowsRemoteMonitor10.png
 ---
 I'm using Ubuntu 12.04 on my server computer and on my local computer I use Windows 8.1  
 If you use Linux on your local computer here is tutorial how to get that working  
@@ -109,10 +120,12 @@ Open "Task Scheduler" and create "Basic Task"
 ![WindowsRemoteMonitor1](/assets/2014/03/WindowsRemoteMonitor1.png)
 
 Create basic task that runs every day and runs your serverTesterScript.vbs script.  
-[gallery ids="728,729,730,731,732,733"]
+
+{% include carousel.html images=page.images number="1" %}
 
 Then go your created task properties and edit task so it is repeated every 5 minutes so you can test that your script is really working  
-[gallery ids="734,735,736"]
+
+{% include carousel.html images=page.images2 number="2" %}
 
 ## Test script
 
