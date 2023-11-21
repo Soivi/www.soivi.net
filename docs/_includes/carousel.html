@@ -24,14 +24,22 @@
   .carousel-button {
     cursor: pointer;
     user-select: none;
-    padding: 10px;
-    background-color: #ddd;
+    padding: 9px;
+    background-color: rgba(221, 221, 221, 0.8);
     border-radius: 50%;
     position: absolute;
-    top: 40px;
+    top: 50%;
     transform: translateY(-50%);
+    color: #70757a;
   }
   
+  .carousel-button:hover {
+    color: #000000;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-color: rgba(235, 235, 235, 1);
+  }
+  
+
   .carousel-button.prev {
     left: 10px;
   }
