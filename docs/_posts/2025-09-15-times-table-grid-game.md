@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Times Table Grid Game
-date: 2025-09-15 20:41:55.000000000 +02:00
+date: 2025-09-15 15:41:55.000000000 +03:00
 categories:
 - Mobile Development
 - Games
