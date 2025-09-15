@@ -66,4 +66,5 @@ You can find the source code from here:
 
 ## Acknowledgments
 
-Thank you to everyone who has been part of this project!
+Thank you to everyone who has been part of this project! 
+Special thanks to Kristian, Henri, Henriikka, Vera, Niko, and Samuel for their valuable contributions and support throughout the development of this game.
