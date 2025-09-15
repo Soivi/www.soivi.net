@@ -14,6 +14,7 @@ More about him you can find in his [LinkedIn profile][linkedin] and in [his blog
 
 **Developing profiles:**  
 GitHub: [https://github.com/Soivi](https://github.com/Soivi)  
+Google Play Developer: [https://play.google.com/store/apps/developer?id=Soivi](https://play.google.com/store/apps/developer?id=Soivi)  
 
 **Contact information:**  
 Email: soivi.lauri a gmail.com
